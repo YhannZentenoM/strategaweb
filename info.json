@@ -1,0 +1,136 @@
+{
+    "topNav": {
+        "schedules": "Mon - Fri 8:00 - 18:00 / Sunday 8:00 - 14:00",
+        "phone": "054-614929 | 959 969 605",
+        "email": "contacto@strategaperu.com",
+        "address": "Oficina Arequipa Calle Paz Soldán 407, Yanahuara",
+        "profiles": [
+            {
+                "network": "Facebook",
+                "username": "midudev",
+                "url": "https://github.com/midudev"
+            },
+            {
+                "network": "Instagram",
+                "username": "midudev",
+                "url": "https://linkedin.com/in/midudev"
+            },
+            {
+                "network": "Linkedin",
+                "username": "midudev",
+                "url": "https://linkedin.com/in/midudev"
+            },
+            {
+                "network": "Whatsapp",
+                "username": "midudev",
+                "url": "https://x.com/midudev"
+            }
+        ]
+    },
+    "slider": [
+        {
+            "title": "Profesionales de excelencia",
+            "subtitle": "We have the best products",
+            "image": "/images/bg01.webp",
+            "button": "Capacita a tu equipo ahora",
+            "url": "/products"
+        },
+        {
+            "title": "Welcome to our store",
+            "subtitle": "We have the best products",
+            "image": "/images/bg02.webp",
+            "button": "Explora más",
+            "url": "/products"
+        }
+    ],
+    "purposes": [
+        {
+            "icon": "Bag",
+            "title": "Área de ventas y comercio",
+            "url": "/products"
+        },
+        {
+            "icon": "Chart",
+            "title": "Desempeño empresarial óptimo",
+            "url": "/products"
+        },
+        {
+            "icon": "Presentation",
+            "title": "Profesionales de excelencia",
+            "url": "/products"
+        },
+        {
+            "icon": "Contract",
+            "title": "Profesionales de excelencia",
+            "url": "/products"
+        }
+    ],
+    "clients": [
+        {
+            "image": "/images/client.webp",
+            "name": "Client 01"
+        },
+        {
+            "image": "/images/client.webp",
+            "name": "Client 01"
+        },
+        {
+            "image": "/images/client.webp",
+            "name": "Client 01"
+        },
+        {
+            "image": "/images/client.webp",
+            "name": "Client 01"
+        },
+        {
+            "image": "/images/client.webp",
+            "name": "Client 01"
+        },
+        {
+            "image": "/images/client.webp",
+            "name": "Client 01"
+        },
+        {
+            "image": "/images/client.webp",
+            "name": "Client 01"
+        }
+    ],
+    "testimonials": [
+        {
+            "name": "Erika Varela Recalde",
+            "role": "Líder de Producto - Farmaenlace (Ecuador)",
+            "image": "/images/testimonial.webp",
+            "title": "Programa de Entrenamiento en Habilidades Blandas",
+            "text": "Las preguntas que el facilitador hacía en el taller fueron poderosas, porque nos obligaron a pensar y a conocernos más. Este espacio me motivó a aplicar varios conceptos en mi vida, así como a tratar de interiorizarlas con mi equipo de trabajo. Sin duda lo recomiendo."
+        },
+        {
+            "name": "Isrrael Céspedes Cori",
+            "role": "Auditor interno - Banco de desarrollo productivo S.A.M. (Bolivia)",
+            "image": "/images/testimonial.webp",
+            "title": "Workshop Soft Skills Training",
+            "text": "Excelente entrenamiento para desarrollar y fortalecer las habilidades blandas. ¡Muchas gracias, Hugo!"
+        },
+        {
+            "name": "Dora Emilse Campo Hidalgo",
+            "role": "COMFENALCO (Colombia)",
+            "image": "/images/testimonial.webp",
+            "title": "Workshop “Negociaciones Exitosas con el Método Harvard”",
+            "text": "El curso me gustó mucho, bastante práctico y dinámico. Aplicaré en el ámbito laboral y personal los casos prácticos y experiencias transmitidas."
+        },
+        {
+            "name": "Carlos Alberto Medina",
+            "role": "Socio Director - Medina Asesores de Seguros (Argentina)",
+            "image": "/images/testimonial.webp",
+            "title": "Workshop “Negociaciones Exitosas con el Método Harvard”",
+            "text": "El curso me pareció fantástico, muy enriquecedor. No solo me va a servir en la faz comercial sino también en lo personal. Muchas veces, o casi siempre, estamos acostumbrados a ponerle mucha pasión a las conversaciones y eso atenta contra un eficiente proceso de negociación. Te agradezco los aportes y enseñanzas."
+        },
+        {
+            "name": "Arlen Adriana Rizo Montoya",
+            "role": "Cordinadora de Procesos Químicos - Polaris Energy S.A. (Nicaragua)",
+            "image": "/images/testimonial.webp",
+            "title": "Workshop Soft Skills Training",
+            "text": "El curso me gustó mucho y me ha ayudado a manejar el estrés que siento, a darme cuenta que no puedo controlar todo, a calmar mis pensamientos, a tomar la decisión de que soy responsable de mi salud y mi paz. Me falta aprender mucho, pero en realidad, todo lo que nos enseñaste me está ayudando en este momento. Muchas gracias por todo."
+        }
+        
+    ]
+}

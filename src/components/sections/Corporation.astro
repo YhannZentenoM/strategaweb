@@ -1,0 +1,54 @@
+---
+import Title from "@/components/Title.astro";
+import SliderClient from "@/components/SliderClient.astro";
+---
+
+<section>
+  <div
+    class="max-w-7xl mx-auto px-5 pt-28 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+  >
+    <figure class="relative">
+      <img
+        src="/images/post1.webp"
+        alt="Servicios corporativos"
+        class="w-10/12"
+      />
+      <figcaption
+        class="absolute right-0 bottom-0 bg-zinc-800 py-10 px-14 text-white text-3xl font-bold max-w-[350px]"
+      >
+        Optimización y soporte para tu negocio
+      </figcaption>
+    </figure>
+
+    <div class="pl-20">
+      <Title
+        title="Ayudamos a empresas a crecer"
+        subtitle="Servicios corporativos"
+        align="text-left"
+      />
+      <p
+        class="font-light text-base text-zinc-500 tracking-wide mt-7 text-pretty md:text-balance"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque labore
+        magni aliquam eum. Sunt temporibus sapiente doloribus nulla dignissimos,
+        facere velit deleniti possimus, repellat dolor sed doloremque quam
+        voluptates nemo.
+      </p>
+      <ul class="mt-7 font-bold text-2xl text-zinc-800">
+        <li class="flex gap-x-5 py-4 items-center border-b">
+          <span class="text-zinc-400/80 font-light text-2xl">01.</span> Consultoría
+        </li>
+        <li class="flex gap-x-5 py-4 items-center">
+          <span class="text-zinc-400/80 font-light text-2xl">02.</span> Capacitación
+        </li>
+      </ul>
+      <a
+        href=""
+        class="bg-zinc-800 text-white font-bold text-sm py-5 px-10 inline-block mt-5 hover:bg-zinc-700 transition-colors duration-500"
+      >
+        Explora ahora
+      </a>
+    </div>
+  </div>
+</section>
+<SliderClient />

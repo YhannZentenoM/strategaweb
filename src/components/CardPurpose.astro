@@ -1,0 +1,38 @@
+---
+import Bag from "@/icons/Bag.astro";
+import Chart from "@/icons/Chart.astro";
+import Presentation from "@/icons/Presentation.astro";
+import Contract from "@/icons/Contract.astro";
+
+const { key, icon, title, url } = Astro.props;
+
+const PURPOSE_ICONS = {
+  Bag,
+  Chart,
+  Presentation,
+  Contract,
+};
+const Icon = PURPOSE_ICONS[icon];
+---
+
+<article
+  class={`flex flex-col gap-y-10 relative group p-5 ${key != 3 && "border-r-2"}`}
+>
+  <Icon
+    class="size-20 fill-primary group-hover:fill-zinc-800/90 transition-color duration-500"
+  />
+  <h4 class="text-xl font-bold text-balance leading-tight">{title}</h4>
+  <a
+    href={`${url}`}
+    class="inline-flex items-center gap-2 relative w-24 overflow-hidden"
+    ><span
+      class="absolute -left-full group-hover:left-0 transition-all duration-500 font-light"
+      >Ver más</span
+    >
+    <img
+      src="/images/arrow.svg"
+      alt=""
+      class="w-5 group-hover:translate-x-full group-hover:ml-12 transition-all duration-500 rotate-180"
+    />
+  </a>
+</article>

@@ -1,0 +1,42 @@
+---
+import { purposes } from "@info";
+import Title from "@/components/Title.astro";
+import CardPurpose from "@/components/CardPurpose.astro";
+---
+
+<section class="bg-secondary">
+  <div class="max-w-7xl mx-auto px-5 pt-28 pb-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 content-end">
+      <Title
+        title="Inspirar a las personas, transformar organizaciones"
+        subtitle="Nuestro propósito"
+        align="text-left"
+      />
+      <div
+        class="flex flex-col gap-y-5 justify-end font-light text-base text-zinc-500 tracking-wide"
+      >
+        <p class="text-pretty md:text-balance">
+          Somos una compañía enfocada en el desarrollo y bienestar de las personas, y a través de estas, en la mejora de las organizaciones.
+        </p>
+        <p class="text-pretty md:text-balance">
+          Estamos conscientes de que el cambio tiene una puerta que se abre desde adentro, impulsada por la decisión individual. Por ello, buscamos inspirar a las personas a generar transformación en ellas, con el fin de que sean capaces de acercarse a sus objetivos personales y profesionales.
+        </p>
+        <p class="text-pretty md:text-balance">
+          Nuestros procesos de consultoría y formación, ponen énfasis en los cambios de creencias y comportamientos, utilizando herramientas y metodologías innovadoras y de reconocido impacto a nivel global.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mt-20">
+      {
+        purposes.map((purpose, index) => (
+          <CardPurpose
+            key={index}
+            icon={purpose.icon}
+            title={purpose.title}
+            url={purpose.url}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

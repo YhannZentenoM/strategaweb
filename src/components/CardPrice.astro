@@ -1,0 +1,26 @@
+---
+const { title, subtitle, price, items, url, bg } = Astro.props
+---
+<div class="bg-white p-10 text-center flex flex-col gap-5 items-center">
+    <slot />  
+  <div class="space-y-2">
+    <h4 class="text-xl font-bold">{title}</h4>
+  <p class="text-sm font-light text-zinc-800">{subtitle}</p>
+  </div>
+  <span>S/<span class="text-5xl font-bold">{price}</span>.00</span>
+  <ul class="text-zinc-600 font-light text-sm space-y-2">
+    {
+        items.map((item) => (
+            <li>{item}</li>
+        ))
+    }
+  </ul>
+  <a
+    href={`${url}`}
+    target="_blank"
+    title={`Adquiere el pack Standart por S/120.00`}
+    rel="noopener noreferrer"
+    class={`py-4 px-7 text-white ${bg} transition-colors duration-500`}
+    >Adquiérelo ahora</a
+  >
+</div>

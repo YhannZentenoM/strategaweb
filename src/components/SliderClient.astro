@@ -1,0 +1,42 @@
+---
+import { clients } from "@info";
+---
+
+<section class="py-16">
+  <div class="swiper swiper-cliente">
+    <div class="swiper-wrapper">
+      {
+        clients.map((slide) => (
+          <div class="swiper-slide">  
+            <img
+              src={`${slide.image}`}
+              alt={`${slide.name}`}
+              class="object-cover grayscale"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .swiper-slide {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  import { Autoplay} from "swiper/modules";
+
+  const swiper = new Swiper(".swiper-cliente", {
+    modules: [Autoplay],
+    loop: true,
+    autoplay: {
+      delay: 7000,
+    },
+    slidesPerView: 5,
+  });
+</script>

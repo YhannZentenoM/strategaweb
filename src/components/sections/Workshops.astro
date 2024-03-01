@@ -1,0 +1,75 @@
+---
+import Title from "@/components/Title.astro";
+import CardPrice from "@/components/CardPrice.astro";
+import Shotting from "@/icons/Shotting.astro";
+import Group from "@/icons/Group.astro";
+import CardWorkshop from "@/components/CardWorkshop.astro";
+---
+
+<section class="bg-secondary">
+  <div
+    class="max-w-7xl mx-auto px-5 py-28 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+  >
+    <div class="flex gap-7">
+      <div class="mb-20">
+        <CardPrice
+          title="Standart Pack"
+          subtitle="Lorem ipsum dolor sit amet"
+          price="200"
+          items={[
+            "Lorem ipsum dolor",
+            "Lorem ipsum dolor",
+            "Lorem ipsum dolor",
+            "Lorem ipsum dolor",
+          ]}
+          url="/"
+          bg="bg-primary hover:bg-primary/90"
+        >
+          <Shotting class="w-14" />
+        </CardPrice>
+      </div>
+      <div class="mt-20">
+        <CardPrice
+          title="Corporate Pack"
+          subtitle="Lorem ipsum dolor sit amet"
+          price="590"
+          items={[
+            "Lorem ipsum dolor",
+            "Lorem ipsum dolor",
+            "Lorem ipsum dolor",
+            "Lorem ipsum dolor",
+          ]}
+          url="/"
+          bg="bg-zinc-800 hover:bg-primary"
+        >
+          <Group class="w-14" />
+        </CardPrice>
+      </div>
+    </div>
+    <div class="pl-20">
+      <Title
+        title="Talleres que alcanzan objetivos"
+        subtitle="Nuestros talleres"
+        align="text-left"
+      />
+      <p
+        class="font-light text-base text-zinc-500 tracking-wide mt-7 text-pretty md:text-balance"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque labore
+        magni aliquam eum.
+      </p>
+      <a
+        href=""
+        class="bg-zinc-800 text-white font-bold text-sm py-5 px-10 inline-block mt-5 hover:bg-zinc-700 transition-colors duration-500"
+      >
+        Explora ahora
+      </a>
+    </div>
+  </div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-4">
+    <CardWorkshop title="Trabajo en equipo" subtitle="Lorem ipsum dolor sit amet." image="post2.webp" />
+    <CardWorkshop title="Trabajo en equipo" subtitle="Lorem ipsum dolor sit amet." image="post3.webp" />
+    <CardWorkshop title="Trabajo en equipo" subtitle="Lorem ipsum dolor sit amet." image="post4.webp" />
+    <CardWorkshop title="Trabajo en equipo" subtitle="Lorem ipsum dolor sit amet." image="post5.webp" />
+</section>

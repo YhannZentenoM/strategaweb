@@ -1,9 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/sections/Header.astro';
+import Purpose from '@/components/sections/Purpose.astro';
+import Corporation from '@/components/sections/Corporation.astro';
+import Workshops from '@/components/sections/Workshops.astro';
+import Testimonials from '@/components/sections/Testimonials.astro';
+import Footer from '@/components/sections/Footer.astro';
 ---
 
 <Layout title="Stratega - Consultoría Empresarial">
 	<main>
-		
+		<Header />
+		<Purpose />
+		<Corporation />
+		<Workshops />
+		<Testimonials />
 	</main>
+	<Footer />
 </Layout>
