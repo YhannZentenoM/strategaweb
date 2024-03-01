@@ -73,13 +73,12 @@ import { testimonials } from "@info";
   import { Navigation, Autoplay } from "swiper/modules";
   import "swiper/css/navigation";
 
-  const swiper = new Swiper(".swiper-testimonial", {
+  new Swiper(".swiper-testimonial", {
     modules: [Navigation, Autoplay],
     loop: true,
     autoplay: {
       delay: 7000,
     },
-    pauseOnMouseEnter: true,
     slidesPerView: 1,
     navigation: {
       prevEl: ".swiper-button-prev",

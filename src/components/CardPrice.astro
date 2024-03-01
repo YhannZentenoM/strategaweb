@@ -10,7 +10,7 @@ const { title, subtitle, price, items, url, bg } = Astro.props
   <span>S/<span class="text-5xl font-bold">{price}</span>.00</span>
   <ul class="text-zinc-600 font-light text-sm space-y-2">
     {
-        items.map((item) => (
+        items.map((item: string) => (
             <li>{item}</li>
         ))
     }
