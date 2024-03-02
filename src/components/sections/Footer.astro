@@ -6,49 +6,57 @@ import Linkedin from "@/icons/Linkedin.astro";
 import Whatsapp from "@/icons/Whatsapp.astro";
 import Phone from "@/icons/Phone.astro";
 import Map from "@/icons/Map.astro";
-import {topNav} from "@info";
+import { topNav } from "@info";
 const { phone, address, profiles } = topNav;
 const SOCIAL_ICONS = {
   Facebook,
   Instagram,
   Linkedin,
-  Whatsapp
-}
+  Whatsapp,
+};
 ---
 
 <footer class="bg-black pt-20">
-  <div class="max-w-7xl mx-auto px-5 pb-20 grid grid-cols-1 md:grid-cols-2 gap-5">
+  <div
+    class="max-w-7xl mx-auto px-5 pb-20 grid grid-cols-1 md:grid-cols-2 gap-5"
+  >
     <div>
-      <Logo class="w-48 fill-white" />
-        <p class="text-white/60 flex items-center gap-x-1 mt-20 mb-1"><Phone class="w-5" /> {phone}</p>
-        <p class="text-white/60 flex items-center gap-x-1"><Map class="w-5" /> {address}</p>
+      <a href="/" class="w-48"><Logo class="fill-white w-48" /></a>
+      <p class="text-white/60 flex items-center gap-x-1 mt-20 mb-1">
+        <Phone class="w-5" />
+        {phone}
+      </p>
+      <p class="text-white/60 flex items-center gap-x-1">
+        <Map class="w-5" />
+        {address}
+      </p>
     </div>
     <div class="text-white">
       <h3 class="text-5xl font-semibold">Servicios de alta calidad</h3>
       <ul class="inline-flex text-white/90 gap-x-7 mt-20">
         {
-            profiles.map(({ network, url, username }) => {
-                const Icon = SOCIAL_ICONS[network]
-                return (
-                    <li class="">
-                        <a
-                            href={url}
-                            title={`Visitar el perfil de ${username} en ${network}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Icon class="w-4" />
-                        </a>
-                    </li>
-                )
-            })
+          profiles.map(({ network, url, username }) => {
+            const Icon = SOCIAL_ICONS[network];
+            return (
+              <li class="">
+                <a
+                  href={url}
+                  title={`Visitar el perfil de ${username} en ${network}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon class="w-4" />
+                </a>
+              </li>
+            );
+          })
         }
-        </ul>
+      </ul>
     </div>
   </div>
   <div class="max-w-7xl mx-auto px-5 py-5 border-t border-zinc-700">
     <span class="text-zinc-500 font-open-sans text-sm text-center md:text-left">
       © 2023 - Todos los derechos reservados - Desarrollado por Siete Medios</span
     >
-    </div>
+  </div>
 </footer>

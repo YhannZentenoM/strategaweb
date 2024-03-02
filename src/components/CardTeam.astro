@@ -1,0 +1,25 @@
+---
+import Arrow from "@/icons/Arrow.astro";
+const { image, title, subtitle, url } = Astro.props;
+---
+
+<article
+  class="group transition-all duration-500 overflow-hidden"
+>
+  <div class="bg-no-repeat bg-cover bg-center group-hover:scale-105 overflow-hidden w-full relative h-[500px] cursor-pointer transition-all duration-500"
+  style={`background-image: url('/images/${image}');`}>
+    <div
+      class="group-hover:bg-gradient-to-t group-hover:from-black/50 group-hover:to-transparent transition-all duration-700 w-full h-full"
+    >
+    </div>
+    <div
+      class="text-white flex flex-col absolute bottom-0 left-0 w-full p-10 translate-y-8 group-hover:translate-y-0 transition-all duration-500 opacity-0 group-hover:opacity-100"
+    >
+      <h3 class="font-bold text-2xl">{title}</h3>
+      <p class="font-light text-white/80 mt-1">{subtitle}</p>
+      <a href={`${url}`} class="inline-flex opacity-0 group-hover:opacity-100 mt-4">
+        Ver más <Arrow class="w-5 rotate-180 ml-1" />
+      </a>
+    </div>
+  </div>
+</article>

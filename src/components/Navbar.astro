@@ -1,27 +1,50 @@
 ---
-import Logo from '@/icons/Logo.astro'
+import Logo from "@/icons/Logo.astro";
+const menu = [
+  {
+    name: "Inicio",
+    url: "/",
+  },
+  {
+    name: "Servicios",
+    url: "/servicios",
+  },
+  {
+    name: "Nuestro equipo",
+    url: "/equipo",
+  },
+  {
+    name: "Experiencia",
+    url: "/experiencia",
+  },
+  {
+    name: "Contáctanos",
+    url: "/contacto",
+  },
+];
+const pathname = Astro.url.pathname;
 ---
+
 <section class="relative">
-    <div class="max-w-7xl mx-auto px-5 pb-5 pt-8 flex justify-between items-center">
-        <Logo class="w-48 fill-white" />
-        <nav>
-            <ul class="flex gap-x-7">
-                <li>
-                    <a href="#" class="text-white hover:text-primary transition-colors duration-500">Inicio</a>
-                </li>
-                <li>
-                    <a href="#" class="text-white hover:text-primary transition-colors duration-500">Servicios</a>
-                </li>
-                <li>
-                    <a href="#" class="text-white hover:text-primary transition-colors duration-500">Nuestro equipo</a>
-                </li>
-                <li>
-                    <a href="#" class="text-white hover:text-primary transition-colors duration-500">Experiencia</a>
-                </li>
-                <li>
-                    <a href="#" class="text-white hover:text-primary transition-colors duration-500">Contáctanos</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+  <div
+    class="max-w-7xl mx-auto px-5 pb-5 pt-8 flex justify-between items-center"
+  >
+    <a href="/" class="w-48"><Logo class={`w-48 ${pathname !== "/" ? "fill-primary" : "fill-white"}`} /></a>
+    <nav>
+      <ul class="flex gap-x-7">
+        {
+          menu.map((item) => (
+            <li>
+              <a
+                href={item.url}
+                class={`${pathname !== "/" ? "text-zinc-800" : "text-white"} py-2 hover:text-primary transition-colors duration-500 relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-primary before:transition-all before:duration-500 before:hover:w-full`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
 </section>
