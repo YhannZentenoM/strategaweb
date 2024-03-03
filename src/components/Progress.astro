@@ -1,0 +1,15 @@
+---
+const { title, porcent, description } = Astro.props;
+---
+
+<div>
+  <div class={`flex justify-between mb-2`} style={`${"width: "+porcent+"%"}`}>
+    <span class="text-lg font-medium text-zinc-800">{title}</span>
+    <span class="text-lg font-medium text-zinc-800">{porcent}%</span>
+  </div>
+  <div class="w-full bg-white h-1.5">
+    <div class="bg-primary h-1.5" style={`width: ${porcent}%`}>
+    </div>
+  </div>
+  <h3 class="text-pretty text-base text-zinc-600 mt-2 w-full">{description}</h3>
+</div>

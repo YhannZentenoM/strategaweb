@@ -1,0 +1,101 @@
+---
+import FormContact from "@/components/FormContact.astro";
+import HeaderPage from "@/components/sections/HeaderPage.astro";
+import Progress from "@/components/Progress.astro";
+// import SocialTeam from "@/components/SocialTeam.astro";
+import Cellphone from "@/icons/Cellphone.astro";
+import Mail from "@/icons/Mail.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const equipoEntries = await getCollection("equipo");
+  return equipoEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+---
+
+<Layout title={`Stratega - Consultoría Empresarial | ${entry.data.name}`}>
+  <HeaderPage title={entry.data.name} />
+  <section class="bg-secondary">
+    <div class="max-w-7xl mx-auto px-5">
+      <h3
+        class="uppercase font-open-sans font-light text-sm tracking-wider mb-10"
+      >
+        {entry.data.job}
+      </h3>
+    </div>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto px-5 gap-y-10 md:gap-x-10 pb-28"
+    >
+      <div class="flex flex-col gap-y-5">
+        <img
+          src={`/images/${entry.data.image}`}
+          alt={`Foto de ${entry.data.name}`}
+          class="w-full"
+        />
+        <!-- <SocialTeam
+          whatsapp={"https://wa.link/pcdh5q"}
+          section="team"
+        /> -->
+      </div>
+      <div>
+        <div class="flex flex-col gap-y-5">
+          {
+            entry.data.skills.map((skill: any) => (
+              <Progress
+                title={skill.name}
+                porcent={skill.porcent}
+                description={skill.description}
+              />
+            ))
+          }
+        </div>
+        <div class="relative">
+          <div
+            class="bg-white px-5 md:px-14 py-12 md:absolute md:right-0 md:top-10 md:min-w-[700px] w-full mt-8 md:mt-0"
+          >
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    class="max-w-7xl mx-auto px-5 py-28 flex flex-col md:flex-row gap-10"
+  >
+    <div class="max-w-md">
+      <h2 class="text-5xl font-bold mb-8">Biography</h2>
+      <p class="font-light tracking-wider text-zinc-700 text-pretty">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id suscipit
+        eaque praesentium, odio, possimus incidunt exercitationem est quidem
+        libero iusto deserunt veniam vel, delectus odit ea labore. Voluptatem,
+        fugiat atque!
+      </p>
+      <ul class="space-y-5 mt-8">
+        <li
+          class="flex items-start gap-3 justify-start text-balance text-lg font-open-sans font-light leading-5"
+        >
+          <Mail class="w-5" />
+          info@correo.com
+        </li>
+        <li
+          class="flex items-start gap-2 justify-start text-balance text-lg font-open-sans font-light"
+        >
+          <Cellphone class="size-6" />
+          +01003849234
+        </li>
+      </ul>
+    </div>
+    <div class="w-full">
+      <h2 class="text-5xl font-bold mb-5">Contacto</h2>
+      <FormContact clases="px-10 py-3 gap-2 text-base" />
+    </div>
+  </section>
+</Layout>
