@@ -1,0 +1,23 @@
+---
+import FormContact from "@/components/FormContact.astro";
+import Title from "@/components/Title.astro";
+---
+
+<section class="bg-secondary grid grid-cols-1 md:grid-cols-2">
+  <div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7655.415831747485!2d-71.55200021460578!3d-16.388834840504416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a43e2db4945%3A0xe5d089934eef108!2sStratega%20Consultor%C3%ADa%20Empresarial!5e0!3m2!1ses-419!2spe!4v1709522737318!5m2!1ses-419!2spe"
+      class="w-full h-full"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="flex flex-col gap-y-10 py-28 px-28">
+    <Title
+      title="¡Ponerse en contacto!"
+      subtitle="Contáctenos"
+      align="text-left"
+    />
+    <FormContact clases="px-10 py-3 gap-2 text-base" bgInput="bg-secondary" />
+  </div>
+</section>

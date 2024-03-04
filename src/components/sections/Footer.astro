@@ -33,12 +33,12 @@ const SOCIAL_ICONS = {
     </div>
     <div class="text-white">
       <h3 class="text-5xl font-semibold">Servicios de alta calidad</h3>
-      <ul class="inline-flex text-white/90 gap-x-7 mt-20">
+      <ul class="inline-flex text-white/90 gap-x-6 mt-20">
         {
           profiles.map(({ network, url, username }) => {
             const Icon = SOCIAL_ICONS[network];
             return (
-              <li class="">
+              <li class="p-1.5">
                 <a
                   href={url}
                   title={`Visitar el perfil de ${username} en ${network}`}

@@ -7,6 +7,7 @@ import Cellphone from "@/icons/Cellphone.astro";
 import Mail from "@/icons/Mail.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { topNav } from "@info";
 
 export async function getStaticPaths() {
   const equipoEntries = await getCollection("equipo");
@@ -83,13 +84,13 @@ const { Content } = await entry.render();
           class="flex items-start gap-3 justify-start text-balance text-lg font-open-sans font-light leading-5"
         >
           <Mail class="w-5" />
-          info@correo.com
+          {topNav.email}
         </li>
         <li
           class="flex items-start gap-2 justify-start text-balance text-lg font-open-sans font-light"
         >
           <Cellphone class="size-6" />
-          +01003849234
+          {topNav.phone}
         </li>
       </ul>
     </div>

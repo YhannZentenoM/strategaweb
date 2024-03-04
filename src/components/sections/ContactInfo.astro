@@ -1,0 +1,32 @@
+---
+import ClockLine from "@/icons/ClockLine.astro";
+import MapLine from "@/icons/MapLine.astro";
+import Headphone from "@/icons/Headphone.astro";
+import {topNav} from "@info";
+---
+<section class="pb-32 pt-20 bg-secondary">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 grid-cols-1 gap-5">
+      <div class="flex flex-col justify-start items-center gap-y-3 group">
+        <ClockLine class="w-14 group-hover:fill-primary transition-colors duration-300" />
+        <h3 class="text-2xl font-bold">Horario</h3>
+        <h3 class="text-lg max-w-52 text-center font-light text-zinc-500">{topNav.schedules}</h3>
+      </div>
+      <div class="flex flex-col justify-start items-center gap-y-3 group">
+        <MapLine class="w-14 group-hover:fill-primary transition-colors duration-300" />
+        <h3 class="text-2xl font-bold">Dirección</h3>
+        <div class="max-w-72 text-center font-light text-lg text-zinc-500">
+          <p>{topNav.address}</p>
+          <a href="" class="underline underline-offset-8 hover:no-underline hover:font-normal">Ver ubicación</a>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-center gap-y-3 group">
+        <Headphone class="w-14 group-hover:fill-primary transition-colors duration-300" />
+        <h3 class="text-2xl font-bold">Ponerse en contacto</h3>
+        <div class="text-center font-light text-lg text-zinc-500">
+          <p>Teléfonos: {topNav.phone}</p>
+          <p>Email: {topNav.email}</p>
+          <a href="" class="underline underline-offset-8 hover:no-underline hover:font-normal">Contactar</a>
+        </div>
+      </div>
+    </div>
+  </section>
