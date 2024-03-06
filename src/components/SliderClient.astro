@@ -1,5 +1,7 @@
 ---
-import { clients } from "@info";
+import { categoriesClient } from "@info";
+const random = Math.floor(Math.random() * categoriesClient.length);
+const { clients } = categoriesClient[random];
 ---
 
 <section class="py-16">
@@ -7,12 +9,14 @@ import { clients } from "@info";
     <div class="swiper-wrapper">
       {
         clients.map((slide) => (
-          <div class="swiper-slide">  
-            <img
-              src={`${slide.image}`}
-              alt={`${slide.name}`}
-              class="object-cover grayscale"
-            />
+          <div class="swiper-slide">
+            <picture class="h-32 flex items-center justify-center">
+              <img
+                src={`/images/clientes/${slide.id}.webp`}
+                alt={`${slide.name}`}
+                class="object-cover grayscale max-h-16"
+              />
+            </picture>
           </div>
         ))
       }
@@ -29,7 +33,7 @@ import { clients } from "@info";
 <script>
   import Swiper from "swiper";
   import "swiper/css";
-  import { Autoplay} from "swiper/modules";
+  import { Autoplay } from "swiper/modules";
 
   new Swiper(".swiper-cliente", {
     modules: [Autoplay],
