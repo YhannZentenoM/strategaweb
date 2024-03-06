@@ -65,34 +65,460 @@
             "url": "/products"
         }
     ],
-    "clients": [
+    "categoriesClient": [
         {
-            "image": "/images/client.webp",
-            "name": "Client 01"
+            "title": "Minería y Energia",
+            "clients": [
+                {
+                    "id": "cerro-verde",
+                    "name": "Cerro Verde"
+                },
+                {
+                    "id": "anglo-america",
+                    "name": "Anglo America"
+                },
+                {
+                    "id": "yura",
+                    "name": "Yura"
+                },
+                {
+                    "id": "supermix",
+                    "name": "Supermix"
+                },
+                {
+                    "id": "weha",
+                    "name": "Weha"
+                },
+                {
+                    "id": "calcesur",
+                    "name": "Calcesur"
+                },
+                {
+                    "id": "egasa",
+                    "name": "Egasa"
+                },
+                {
+                    "id": "polaris",
+                    "name": "Polaris"
+                },
+                {
+                    "id": "inkabor",
+                    "name": "Inkabor"
+                },
+                {
+                    "id": "prodise",
+                    "name": "Prodise"
+                },
+                {
+                    "id": "dcr",
+                    "name": "DCR"
+                },
+                {
+                    "id": "intersales",
+                    "name": "Intersales"
+                }
+            ]
         },
         {
-            "image": "/images/client.webp",
-            "name": "Client 01"
+            "title": "Industria",
+            "clients":[
+                {
+                    "id": "iberica",
+                    "name": "La Iberica"
+                },
+                {
+                    "id": "ricopollo",
+                    "name": "Rico Pollo"
+                },
+                {
+                    "id": "panam",
+                    "name": "Panam"
+                },
+                {
+                    "id": "franky",
+                    "name": "Franky y Ricky"
+                },
+                {
+                    "id": "fenosa",
+                    "name": "Gas Natural Fenosa"
+                },
+                {
+                    "id": "transaltisa",
+                    "name": "Transaltisa"
+                },
+                {
+                    "id": "perurail",
+                    "name": "Peru Rail"
+                },
+                {
+                    "id": "gloria",
+                    "name": "Gloria"
+                },
+                {
+                    "id": "kiwifresh",
+                    "name": "Kiwifresh"
+                },
+                {
+                    "id": "laive",
+                    "name": "Laive"
+                },
+                {
+                    "id": "paretto",
+                    "name": "Paretto"
+                },
+                {
+                    "id": "eba",
+                    "name": "eba"
+                },
+                {
+                    "id": "tuv",
+                    "name": "tuv"
+                },
+                {
+                    "id": "soldexa",
+                    "name": "Soldexa"
+                },
+                {
+                    "id": "michell",
+                    "name": "Michell"
+                },
+                {
+                    "id": "plastisur",
+                    "name": "Plastisur"
+                },
+                {
+                    "id": "semiagro",
+                    "name": "Semiagro"
+                },
+                {
+                    "id": "porkcolombia",
+                    "name": "Pork Colombia"
+                },
+                {
+                    "id": "mexichem",
+                    "name": "Mexichem"
+                }
+            ]
         },
         {
-            "image": "/images/client.webp",
-            "name": "Client 01"
+            "title": "Servicios",
+            "clients":[
+                {
+                    "id": "boa",
+                    "name": "boa"
+                },
+                {
+                    "id": "promujer",
+                    "name": "Pro Mujer"
+                },
+                {
+                    "id": "latam",
+                    "name": "Latam"
+                },
+                {
+                    "id": "costadelsol",
+                    "name": "Costa del Sol"
+                },
+                {
+                    "id": "ccia",
+                    "name": "ccia"
+                },
+                {
+                    "id": "claro",
+                    "name": "Claro"
+                },
+                {
+                    "id": "parque",
+                    "name": "Parque de la Espernnza"
+                },
+                {
+                    "id": "republica",
+                    "name": "La República"
+                },
+                {
+                    "id": "laboratoria",
+                    "name": "Laboratoria"
+                },
+                {
+                    "id": "orion",
+                    "name": "Orion"
+                },
+                {
+                    "id": "hagemsa",
+                    "name": "Hagemsa"
+                },
+                {
+                    "id": "liderman",
+                    "name": "Liderman"
+                },
+                {
+                    "id": "paz",
+                    "name": "paz"
+                },
+                {
+                    "id": "greenandes",
+                    "name": "Greenandes"
+                },
+                {
+                    "id": "aprenda",
+                    "name": "Aprenda"
+                },
+                {
+                    "id": "prensmart",
+                    "name": "Prensmart"
+                },
+                {
+                    "id": "compair",
+                    "name": "Compair"
+                },
+                {
+                    "id": "lavoro",
+                    "name": "Lavoro"
+                }
+            ]
         },
         {
-            "image": "/images/client.webp",
-            "name": "Client 01"
+            "title": "Salud",
+            "clients":[
+                {
+                    "id": "sanpablo",
+                    "name": "Clínica San Pablo"
+                },
+                {
+                    "id": "clinicaaqp",
+                    "name": "Clínica Arequipa"
+                },
+                {
+                    "id": "sanna",
+                    "name": "Clínica Sanna"
+                },
+                {
+                    "id": "juandedios",
+                    "name": "Clínica San Juan de Dios"
+                }
+            ]
         },
         {
-            "image": "/images/client.webp",
-            "name": "Client 01"
+            "title": "Inmoviliaria & Construcción",
+            "clients":[
+                {
+                    "id": "urbi",
+                    "name": "Urbi"
+                },
+                {
+                    "id": "davalos",
+                    "name": "Constructora Davalos"
+                },
+                {
+                    "id": "quimera",
+                    "name": "Quimera"
+                },
+                {
+                    "id": "alfanevado",
+                    "name": "Alfa Nevado"
+                },
+                {
+                    "id": "carmen",
+                    "name": "Carmen Inmuebles"
+                },
+                {
+                    "id": "cym",
+                    "name": "cym"
+                },
+                {
+                    "id": "mrm",
+                    "name": "mrm"
+                },
+                {
+                    "id": "ontario",
+                    "name": "Ontario"
+                }
+            ]
         },
         {
-            "image": "/images/client.webp",
-            "name": "Client 01"
+            "title": "Comercialización",
+            "clients":[
+                {
+                    "id": "farma",
+                    "name": "Farmaenlace"
+                },
+                {
+                    "id": "dimexa",
+                    "name": "Dimexa"
+                },
+                {
+                    "id": "roberts",
+                    "name": "Roberts"
+                }
+            ]
         },
         {
-            "image": "/images/client.webp",
-            "name": "Client 01"
+            "title": "Instituciones de Gobierno",
+            "clients":[
+                {
+                    "id": "mincetur",
+                    "name": "mincetur"
+                },
+                {
+                    "id": "superintendencia",
+                    "name": "Superintendencia"
+                },
+                {
+                    "id": "seal",
+                    "name": "seal"
+                },
+                {
+                    "id": "beneficiencia",
+                    "name": "beneficiencia Arequipa"
+                },
+                {
+                    "id": "essalud",
+                    "name": "Essalud"
+                },
+                {
+                    "id": "moquegua",
+                    "name": "Gobierno Regional Moquegua"
+                },
+                {
+                    "id": "sunarp",
+                    "name": "Sunarp"
+                }
+            ]
+        },
+        {
+            "title": "Retail",
+            "clients":[
+                {
+                    "id": "lambramani",
+                    "name": "Parque Lambramani"
+                },
+                {
+                    "id": "solalpaca",
+                    "name": "sol alpaca"
+                },
+                {
+                    "id": "realplaza",
+                    "name": "Real Plaza"
+                },
+                {
+                    "id": "mvs",
+                    "name": "mvs"
+                },
+                {
+                    "id": "artatlas",
+                    "name": "Art Atlas"
+                },
+                {
+                    "id": "ripley",
+                    "name": "Ripley"
+                },
+                {
+                    "id": "saga",
+                    "name": "Saga Falabella"
+                },
+                {
+                    "id": "carp",
+                    "name": "carp y asociados"
+                }
+            ]
+        },
+        {
+            "title": "Finanzas & Seguros",
+            "clients":[
+                {
+                    "id": "bdp",
+                    "name": "bdp"
+                },
+                {
+                    "id": "cuscatlan",
+                    "name": "banco cuscatlan"
+                },
+                {
+                    "id": "capital",
+                    "name": "capital bank"
+                },
+                {
+                    "id": "comfenalco",
+                    "name": "comfenalco"
+                },
+                {
+                    "id": "cajaaqp",
+                    "name": "Caja Arequipa"
+                },
+                {
+                    "id": "fondesurco",
+                    "name": "Fondesurco"
+                },
+                {
+                    "id": "cajasullana",
+                    "name": "caja sullana"
+                },
+                {
+                    "id": "coface",
+                    "name": "coface"
+                }
+            ]
+        },
+        {
+            "title": "Educación",
+            "clients":[
+                {
+                    "id": "ucsp",
+                    "name": "ucsp"
+                },
+                {
+                    "id": "unsa",
+                    "name": "unsa"
+                },
+                {
+                    "id": "francesa",
+                    "name": "alianza francesa"
+                },
+                {
+                    "id": "ucsm",
+                    "name": "ucsm"
+                },
+                {
+                    "id": "maxuhle",
+                    "name": "max uhle"
+                },
+                {
+                    "id": "andina",
+                    "name": "universidad andina"
+                },
+                {
+                    "id": "isur",
+                    "name": "isur"
+                },
+                {
+                    "id": "junior",
+                    "name": "junior achievement"
+                },
+                {
+                    "id": "sanjose",
+                    "name": "instituto san jose"
+                },
+                {
+                    "id": "cetemin",
+                    "name": "cetemin"
+                },
+                {
+                    "id": "sfx",
+                    "name": "sfx"
+                },
+                {
+                    "id": "prescott",
+                    "name": "prescott"
+                },
+                {
+                    "id": "cultural",
+                    "name": "cultural"
+                },
+                {
+                    "id": "unam",
+                    "name": "unam"
+                }
+            ]
         }
     ],
     "testimonials": [

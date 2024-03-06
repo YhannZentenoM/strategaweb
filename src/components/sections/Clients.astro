@@ -1,0 +1,41 @@
+---
+import CategoryClient from "../CategoryClient.astro";
+
+import { categoriesClient } from "@info";
+---
+
+<section class="bg-secondary pb-20">
+  <div class="max-w-7xl md:max-w-4xl mx-auto px-5">
+    {
+      categoriesClient.map(({title, clients}) => (
+        <CategoryClient title={title} clients={clients} />
+      ))   
+    }
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.border-b').forEach((item, index) => {
+      // si es el primer elememto no le agrega la clase hidden-info
+      if(index === 0){
+        item.querySelector('.info-client').classList.remove('hidden-info');
+        item.querySelector('.icon-plus').classList.add('hidden');
+        item.querySelector('.icon-minus').classList.remove('hidden');
+        item.classList.add('border-zinc-500');
+        item.querySelector('.info-client').classList.add('max-h-[1000px]');
+      }
+      item.addEventListener('click', () => {
+        item.querySelector('.info-client')?.classList.toggle('hidden-info');
+        item.querySelector('.icon-plus')?.classList.toggle('hidden');
+        item.querySelector('.icon-minus')?.classList.toggle('hidden');
+        const containClass = item.querySelector('.info-client').classList.contains('hidden-info');
+        if(!containClass){
+          item.classList.replace('border-zinc-300', 'border-zinc-500')
+          item.querySelector('.info-client').classList.replace('max-h-0', 'max-h-[1000px]')
+        }else{
+          item.classList.replace('border-zinc-500', 'border-zinc-300');
+          item.querySelector('.info-client').classList.replace('max-h-[1000px]', 'max-h-0')
+        }
+      });
+  });
+</script>

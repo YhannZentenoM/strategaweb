@@ -1,0 +1,65 @@
+---
+import Minus from "@/icons/Minus.astro";
+import Plus from "@/icons/Plus.astro";
+const { title, clients } = Astro.props;
+---
+
+<div class="border-b border-zinc-300 py-5 transition-all duration-500">
+  <button
+    class="w-full py-3 px-6 text-left focus:outline-none flex justify-between items-center"
+  >
+    <span class="text-2xl font-bold">{title}</span>
+    <Plus class="size-6 fill-current text-zinc-800 icon-plus" />
+    <Minus class="size-6 fill-current text-zinc-800 icon-minus hidden" />
+  </button>
+  <div class="p-6 info-client max-h-0 hidden-info">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      {
+        clients.map(({ id, name }) => (
+          <picture class="h-32 flex items-center justify-center">
+            <img
+              loading="lazy"
+              src={`/images/clientes/${id}.webp`}
+              alt={name}
+              class="max-h-16 grayscale hover:scale-110 hover:grayscale-0 transition-all duration-500"
+            />
+          </picture>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+    .info-client{
+        opacity: 0;
+        animation: fade-in 1s forwards;
+        transition: all 0.5s;
+    }
+    .info-client.hidden-info{
+        animation: fade-out 0.3s forwards;
+        transition: all 0.5s;
+    }
+
+    @keyframes fade-in {
+        from {
+            display: none;
+            opacity: 0;
+        }
+        to {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out {
+        from {
+            display: block;
+            opacity: 1;
+        }
+        to {
+            display: none;
+            opacity: 0;
+        }
+    }
+</style>
