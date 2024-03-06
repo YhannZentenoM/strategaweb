@@ -1,0 +1,77 @@
+---
+import FormContact from "@/components/FormContact.astro";
+import HeaderPage from "@/components/sections/HeaderPage.astro";
+import Mail from "@/icons/Mail.astro";
+import Map from "@/icons/Map.astro";
+import Cellphone from "@/icons/Cellphone.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { topNav } from "@info";
+
+export async function getStaticPaths() {
+  const servicesEntries = await getCollection("servicios");
+  return servicesEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={`Stratega - Consultoría Empresarial | ${entry.data.title}`}>
+  <HeaderPage title={entry.data.title} />
+  <section class="bg-secondary">
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto px-5 md:px-10 gap-y-10 md:gap-10 pb-28"
+    >
+      <div class="col-span-2 space-y-5 info-service">
+        <img
+          src={`/images/${entry.data.image}`}
+          alt={entry.data.title}
+          transition:name="img-service"
+        />
+        <Content />
+      </div>
+      <div class="">
+        <div class="bg-white px-8 py-10 sticky top-0 flex flex-col gap-8">
+          <h2 class="text-lg font-bold">Contáctanos</h2>
+          <FormContact clases="p-3 gap-0.5 text-sm" />
+          <h2 class="text-lg font-bold">Información contacto</h2>
+          <ul class="space-y-5 text-base">
+            <li
+              class="flex items-start gap-2 justify-start text-balance font-open-sans font-light"
+            >
+              <Map class="w-10" />
+              {topNav.address}
+            </li>
+            <li
+              class="flex items-start gap-3 justify-start text-balance font-open-sans font-light leading-5"
+            >
+              <Mail class="w-5" />
+              {topNav.email}
+            </li>
+            <li
+              class="flex items-start gap-2 justify-start text-balance font-open-sans font-light"
+            >
+              <Cellphone class="size-6" />
+              {topNav.phone}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .info-service p {
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.55);
+  }
+  .info-service h2 {
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+</style>
