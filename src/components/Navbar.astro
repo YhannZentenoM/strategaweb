@@ -7,7 +7,7 @@ const menu = [
   },
   {
     name: "Servicios",
-    url: "/servicios",
+    url: "#",
     submenu: [
       {
         name: "Consultoría",
@@ -38,8 +38,18 @@ const menu = [
     url: "/clientes",
   },
   {
-    name: "Experiencia",
-    url: "/experiencia",
+    name: "Novedades",
+    url: "#",
+    submenu: [
+      {
+        name: "Publicaciones",
+        url: "#",
+      },
+      {
+        name: "Blog",
+        url: "https://strategaperu.blogspot.pe/",
+      }
+    ]
   },
   {
     name: "Contáctanos",
@@ -55,7 +65,7 @@ const pathname = Astro.url.pathname;
   >
     <a href="/" class="w-48"
       ><Logo
-        class={`w-48 ${pathname !== "/" ? "fill-primary" : "fill-white"} hover:scale-105 transition-all duration-500`}
+        class={`${pathname === "/" && "bg-white"} fill-primary p-3 hover:scale-105 transition-all duration-500`}
       /></a
     >
     <nav>

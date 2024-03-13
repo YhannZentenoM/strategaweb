@@ -45,24 +45,37 @@
     ],
     "purposes": [
         {
-            "icon": "Bag",
-            "title": "Área de ventas y comercio",
-            "url": "/products"
+            "title": "Proyectos de consultoría desarrollados",
+            "total": 300,
+            "velocity": 100
         },
         {
-            "icon": "Chart",
-            "title": "Desempeño empresarial óptimo",
-            "url": "/products"
+            "title": "Clientes satisfechos",
+            "total": 320,
+            "velocity": 100
         },
         {
-            "icon": "Presentation",
-            "title": "Profesionales de excelencia",
-            "url": "/products"
+            "title": "Personas formadas",
+            "total": 16000,
+            "velocity": 100
         },
         {
-            "icon": "Contract",
-            "title": "Profesionales de excelencia",
-            "url": "/products"
+            "title": "Participantes de países de LATAM en nuestros entrenamientos",
+            "total": 12,
+            "velocity": 100
+        }
+        
+    ],
+    "purposesOptions": [
+        {
+            "title": "Profesionales con gran experiencia y formación de primer nivel",
+            "total": 100,
+            "velocity": 100
+        },
+        {
+            "title": "Metodologías y herramientas innovadoras y de alto impacto",
+            "total": 100,
+            "velocity": 100
         }
     ],
     "categoriesClient": [
