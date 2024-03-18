@@ -1,0 +1,247 @@
+---
+import Title from "@/components/Title.astro";
+import Minus from "@/icons/Minus.astro";
+import Plus from "@/icons/Plus.astro";
+---
+
+<section
+  class="bg-primary py-28 min-h-screen h-screen"
+  id="section-metodologia"
+>
+  <div
+    class="max-w-7xl h-full mx-auto px-5 flex items-center justify-center gap-x-20"
+  >
+    <div class="w-full hidden consultoria">
+      <ul class="text-white text-right text-2xl font-bold">
+        <li class="border-b border-white py-5 text-balance">
+          Comportamiento del cliente
+        </li>
+        <li class="border-b border-white py-5 text-balance">
+          Satisfacción del cliente
+        </li>
+        <li class="border-b border-white py-5 text-balance">
+          Diagnóstico de cultura organizacional
+        </li>
+        <li class="border-b border-white py-5 text-balance">
+          Diagnóstico de línea base
+        </li>
+        <li class="border-b border-white py-5 text-balance">
+          Evaluación de impacto de proyectos y programas sociales
+        </li>
+        <li class="border-b border-white py-5 text-balance">
+          Cambio de comportamiento en la organización (hábitos)
+        </li>
+      </ul>
+    </div>
+    <div
+      class="w-full flex flex-col items-center justify-center gap-y-10 selector"
+    >
+      <Title title="" subtitle="" align="text-center">
+        <span class="text-white">Servicios de Stratega</span>
+      </Title>
+      <div class="flex text-white w-full max-w-2xl border-white border-t-2">
+        <button
+          class="uppercase text-xl py-3 font-medium w-1/2 tracking-widest relative after:absolute after:w-0.5 after:bg-white after:right-0 after:top-3 after:h-[75%] after:content-['']"
+          id="btn-consultoria">Consultoría</button
+        >
+        <button
+          class="uppercase text-xl py-3 font-medium w-1/2 tracking-widest"
+          id="btn-formacion">Formación</button
+        >
+      </div>
+      <span class="text-white text-lg font-light" id="mensaje-metodologia"
+        >Click para ver nuestros servicios</span
+      >
+    </div>
+    <div class="w-full hidden formacion">
+      <div
+        class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
+      >
+        <button
+          class="w-full py-3 text-left focus:outline-none flex justify-between items-center"
+        >
+          <span class="text-2xl font-bold">Talleres y conferencias</span>
+          <Plus class="size-6 text-white icon-plus" />
+          <Minus class="size-6 text-white icon-minus hidden" />
+        </button>
+        <div class="p-6 info-client max-h-0 hidden-info">
+          <ul class="text-lg font-light">
+            <li>Desarrollo de Habilidades Blandas</li>
+            <li>Motivación e Integración</li>
+            <li>Emprendimiento e Innovación</li>
+            <li>Ventos y Servicio al Cliente</li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
+      >
+        <button
+          class="w-full py-3 text-left focus:outline-none flex justify-between items-center"
+        >
+          <span class="text-2xl font-bold">Programas</span>
+          <Plus class="size-6 text-white icon-plus" />
+          <Minus class="size-6 text-white icon-minus hidden" />
+        </button>
+        <div class="p-6 info-client max-h-0 hidden-info">
+          <ul class="text-lg font-light">
+            <li>Cambio de hábitos para una vida mejor</li>
+            <li>Vida con Propósitos</li>
+            <li>Soft Skills Training</li>
+            <li>Habilidades Directivas</li>
+            <li>Team Building</li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
+      >
+        <button
+          class="w-full py-3 text-left focus:outline-none flex justify-between items-center"
+        >
+          <span class="text-2xl font-bold"
+            >Programas de responsabilidad social y sostenibilidad</span
+          >
+          <Plus class="size-6 text-white icon-plus" />
+          <Minus class="size-6 text-white icon-minus hidden" />
+        </button>
+        <div class="p-6 info-client max-h-0 hidden-info">
+          <ul class="text-lg font-light">
+            <li>Fortalecimiento de Capacidades Técnicas</li>
+            <li>Fortalecimiento de Habilidades Blandas</li>
+            <li>Emprendimiento y Desarrollo</li>
+            <li>Salud y Bienestar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const borderItems = document.querySelectorAll(".item-accordion");
+  const btnFormacion = document.getElementById("btn-formacion");
+  const btnConsultoria = document.getElementById("btn-consultoria");
+  const section = document.getElementById("section-metodologia");
+  const mensaje = document.getElementById("mensaje-metodologia");
+  const titulo = section.querySelector(".text-4xl");
+  const consultoria = document.querySelector(".consultoria");
+  const formacion = document.querySelector(".formacion");
+
+  borderItems.forEach((item, index) => {
+    const infoClient = item.querySelector(".info-client");
+    const iconPlus = item.querySelector(".icon-plus");
+    const iconMinus = item.querySelector(".icon-minus");
+
+    const toggleVisibility = () => {
+      infoClient?.classList.toggle("hidden-info");
+      iconPlus?.classList.toggle("hidden");
+      iconMinus?.classList.toggle("hidden");
+
+      const containClass = infoClient.classList.contains("hidden-info");
+      const borderClass = containClass ? "border-white" : "border-white/60";
+      containClass
+        ? item.classList.replace("border-white/60", borderClass)
+        : item.classList.replace("border-white", borderClass);
+      const maxHeightClass = containClass ? "max-h-0" : "max-h-[1000px]";
+
+      infoClient.classList.replace("max-h-0", maxHeightClass);
+    };
+
+    if (index === 0) {
+      infoClient.classList.remove("hidden-info");
+      iconPlus.classList.add("hidden");
+      iconMinus.classList.remove("hidden");
+      item.classList.add("border-white/60");
+      infoClient.classList.add("max-h-[1000px]");
+    }
+
+    item.addEventListener("click", toggleVisibility);
+  });
+
+  btnFormacion.addEventListener("click", () => {
+    const divBotones = btnFormacion.parentNode;
+    consultoria.classList.toggle("hidden");
+    formacion.classList.add("hidden");
+    section.classList.remove("h-screen");
+    btnFormacion.classList.add("hidden");
+    btnConsultoria.classList.remove("hidden");
+    titulo.classList.add("text-left");
+    divBotones.classList.remove("border-t-2");
+    divBotones.classList.remove("flex");
+    btnConsultoria.classList.add("bg-white");
+    btnConsultoria.classList.add("w-full");
+    btnConsultoria.classList.add("text-zinc-800");
+    btnConsultoria.classList.remove("w-1/2");
+    btnConsultoria.classList.remove("text-white");
+    mensaje.classList.add("hidden");
+  });
+
+  btnConsultoria.addEventListener("click", () => {
+    const divBotones = btnConsultoria.parentNode;
+    formacion.classList.toggle("hidden");
+    consultoria.classList.add("hidden");
+    section.classList.remove("h-screen");
+    btnConsultoria.classList.add("hidden");
+    btnFormacion.classList.remove("hidden");
+    titulo.classList.add("text-right");
+    divBotones.classList.remove("border-t-2");
+    divBotones.classList.remove("flex");
+    btnFormacion.classList.add("bg-white");
+    btnFormacion.classList.add("w-full");
+    btnFormacion.classList.add("text-zinc-800");
+    btnFormacion.classList.remove("w-1/2");
+    btnFormacion.classList.remove("text-white");
+    mensaje.classList.add("hidden");
+  });
+</script>
+
+<style>
+  .info-client {
+    opacity: 0;
+    animation: fade-in 1s forwards;
+    transition: all 0.5s;
+  }
+  .info-client.hidden-info {
+    animation: fade-out 0.3s forwards;
+    transition: all 0.5s;
+  }
+  .formacion {
+    animation: fade-in 1s forwards;
+    transition: all 0.5s;
+  }
+  .consultoria {
+    animation: fade-in 1s forwards;
+    transition: all 0.5s;
+  }
+  .formacion.hidden {
+    animation: fade-out 0.3s forwards;
+    transition: all 0.5s;
+  }
+  .consultoria.hidden {
+    animation: fade-out 0.3s forwards;
+    transition: all 0.5s;
+  }
+
+  @keyframes fade-in {
+    from {
+      display: none;
+      opacity: 0;
+    }
+    to {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      display: block;
+      opacity: 1;
+    }
+    to {
+      display: none;
+      opacity: 0;
+    }
+  }
+</style>

@@ -3,14 +3,20 @@ import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/sections/Header.astro';
 import Purpose from '@/components/sections/Purpose.astro';
 import Corporation from '@/components/sections/Corporation.astro';
-import Workshops from '@/components/sections/Workshops.astro';
+// import Workshops from '@/components/sections/Workshops.astro';
 import Testimonials from '@/components/sections/Testimonials.astro';
+import Metodology from '@/components/sections/Metodology.astro';
+import SliderClient from '@/components/SliderClient.astro';
+import PopUp from '@/components/PopUp.astro';
 ---
 
 <Layout title="Stratega - Consultoría Empresarial">
+	<PopUp />
 	<Header />
 	<Purpose />
 	<Corporation />
-	<Workshops />
+	<Metodology />
+	<SliderClient />
+	<!-- <Workshops /> -->
 	<Testimonials />
 </Layout>

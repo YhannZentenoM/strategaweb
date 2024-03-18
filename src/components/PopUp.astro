@@ -1,0 +1,126 @@
+---
+import Mail from "@/icons/Mail.astro";
+import Phone from "@/icons/Phone.astro";
+---
+
+<div id="popup" class="popup flex items-center justify-center w-full h-full bg-black/30">
+  <div class="bg-white p-5 w-96 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">X</span>
+        <h2 class="text-2xl font-bold-juana text-center mb-5">
+            Recibe nuestros talleres y eventos en tu correo, ¡Suscríbete!
+        </h2>
+      <form action="" class="space-y-6 w-full">
+        <div class="relative">
+          <input
+            type="text"
+            class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3`}
+            placeholder="Nombre"
+          />
+          <svg
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            ><g stroke-width="0"></g><g
+              stroke-linecap="round"
+              stroke-linejoin="round"></g><g>
+              <path
+                d="M17.5 21.0001H6.5C5.11929 21.0001 4 19.8808 4 18.5001C4 14.4194 10 14.5001 12 14.5001C14 14.5001 20 14.4194 20 18.5001C20 19.8808 18.8807 21.0001 17.5 21.0001Z"
+                class="stroke-zinc-400"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
+                class="stroke-zinc-400"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </g></svg
+          >
+        </div>
+        <div class="relative">
+          <input
+            type="text"
+            class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3`}
+            placeholder="Teléfono"
+          />
+          <Phone
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-5 text-zinc-500"
+          />
+        </div>
+        <div class="relative">
+          <input
+            type="text"
+            class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3`}
+            placeholder="Email"
+          />
+          <Mail
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-5 text-zinc-400"
+          />
+        </div>
+        <div class="flex flex-col md:flex-row items-center gap-5">
+          <button
+            type="submit"
+            class={`bg-primary hover:bg-primary/90 transition-colors duration-300 text-white font-regular-juana tracking-wider px-5 py-4 block w-full`}
+          >
+            Suscríbete
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  var popupShown = false;
+
+  window.onscroll = function () {
+    if (
+      !popupShown &&
+      (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+    ) {
+      document.getElementById("popup").style.display = "block";
+      popupShown = true;
+    }
+  };
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+<style>
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .popup-content {
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 9999;
+  }
+
+  .content {
+    height: 2000px; /* Para que haya suficiente espacio para hacer scroll */
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

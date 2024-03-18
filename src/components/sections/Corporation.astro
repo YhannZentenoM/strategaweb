@@ -5,7 +5,7 @@ import SliderClient from "@/components/SliderClient.astro";
 
 <section>
   <div
-    class="max-w-7xl mx-auto px-5 pt-28 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+    class="max-w-7xl mx-auto px-5 py-28 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
   >
     <figure class="relative">
       <img
@@ -22,10 +22,12 @@ import SliderClient from "@/components/SliderClient.astro";
 
     <div class="pl-20">
       <Title
-        title="Ayudamos a empresas a crecer"
+        title="Ayudamos a empresas a"
         subtitle="Servicios corporativos"
         align="text-left"
-      />
+      >
+        <span class="text-primary font-bold">crecer</span>
+      </Title>
       <ul class="mt-7 font-bold text-2xl text-zinc-800">
         <li class="flex flex-col py-4 items-start border-b">
           <div class="flex items-center gap-x-5"><span class="text-zinc-400/80 font-light text-2xl">01.</span> Consultoría</div>
@@ -49,4 +51,3 @@ import SliderClient from "@/components/SliderClient.astro";
     </div>
   </div>
 </section>
-<SliderClient />
