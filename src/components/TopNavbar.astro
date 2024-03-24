@@ -3,11 +3,10 @@ import Facebook from "@/icons/Facebook.astro";
 import Instagram from "@/icons/Instagram.astro";
 import Linkedin from "@/icons/Linkedin.astro";
 import Whatsapp from "@/icons/Whatsapp.astro";
-import Clock from "@/icons/Clock.astro";
 import Phone from "@/icons/Phone.astro";
 import Map from "@/icons/Map.astro";
 import { topNav } from "@info";
-const { schedules, phone, address, profiles } = topNav;
+const { phone, address, profiles } = topNav;
 const SOCIAL_ICONS = {
   Facebook,
   Instagram,
@@ -19,10 +18,6 @@ const SOCIAL_ICONS = {
 <section class="bg-black">
   <div class="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
     <ul class="inline-flex text-[13px] text-[#969696] gap-x-8">
-      <li class="flex items-center gap-x-1">
-        <Clock class="w-5" />
-        {schedules}
-      </li>
       <li class="flex items-center gap-x-1">
         <Phone class="w-5" />
         <a href="tel:" class="">{phone}</a>

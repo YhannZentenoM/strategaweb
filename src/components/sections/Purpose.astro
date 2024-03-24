@@ -1,11 +1,9 @@
 ---
-import { purposes, purposesOptions } from "@info";
 import Title from "@/components/Title.astro";
-import CardPurpose from "@/components/CardPurpose.astro";
 ---
 
 <section class="bg-secondary">
-  <div class="max-w-7xl mx-auto px-5 pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-5 py-28">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 content-end">
       <Title
         title="Inspirar a las personas,"
@@ -35,83 +33,5 @@ import CardPurpose from "@/components/CardPurpose.astro";
         </p>
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10 gap-x-3 mt-20">
-      {
-        purposes.map((purpose, index) => (
-          <CardPurpose
-            key={index}
-            title={purpose.title}
-            total={purpose.total}
-            velocity={purpose.velocity}
-          />
-        ))
-      }
-    </div>
-    <div class="flex flex-row max-w-2xl mx-auto gap-y-10 gap-x-3 mt-20">
-      {
-        purposesOptions.map((purpose, index) => (
-          <article
-            class={`flex flex-col gap-y-10 group py-3 pl-3 pr-8 ${index != 1 && "border-r-2"}`}
-          >
-            <h4 class="text-lg font-semibold text-center leading-tight">
-              {purpose.title}
-            </h4>
-          </article>
-        ))
-      }
-    </div>
   </div>
 </section>
-
-<script>
-  addEventListener("DOMContentLoaded", () => {
-    const contadores = document.querySelectorAll(".contador_cantidad");
-
-    const animarContadores = () => {
-      for (const contador of contadores) {
-        const actualizar_contador = () => {
-          let cantidad_maxima = +(
-              (contador as HTMLElement)?.dataset.cantidadTotal || 0
-            ),
-            valor_actual = +((contador as HTMLElement)?.innerText || 0),
-            incremento =
-              cantidad_maxima /
-              +((contador as HTMLElement)?.dataset.velocidad || 0);
-
-          if (valor_actual < cantidad_maxima && cantidad_maxima < 99) {
-            (contador as HTMLElement).innerText = Math.ceil(
-              valor_actual + incremento
-            ).toString();
-            setTimeout(actualizar_contador, 200);
-          } else if (valor_actual < cantidad_maxima && cantidad_maxima >= 99) {
-            (contador as HTMLElement).innerText = Math.ceil(
-              valor_actual + incremento
-            ).toString();
-            setTimeout(actualizar_contador, 5);
-          } else {
-            (contador as HTMLElement).innerText = cantidad_maxima.toString();
-          }
-        };
-        actualizar_contador();
-      }
-    };
-
-    const mostrarContadores = (elementos: any) => {
-      elementos.forEach((elemento: any) => {
-        if (elemento.isIntersecting) {
-          setTimeout(animarContadores, 300);
-          // observer.disconnect()
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(mostrarContadores, {
-      threshold: 0.75,
-    });
-
-    const elementosHTML = document.querySelectorAll(".contador");
-    elementosHTML.forEach((elementoHTML) => {
-      observer.observe(elementoHTML);
-    });
-  });
-</script>

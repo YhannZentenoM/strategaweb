@@ -1,5 +1,6 @@
 ---
 import Title from "@/components/Title.astro";
+import Arrow from "@/icons/Arrow.astro";
 import Minus from "@/icons/Minus.astro";
 import Plus from "@/icons/Plus.astro";
 ---
@@ -13,41 +14,69 @@ import Plus from "@/icons/Plus.astro";
   >
     <div class="w-full hidden consultoria">
       <ul class="text-white text-right text-2xl font-bold">
-        <li class="border-b border-white py-5 text-balance">
+        <li class="border-b border-white py-6 pr-14 text-balance relative flex justify-end items-center text-right w-full">
           Comportamiento del cliente
+          <img src="/images/iconos/comportamiento.svg" alt="Icono Comportamiento del cliente" class="absolute right-0 w-10">
         </li>
-        <li class="border-b border-white py-5 text-balance">
+        <li class="border-b border-white py-6 pr-14 text-balance relative flex justify-end items-center text-right w-full">
           Satisfacción del cliente
+          <img src="/images/iconos/satisfaccion.svg" alt="Icono Satisfacción del cliente" class="absolute right-0 w-10">
         </li>
-        <li class="border-b border-white py-5 text-balance">
+        <li class="border-b border-white py-6 pr-14 text-balance relative flex justify-end items-center text-right w-full">
           Diagnóstico de cultura organizacional
+          <img src="/images/iconos/cultural.svg" alt="Icono Diagnóstico de cultura organizacional" class="absolute right-0 w-10">
         </li>
-        <li class="border-b border-white py-5 text-balance">
+        <li class="border-b border-white py-6 pr-14 text-balance relative flex justify-end items-center text-right w-full">
           Diagnóstico de línea base
+          <img src="/images/iconos/diagnostico.svg" alt="Icono Diagnóstico de línea base" class="absolute right-0 w-10">
         </li>
-        <li class="border-b border-white py-5 text-balance">
+        <li class="border-b border-white py-6 pr-14 text-balance relative flex justify-end items-center text-right w-full">
           Evaluación de impacto de proyectos y programas sociales
+          <img src="/images/iconos/evaluacion.svg" alt="Icono Evaluación de impacto de proyectos y programas sociales" class="absolute right-0 w-10">
         </li>
-        <li class="border-b border-white py-5 text-balance">
+        <li class="border-b border-white py-6 pr-14 text-balance relative flex justify-end items-center text-right w-full">
           Cambio de comportamiento en la organización (hábitos)
+          <img src="/images/iconos/habitos.svg" alt="Icono Cambio de comportamiento en la organización (hábitos)" class="absolute right-0 w-10">
         </li>
       </ul>
     </div>
     <div
-      class="w-full flex flex-col items-center justify-center gap-y-10 selector"
+      class="w-full flex flex-col items-center justify-center gap-y-7 selector"
     >
       <Title title="" subtitle="" align="text-center">
         <span class="text-white">Servicios de Stratega</span>
       </Title>
-      <div class="flex text-white w-full max-w-2xl border-white border-t-2">
-        <button
-          class="uppercase text-xl py-3 font-medium w-1/2 tracking-widest relative after:absolute after:w-0.5 after:bg-white after:right-0 after:top-3 after:h-[75%] after:content-['']"
-          id="btn-consultoria">Consultoría</button
-        >
-        <button
-          class="uppercase text-xl py-3 font-medium w-1/2 tracking-widest"
-          id="btn-formacion">Formación</button
-        >
+      <div class="flex text-white w-full max-w-2xl">
+        <div class="w-1/2 flex flex-col justify-center items-center" id="content-consultoria">
+          <div class="w-full flex-col justify-center items-center group">
+            <img src="/images/consultoria.webp" alt="Persona ofreciendo el servicio de consultoría" class="w-44 group-hover:scale-105 transition-transform duration-300 mx-auto">
+            <button
+              class="uppercase text-xl py-3 font-medium tracking-widest inline-flex justify-center items-center w-full gap-x-5 relative after:absolute after:w-0.5 after:bg-white after:right-0 after:top-3 after:h-[75%] after:content-[''] group-hover:bg-white group-hover:text-primary transition-colors duration-300 group border-white border-t-2 text-white"
+              id="btn-consultoria"
+            >
+              <Arrow
+                class="size-7 group-hover:text-primary transition-colors duration-300"
+              />
+              Consultoría
+            </button>
+          </div>
+          <a href="" class="bg-black py-5 mt-5 w-[80%] text-center text-lg font-semibold">Ver más</a>
+        </div>
+        <div class="w-1/2 flex flex-col justify-center items-center" id="content-formacion">
+          <div class="w-full flex-col justify-center items-center group">
+            <img src="/images/formacion.webp" alt="Persona ofreciendo el servicio de formación" class="w-44 group-hover:scale-105 transition-transform duration-300 mx-auto">
+            <button
+              class="uppercase text-xl py-3 inline-flex relative justify-center items-center gap-x-5 font-medium tracking-widest w-full group-hover:bg-white group-hover:text-primary transition-colors duration-300 group border-white border-t-2 text-white"
+              id="btn-formacion"
+            >
+              Formación
+              <Arrow
+                class="size-7 group-hover:text-primary transition-colors duration-300 rotate-180"
+              />
+            </button>
+          </div>
+          <a href="" class="bg-black py-5 mt-5 w-[80%] text-center text-lg font-semibold">Ver más</a>
+        </div>
       </div>
       <span class="text-white text-lg font-light" id="mensaje-metodologia"
         >Click para ver nuestros servicios</span
@@ -58,13 +87,14 @@ import Plus from "@/icons/Plus.astro";
         class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
       >
         <button
-          class="w-full py-3 text-left focus:outline-none flex justify-between items-center"
+          class="w-full py-3 pl-14 text-left focus:outline-none flex justify-between items-center relative"
         >
+          <img src="/images/iconos/talleres.svg" alt="Icono Talleres y conferencias" class="absolute w-10 left-0">
           <span class="text-2xl font-bold">Talleres y conferencias</span>
           <Plus class="size-6 text-white icon-plus" />
           <Minus class="size-6 text-white icon-minus hidden" />
         </button>
-        <div class="p-6 info-client max-h-0 hidden-info">
+        <div class="p-6 pl-14 info-client max-h-0 hidden-info">
           <ul class="text-lg font-light">
             <li>Desarrollo de Habilidades Blandas</li>
             <li>Motivación e Integración</li>
@@ -77,13 +107,14 @@ import Plus from "@/icons/Plus.astro";
         class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
       >
         <button
-          class="w-full py-3 text-left focus:outline-none flex justify-between items-center"
+          class="w-full py-3 pl-14 text-left focus:outline-none flex justify-between items-center relative"
         >
+          <img src="/images/iconos/programa.svg" alt="Icono Programas" class="absolute w-10 left-0">
           <span class="text-2xl font-bold">Programas</span>
           <Plus class="size-6 text-white icon-plus" />
           <Minus class="size-6 text-white icon-minus hidden" />
         </button>
-        <div class="p-6 info-client max-h-0 hidden-info">
+        <div class="p-6 pl-14 info-client max-h-0 hidden-info">
           <ul class="text-lg font-light">
             <li>Cambio de hábitos para una vida mejor</li>
             <li>Vida con Propósitos</li>
@@ -97,15 +128,16 @@ import Plus from "@/icons/Plus.astro";
         class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
       >
         <button
-          class="w-full py-3 text-left focus:outline-none flex justify-between items-center"
+          class="w-full py-3 pl-14 text-left focus:outline-none flex justify-between items-center relative"
         >
+        <img src="/images/iconos/responsabilidad.svg" alt="Icono Programas de responsabilidad social y sostenibilidad" class="absolute w-10 left-0">
           <span class="text-2xl font-bold"
             >Programas de responsabilidad social y sostenibilidad</span
           >
           <Plus class="size-6 text-white icon-plus" />
           <Minus class="size-6 text-white icon-minus hidden" />
         </button>
-        <div class="p-6 info-client max-h-0 hidden-info">
+        <div class="p-6 pl-14 info-client max-h-0 hidden-info">
           <ul class="text-lg font-light">
             <li>Fortalecimiento de Capacidades Técnicas</li>
             <li>Fortalecimiento de Habilidades Blandas</li>
@@ -122,9 +154,11 @@ import Plus from "@/icons/Plus.astro";
   const borderItems = document.querySelectorAll(".item-accordion");
   const btnFormacion = document.getElementById("btn-formacion");
   const btnConsultoria = document.getElementById("btn-consultoria");
+  const contentConsultoria = document.getElementById("content-consultoria");
+  const contentFormacion = document.getElementById("content-formacion");
   const section = document.getElementById("section-metodologia");
   const mensaje = document.getElementById("mensaje-metodologia");
-  const titulo = section.querySelector(".text-4xl");
+  // const titulo = section.querySelector(".text-4xl");
   const consultoria = document.querySelector(".consultoria");
   const formacion = document.querySelector(".formacion");
 
@@ -161,46 +195,52 @@ import Plus from "@/icons/Plus.astro";
 
   btnFormacion.addEventListener("click", () => {
     const divBotones = btnFormacion.parentNode;
-    consultoria.classList.toggle("hidden");
-    formacion.classList.add("hidden");
+    formacion.classList.toggle("hidden");
+    consultoria.classList.add("hidden");
     section.classList.remove("h-screen");
-    btnFormacion.classList.add("hidden");
-    btnConsultoria.classList.remove("hidden");
-    titulo.classList.add("text-left");
+    contentFormacion.classList.add("hidden");
+    contentConsultoria.classList.remove("hidden");
+    // titulo.classList.add("text-left");
     if (divBotones instanceof Element) {
       divBotones.classList.remove("border-t-2");
       divBotones.classList.remove("flex");
     }
     btnConsultoria.classList.add("bg-white");
-    btnConsultoria.classList.add("w-full");
+    contentConsultoria.classList.add("w-full");
+    contentConsultoria.classList.remove("w-1/2");
     btnConsultoria.classList.add("text-zinc-800");
-    btnConsultoria.classList.remove("w-1/2");
     btnConsultoria.classList.remove("text-white");
     mensaje.classList.add("hidden");
   });
 
   btnConsultoria.addEventListener("click", () => {
     const divBotones = btnConsultoria.parentNode;
-    formacion.classList.toggle("hidden");
-    consultoria.classList.add("hidden");
+    consultoria.classList.toggle("hidden");
+    formacion.classList.add("hidden");
     section.classList.remove("h-screen");
-    btnConsultoria.classList.add("hidden");
-    btnFormacion.classList.remove("hidden");
-    titulo.classList.add("text-right");
+    contentConsultoria.classList.add("hidden");
+    contentFormacion.classList.remove("hidden");
+    // titulo.classList.add("text-right");
     if (divBotones instanceof Element) {
       divBotones.classList.remove("border-t-2");
       divBotones.classList.remove("flex");
     }
     btnFormacion.classList.add("bg-white");
-    btnFormacion.classList.add("w-full");
+    contentFormacion.classList.add("w-full");
+    contentFormacion.classList.remove("w-1/2");
     btnFormacion.classList.add("text-zinc-800");
-    btnFormacion.classList.remove("w-1/2");
     btnFormacion.classList.remove("text-white");
     mensaje.classList.add("hidden");
   });
 </script>
 
 <style>
+  section {
+    background-image: url("/images/mapa.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   .info-client {
     opacity: 0;
     animation: fade-in 1s forwards;
