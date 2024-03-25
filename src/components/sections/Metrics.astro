@@ -12,6 +12,7 @@ import CardPurpose from "@/components/CardPurpose.astro";
               title={purpose.title}
               total={purpose.total}
               velocity={purpose.velocity}
+              icon={purpose.icon}
             />
           ))
         }
@@ -20,8 +21,9 @@ import CardPurpose from "@/components/CardPurpose.astro";
         {
           purposesOptions.map((purpose, index) => (
             <article
-              class={`flex flex-col gap-y-10 group py-3 pl-3 pr-8 ${index != 1 && "border-r-2"}`}
+              class={`flex flex-col gap-y-5 group py-3 pl-3 pr-8 ${index != 1 && "border-r-2"}`}
             >
+              <img src={`/images/iconos/${purpose.icon}.svg`} alt="" class="w-20 h-20 mx-auto">
               <h4 class="text-lg font-semibold text-center leading-tight">
                 {purpose.title}
               </h4>

@@ -47,22 +47,26 @@
         {
             "title": "Proyectos de consultoría desarrollados",
             "total": 300,
-            "velocity": 1100
+            "velocity": 1100,
+            "icon": "proyectos"
         },
         {
             "title": "Clientes satisfechos",
             "total": 320,
-            "velocity": 1100
+            "velocity": 1100,
+            "icon": "clientes"
         },
         {
             "title": "Personas formadas",
             "total": 16000,
-            "velocity": 300
+            "velocity": 300,
+            "icon": "formados"
         },
         {
             "title": "Participantes de países de LATAM en nuestros entrenamientos",
             "total": 12,
-            "velocity": 2000
+            "velocity": 2000,
+            "icon": "latam"
         }
         
     ],
@@ -70,12 +74,14 @@
         {
             "title": "Profesionales con gran experiencia y formación de primer nivel",
             "total": 100,
-            "velocity": 100
+            "velocity": 100,
+            "icon": "profesionales"
         },
         {
             "title": "Metodologías y herramientas innovadoras y de alto impacto",
             "total": 100,
-            "velocity": 100
+            "velocity": 100,
+            "icon": "metodologias"
         }
     ],
     "categoriesClient": [
