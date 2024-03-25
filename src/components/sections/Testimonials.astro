@@ -24,12 +24,13 @@ import { testimonials } from "@info";
                 <p class="text-center text-lg md:text-2xl text-zinc-600 font-light max-w-4xl mx-auto leading-relaxed mt-1">
                   {testimonial.text}
                 </p>
-                <h3 class="text-center text-lg font-bold mt-7">
+                <h3 class="text-center text-lg font-bold mt-7 bg-primary text-white px-2 py-1 rounded-md">
                   {testimonial.name}
                 </h3>
                 <p class="text-center text-base text-zinc-400 mt-1">
                   {testimonial.role}
                 </p>
+                <img src={`/images/iconos/${testimonial.country}.svg`} alt={`Bandera de ${testimonial.country}`} class="w-14">
               </div>
             </div>
           ))
@@ -77,7 +78,7 @@ import { testimonials } from "@info";
     modules: [Navigation, Autoplay],
     loop: true,
     autoplay: {
-      delay: 7000,
+      delay: 6000,
     },
     slidesPerView: 1,
     navigation: {

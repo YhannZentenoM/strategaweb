@@ -1,20 +1,46 @@
 ---
 import { categoriesClient } from "@info";
-const random = Math.floor(Math.random() * categoriesClient.length);
-const { clients } = categoriesClient[random];
+import Title from "@/components/Title.astro";
+
+function getRandomInt(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function shuffleArray(array: any[]): void {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = getRandomInt(0, i + 1);
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+const mergedClients = [];
+categoriesClient.forEach(category => {
+    category.clients.forEach(client => {
+        mergedClients.push({
+            id: client.id,
+            name: client.name
+        });
+    });
+});
+
+shuffleArray(mergedClients);
+
+const selectedClients = mergedClients.slice(0, Math.min(13, mergedClients.length));
 ---
 
 <section class="py-16">
-  <div class="swiper swiper-cliente">
+  <Title subtitle="Nuestros" title="Clientes" align="text-center" />
+  <div class="swiper swiper-cliente mt-5">
     <div class="swiper-wrapper">
       {
-        clients.map((slide) => (
+        selectedClients.map((slide) => (
           <div class="swiper-slide">
             <picture class="h-32 flex items-center justify-center">
               <img
                 src={`/images/clientes/${slide.id}.webp`}
                 alt={`${slide.name}`}
                 class="object-cover grayscale max-h-16"
+                title={`${slide.name}`}
               />
             </picture>
           </div>
