@@ -575,6 +575,37 @@
             "title": "Workshop Soft Skills Training",
             "text": "El curso me gustó mucho y me ha ayudado a manejar el estrés que siento, a darme cuenta que no puedo controlar todo, a calmar mis pensamientos, a tomar la decisión de que soy responsable de mi salud y mi paz. Me falta aprender mucho, pero en realidad, todo lo que nos enseñaste me está ayudando en este momento. Muchas gracias por todo."
         }
-        
+    ],
+    "consultancy": [
+        {
+            "id": "analisis-comportamiento-cliente",
+            "title": "Análisis del comportamiento del cliente",
+            "description": "El análisis del comportamiento del cliente es el conocimiento que se obtiene de cómo los clientes interactúan con una marca o empresa, a través de un proceso de segmentación y entendimiento del viaje que realiza (customer journey), con el fin de diseñar estrategias adecuadas que calcen con sus atributos de valor y así maximizar los beneficios para la compañía."
+        },
+        {
+            "id": "evaluacion-satisfaccion-cliente",
+            "title": "Evaluación de la satisfacción del cliente",
+            "description": "A través de distintas técnicas (entrevistas, encuestas, mystery shopper, observación, small data) evaluamos la calidad del servicio y la satisfacción del cliente, identificando fortalezas y oportunidades de mejora, a fin de que la empresa cuente con información relevante para optimizar su propuesta de valor."
+        },
+        {
+            "id": "diagnostico-cultura-organizacional",
+            "title": "Diagnóstico de cultura organizacional",
+            "description": "El diagnóstico de cultura busca identificar los valores, creencias y percepciones que se crean en torno a la organización. Estos pueden manifestarse a través de distintos niveles, los cuales involucran el lenguaje, el comportamiento no verbal, las formas de interacción, la estructura del poder dentro de la organización, etc. Los hallazgos servirán para trabajar en las oportunidades de mejora y capitalizar las fortalezas, siempre en el contexto de la cultura que se quiere construir."
+        },
+        {
+            "id": "implementacion-cambio-habitos",
+            "title": "Implementación de cambio de hábitos en la organización",
+            "description": "Un hábito organizacional representa el comportamiento diario entre los colaboradores, que muchas veces se da de manera inconsciente. Este programa busca identificar los hábitos actuales en la organización en general o en relación a algún tema específico: seguridad, calidad, medio ambiente, servicio al cliente, entre otros. Una vez identificado, se plantean acciones de corto, mediano y largo plazo para ayudar a cambiarlos, utilizando el bucle del hábito (señal -> anhelo -> comportamiento -> recompensa)."
+        },
+        {
+            "id": "estudio-linea-base",
+            "title": "Estudio de línea base",
+            "description": "La línea de base muestra la situación inicial de una población objetivo, su zona de influencia y contexto, sus características relevantes, atributos de valor, entre otros, con el fin de identificar las brechas existentes entre el estado actual y el deseado, y plantear programas de intervención que ayuden a acortar dichas diferencias."
+        },
+        {
+            "id": "evaluacion-impacto",
+            "title": "Evaluación de impacto de proyectos y programas sociales",
+            "description": "Medimos el impacto, en todas sus aristas, de la implementación de un proyecto en su ámbito de influencia directa e indirecta, para contrastarlo con los beneficios proyectados en el inicio, y, de ser el caso, realizar las correcciones del caso. Esta información también ayuda a evaluar, en retrospectiva, la relevancia de la puesta en marcha de un proyecto determinado, en beneficio de un grupo poblacional."
+        }
     ]
 }

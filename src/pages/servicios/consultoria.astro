@@ -1,0 +1,77 @@
+---
+import HeaderPage from "@/components/sections/HeaderPage.astro";
+import Layout from "@/layouts/Layout.astro";
+import { consultancy } from "@info";
+---
+
+<Layout title={`Stratega - Consultoría Empresarial | Consultoría`}>
+  <HeaderPage title={"Consultoría"} />
+  <section class="bg-secondary">
+    <div class="max-w-7xl mx-auto px-5 md:px-10 pb-28">
+      <img src={`/images/bg01.webp`} alt={`Consultoría Empresarial`} />
+      <p class="font-light text-zinc-600 mt-10 text-justify">
+        Nuestros procesos de consultoría están enfocados en las personas, tanto
+        a nivel de cliente interno (colaboradores de la organización) como del
+        cliente externo (comprador / consumidor / grupos de interés).
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+        {
+          consultancy.map((item) => (
+            <article class="w-full">
+              <header class="bg-primary flex justify-center">
+                <img
+                  src={`/images/consultoria.webp`}
+                  alt={item.title}
+                  class="h-full"
+                  loading="lazy"
+                />
+              </header>
+              <div class="p-3 mt-3">
+                <h2 class="text-3xl font-semibold leading-none">{item.title}</h2>
+                <p class="font-light text-zinc-600 mt-6 text-justify">
+                  {item.description}
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <!-- <div class="">
+        <div class="bg-white px-8 py-10 sticky top-0 flex flex-col gap-8">
+          <h2 class="text-lg font-bold">Contáctanos</h2>
+          <FormContact clases="p-3 gap-0.5 text-sm" />
+          <h2 class="text-lg font-bold">Información contacto</h2>
+          <ul class="space-y-5 text-base">
+            <li
+              class="flex items-start gap-2 justify-start text-balance font-open-sans font-light"
+            >
+              <Map class="w-10" />
+              {topNav.address}
+            </li>
+            <li
+              class="flex items-start gap-3 justify-start text-balance font-open-sans font-light leading-5"
+            >
+              <Mail class="w-5" />
+              {topNav.email}
+            </li>
+            <li
+              class="flex items-start gap-2 justify-start text-balance font-open-sans font-light"
+            >
+              <Cellphone class="size-6" />
+              {topNav.phone}
+            </li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+  </section>
+</Layout>
+
+<style>
+  article header {
+    background-image: url("/images/mapa.svg");
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
