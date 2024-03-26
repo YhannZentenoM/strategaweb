@@ -13,38 +13,3 @@ import { categoriesClient } from "@info";
     }
   </div>
 </section>
-
-<script>
-  const borderItems = document.querySelectorAll(".border-b");
-
-  borderItems.forEach((item, index) => {
-    const infoClient = item.querySelector(".info-client");
-    const iconPlus = item.querySelector(".icon-plus");
-    const iconMinus = item.querySelector(".icon-minus");
-
-    const toggleVisibility = () => {
-      infoClient?.classList.toggle("hidden-info");
-      iconPlus?.classList.toggle("hidden");
-      iconMinus?.classList.toggle("hidden");
-
-      const containClass = infoClient.classList.contains("hidden-info");
-      const borderClass = containClass ? "border-zinc-300" : "border-zinc-500";
-      containClass
-        ? item.classList.replace("border-zinc-500", borderClass)
-        : item.classList.replace("border-zinc-300", borderClass);
-      const maxHeightClass = containClass ? "max-h-0" : "max-h-[1000px]";
-
-      infoClient.classList.replace("max-h-0", maxHeightClass);
-    };
-
-    if (index === 0) {
-      infoClient.classList.remove("hidden-info");
-      iconPlus.classList.add("hidden");
-      iconMinus.classList.remove("hidden");
-      item.classList.add("border-zinc-500");
-      infoClient.classList.add("max-h-[1000px]");
-    }
-
-    item.addEventListener("click", toggleVisibility);
-  });
-</script>
