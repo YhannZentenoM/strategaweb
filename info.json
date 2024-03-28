@@ -58,8 +58,8 @@
         },
         {
             "title": "Personas formadas",
-            "total": 16000,
-            "velocity": 300,
+            "total": 16,
+            "velocity": 2000,
             "icon": "formados"
         },
         {
