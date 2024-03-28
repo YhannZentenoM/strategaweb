@@ -26,43 +26,19 @@ import { consultancy } from "@info";
                   loading="lazy"
                 />
               </header>
-              <div class="p-3 mt-3">
+              <div class="p-3 mt-3 info">
                 <h2 class="text-3xl font-semibold leading-none">{item.title}</h2>
-                <p class="font-light text-zinc-600 mt-6 text-justify">
+                <p class="description font-light text-zinc-600 mt-6 text-justify h-0 hidden">
                   {item.description}
                 </p>
+                <button type="button" class="btn-more flex items-center text-sm gap-x-1 font-medium hover:text-primary transition-colors duration-300 cursor-pointer py-1 mt-3">
+                  Ver más +
+                </button>
               </div>
             </article>
           ))
         }
       </div>
-      <!-- <div class="">
-        <div class="bg-white px-8 py-10 sticky top-0 flex flex-col gap-8">
-          <h2 class="text-lg font-bold">Contáctanos</h2>
-          <FormContact clases="p-3 gap-0.5 text-sm" />
-          <h2 class="text-lg font-bold">Información contacto</h2>
-          <ul class="space-y-5 text-base">
-            <li
-              class="flex items-start gap-2 justify-start text-balance font-open-sans font-light"
-            >
-              <Map class="w-10" />
-              {topNav.address}
-            </li>
-            <li
-              class="flex items-start gap-3 justify-start text-balance font-open-sans font-light leading-5"
-            >
-              <Mail class="w-5" />
-              {topNav.email}
-            </li>
-            <li
-              class="flex items-start gap-2 justify-start text-balance font-open-sans font-light"
-            >
-              <Cellphone class="size-6" />
-              {topNav.phone}
-            </li>
-          </ul>
-        </div>
-      </div> -->
     </div>
   </section>
 </Layout>
@@ -74,4 +50,31 @@ import { consultancy } from "@info";
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  .description {
+    animation: fade-in 1s forwards;
+    transition: all 0.5s;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 </style>
+
+<script>
+  const info = document.querySelectorAll('.info');
+  info.forEach((item) => {
+    const button = item.querySelector('.btn-more');
+    button.addEventListener('click', () => {
+      const description = item.querySelector('.description');
+      description?.classList.toggle('h-0');
+      description?.classList.toggle('hidden');
+      button.textContent = description?.classList.contains('h-0') ? 'Ver más +' : 'Ocultar -';
+    });
+  });
+</script>
