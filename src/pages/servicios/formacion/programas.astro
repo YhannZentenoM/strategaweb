@@ -1,0 +1,78 @@
+---
+import HeaderPage from "@/components/sections/HeaderPage.astro";
+import Layout from "@/layouts/Layout.astro";
+import { programs } from "@info";
+---
+
+<Layout title={`Stratega - Consultoría Empresarial | Programas`}>
+  <HeaderPage title={"Programas"} />
+  <section class="bg-secondary">
+    <div class="max-w-7xl mx-auto px-5 md:px-10 pb-28">
+      <img src={`/images/bg02.webp`} alt={`Programas`} />
+      <p class="font-light text-zinc-600 mt-10 text-justify">
+        Son entrenamientos prácticos de varias horas y/o sesiones en las que se abordan temas específicos como hábitos, propósito, soft skills, habilidades directivas y construcción de equipos (team building). En ellos utilizamos el enfoque “learning by doing”, promoviendo la participación activa de los participantes. Algunos de nuestros programas son:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+        {
+          programs.map((item) => (
+            <article class="w-full">
+              <header class="bg-primary flex justify-center">
+                <img
+                  src={`/images/formacion.webp`}
+                  alt={item.title}
+                  class="h-full"
+                  loading="lazy"
+                />
+              </header>
+              <div class="p-3 mt-3 info">
+                <h2 class="text-3xl font-semibold leading-none">{item.title}</h2>
+                <p class="description font-light text-zinc-600 mt-6 text-justify h-0 hidden">
+                  {item.description}
+                </p>
+                <button type="button" class="btn-more flex items-center text-sm gap-x-1 font-medium hover:text-primary transition-colors duration-300 cursor-pointer py-1 mt-3">
+                  Ver más +
+                </button>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  article header {
+    background-image: url("/images/mapa.svg");
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .description {
+    animation: fade-in 1s forwards;
+    transition: all 0.5s;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const info = document.querySelectorAll('.info');
+  info.forEach((item) => {
+    const button = item.querySelector('.btn-more');
+    button.addEventListener('click', () => {
+      const description = item.querySelector('.description');
+      description?.classList.toggle('h-0');
+      description?.classList.toggle('hidden');
+      button.textContent = description?.classList.contains('h-0') ? 'Ver más +' : 'Ocultar -';
+    });
+  });
+</script>

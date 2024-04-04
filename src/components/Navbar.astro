@@ -14,15 +14,19 @@ const menu = [
         url: "/servicios/consultoria",
       },
       {
-        name: "Capacitación (Talleres)",
+        name: "Formación",
         url: "#",
         items: [
           {
-            name: "Taller 1",
-            url: "/servicios/diseno-web",
+            name: "Talleres y Conferencias",
+            url: "/servicios/formacion/talleres",
           },
           {
-            name: "Taller 2",
+            name: "Programas",
+            url: "/servicios/formacion/programas",
+          },
+          {
+            name: "Programas de Responsabilidad Social y Sostenibilidad Empresarial",
             url: "/servicios/diseno-web",
           }
         ]
@@ -48,6 +52,7 @@ const menu = [
       {
         name: "Blog",
         url: "https://strategaperu.blogspot.pe/",
+        target: "_blank"
       }
     ]
   },
@@ -86,6 +91,7 @@ const pathname = Astro.url.pathname;
                       <a
                         href={subitem.url}
                         class={`${pathname.includes(subitem.url) && "text-white ml-2"} group-hover/item:text-white group-hover/item:ml-2 transition-all duration-300`}
+                        target={subitem.target || "_self"}
                       >
                         {subitem.name}
                       </a>

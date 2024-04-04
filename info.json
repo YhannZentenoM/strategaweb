@@ -1,45 +1,66 @@
 {
     "topNav": {
-        "schedules": "Mon - Fri 8:00 - 18:00 / Sunday 8:00 - 14:00",
+        "schedules": "Lunes - Viernes 8:00 am - 6:00 pm",
         "phone": "054-614929 | 959 969 605",
         "email": "contacto@strategaperu.com",
         "address": "Oficina Arequipa Calle Paz Soldán 407, Yanahuara",
         "profiles": [
             {
                 "network": "Facebook",
-                "username": "midudev",
-                "url": "https://github.com/midudev"
+                "username": "strategaperu",
+                "url": "https://www.facebook.com/strategaperu"
             },
             {
                 "network": "Instagram",
-                "username": "midudev",
-                "url": "https://linkedin.com/in/midudev"
+                "username": "strategaconsultoriaempresarial",
+                "url": "https://www.instagram.com/strategaconsultoriaempresarial/"
             },
             {
                 "network": "Linkedin",
-                "username": "midudev",
-                "url": "https://linkedin.com/in/midudev"
+                "username": "stratega-consultor-a-empresarial-sac",
+                "url": "https://www.linkedin.com/company/stratega-consultor-a-empresarial-sac/"
             },
             {
                 "network": "Whatsapp",
-                "username": "midudev",
-                "url": "https://x.com/midudev"
+                "username": "StrategaPeru",
+                "url": "https://wa.link/2cs9yu"
             }
         ]
     },
     "slider": [
         {
-            "title": "Profesionales de excelencia",
-            "subtitle": "We have the best products",
-            "image": "/images/bg01.webp",
-            "button": "Capacita a tu equipo ahora",
+            "title": "Taller de negociaciones exitosas - Método Harvard",
+            "image": "banner01",
             "url": "/products"
         },
         {
-            "title": "Welcome to our store",
-            "subtitle": "We have the best products",
-            "image": "/images/bg02.webp",
-            "button": "Explora más",
+            "title": "Programa Habilidades Directivas",
+            "image": "banner02",
+            "url": "/products"
+        },
+        {
+            "title": "Taller Customer Experience",
+            "image": "banner03",
+            "url": "/products"
+        },
+        {
+            "title": "Workshop Herramientas mentales para tiempos complejos",
+            "image": "banner04",
+            "url": "/products"
+        },
+        {
+            "title": "Talleres de Estrategia, emprendimiento y soft skills",
+            "image": "banner05",
+            "url": "/products"
+        },
+        {
+            "title": "Team Building - Equipos de alto rendimiento",
+            "image": "banner06",
+            "url": "/products"
+        },
+        {
+            "title": "Programa Soft Skills Training",
+            "image": "banner07",
             "url": "/products"
         }
     ],
@@ -611,6 +632,80 @@
             "id": "evaluacion-impacto",
             "title": "Evaluación de impacto de proyectos y programas sociales",
             "description": "Medimos el impacto, en todas sus aristas, de la implementación de un proyecto en su ámbito de influencia directa e indirecta, para contrastarlo con los beneficios proyectados en el inicio, y, de ser el caso, realizar las correcciones del caso. Esta información también ayuda a evaluar, en retrospectiva, la relevancia de la puesta en marcha de un proyecto determinado, en beneficio de un grupo poblacional."
+        }
+    ],
+    "workshops": [
+        {
+            "id": "liderazgo-personal-accountability",
+            "title": "Liderazgo personal y accountability",
+            "description": "Hoy más que nunca se necesita de personas generadoras de cambio, que asuman responsabilidades a nivel personal y en la sociedad en su conjunto. Líderes proactivos, que, a partir de su compromiso, logren los resultados deseados. En esta conferencia se comparten diversos aspectos relacionados a la transición de la “dependencia”; a la “interdependencia”, y su importancia para el desarrollo personal, pero también para lograr un mundo mejor."
+        },
+        {
+            "id": "poder-nuestras-creencias",
+            "title": "El poder de nuestras creencias",
+            "description": "Nuestro mundo [el de cada persona] se ha construido en base a creencias, y son estas las que definen las acciones y decisiones que tomamos. Estas creencias son pensamientos adoptados desde el inicio de nuestra existencia y se van formando mientras crecemos. En esta conferencia las personas tomarán consciencia de sus creencias limitantes, a fin de convertirlas en creencias potenciadoras, que finalmente ayuden a mejorar sus resultados y a acercarse a sus objetivos."
+        },
+        {
+            "id": "vendedor-grande-mundo",
+            "title": "El vendedor más grande del mundo",
+            "description": "La vida es una constante venta y negociación, a nivel personal, a nivel profesional y a nivel social. Por tanto, si no nos preocupamos en desarrollar nuestras habilidades como vendedores, es probable que tengamos algunas complicaciones para lograr nuestros objetivos. La marca personal es nuestro principal activo, por ello es importante cultivarla y gestionarla."
+        },
+        {
+            "id": "negociaciones-efectivas-metodo-harvard",
+            "title": "Negociaciones efectivas con el método Harvard",
+            "description": "Vivimos negociando permanentemente, no solo en el mundo de los negocios, sino también en el aspecto personal y familiar, incluso con nosotros mismos. La metodología Harvard aborda la negociación desde una perspectiva empática, con enfoque en el ser humano, en la que se busca un acuerdo win to win. Este proceso prioriza los intereses versus las posiciones de los negociadores, para generar alternativas de solución a partir de ellos."
+        },
+        {
+            "id": "pensamiento-critico-creatividad-innovacion",
+            "title": "Pensamiento crítico, creatividad e innovación",
+            "description": "La creatividad no es exclusiva de los genios. Todos tenemos un yo creativo, pero lo vamos dejando de lado por temas socio culturales. En esta conferencia, abordaremos la importancia de hacer uso de la creatividad en nuestras vidas, y estimularemos el proceso de cuestionamiento e innovación, no solo para creación de nuevos productos o servicios, sino en general para la toma de decisiones y solución de problemas en nuestra vida."
+        },
+        {
+            "id": "gestion-tiempo",
+            "title": "Gestión del tiempo",
+            "description": "Decir no tengo tiempo, es aceptar que algo no nos interesa. La velocidad con la que vivimos nos está llevando a dejar de lado lo importante, para priorizar lo urgente. Gestionar nuestro tiempo no solamente es fundamental para ser más productivos, sino también para lograr nuestros objetivos, y finalmente, para conseguir la felicidad que permanentemente buscamos."
+        },
+        {
+            "id": "gestion-emociones",
+            "title": "Gestión de emociones",
+            "description": "Todos en algún momento sentimos distintos tipos de emociones, tales como el miedo, la sorpresa, la aversión, la ira, la alegría y la tristeza. Aunque somos poco conscientes de ello, estas emociones guían gran parte de nuestras acciones y comportamientos, por tanto, es un imperativo saber gestionarlas. Esta gestión, también llamada inteligencia emocional, nos ayudará a tomar mejores decisiones a nivel personal y profesional, y, por tanto, a tener mejores resultados."
+        },
+        {
+            "id": "comunicacion-asertiva-escucha-activa",
+            "title": "Comunicación asertiva y escucha activa",
+            "description": "Muchos de los grandes problemas de la humanidad, se han dado por problemas de comunicación. Comunicar no es solamente hablar, sino sobre todo escuchar de manera empática. La comunicación va mucho más allá de la palabra, ya que aún sin decir nada es posible transmitir mucho. Esta conferencia ayudará a las personas a practicar el arte de comunicar y escuchar, pero además a tomar consciencia del impacto de su forma de procesar y transmitir información, en otras personas."
+        },
+        {
+            "id": "experiencia-cliente",
+            "title": "Experiencia del cliente: La experiencia hace la diferencia",
+            "description": "En un mercado hiper-competitivo como el de hoy, los clientes podemos elegir entre muchas opciones. A condiciones o características similares, primará el precio más bajo. Mejorar la experiencia del cliente ya no es una opción, es una obligación, sobre todo si queremos mantener el negocio en el mercado y crecer en él. Aquí brindaremos las pautas para diseñar una adecuada experiencia del cliente, en base a metodologías, herramientas y mejores prácticas, de las empresas mejor posicionadas a nivel mundial."
+        }
+    ],
+    "programs": [
+        {
+            "id": "cambio-habitos-vida-mejor",
+            "title": "Cambio de hábitos para una vida mejor",
+            "description": "Los hábitos son comportamientos repetidos que determinan nuestros resultados en todos los ámbitos de la vida. Amarrarse los zapatos, cepillarse los dientes, quedarse atrapado en las redes sociales, entre otros. Nuestra vida está llena de hábitos, la mayor parte de ellos desarrollados de manera inconsciente a través de rutinas aprendidas durante nuestra existencia. Los hábitos nos pueden llevar a la cima, pero también al fracaso. En este entrenamiento entenderemos como se forman los hábitos, identificaremos qué hábitos son los que vivimos día a día, y aprenderemos, a través de un método sustentado en la neurociencia, a cambiarlos para alcanzar nuestros objetivos de vida."
+        },
+        {
+            "id": "disenando-vida-proposito",
+            "title": "Diseñando una vida con propósito",
+            "description": "El propósito de vida es el combustible que nos mantiene vivos para lograr nuestros objetivos. También nos ayuda a encontrar sentido a lo que hacemos, en nuestro trabajo, en nuestra casa o en cualquier otro aspecto de nuestra existencia. Por ello, encontrarlo es una tarea fundamental para el ser humano. En este programa, ayudaremos a las personas en esa búsqueda personal y potenciadora. Para ello, integramos herramientas de coaching y de las metodologías de innovación Design Thinking y LEGO® SERIOUS PLAY®."
+        },
+        {
+            "id": "soft-skills-training",
+            "title": "Soft skills training",
+            "description": "Este entrenamiento busca desarrollar competencias y habilidades, que ayuden a las personas a identificar y tomar consciencia de comportamientos que no los acercan a sus objetivos, para reemplazarlos por creencias y comportamientos que potencien sus resultados. En este espacio es abordan, de manera dinámica y lúdica, temas relacionados al liderazgo, comunicación, trabajo en equipo, escucha activa, negociación, percepciones, tolerancia al fracaso, empatía, creatividad, entre otros."
+        },
+        {
+            "id": "habilidades-directivas",
+            "title": "Habilidades directivas en épocas de cambio e innovación",
+            "description": "El mundo está experimentando un cambio vertiginoso e impensado. Esto obligará a las empresas a replantear sus modelos de negocio y a los ejecutivos a desarrollar habilidades relacionadas al ser, que probablemente hasta hoy, han sido poco exploradas o aplicadas en el día a día. Aquí abordamos algunas de ellas, desde las estratégicas, hasta las individuales e interpersonales, a fin de empezar a tomar consciencia de la relevancia que estas representan en el rol del ejecutivo moderno."
+        },
+        {
+            "id": "team-building",
+            "title": "Team building",
+            "description": "El team building busca fortalecer la integración, la confianza y el trabajo en equipo, mediante una serie de actividades en donde cada trabajador tenga un rol y aporte valor para cumplir el reto propuesto. Para que el team building sea efectivo, debe enfatizar en un aporte 100/100, es decir, las opiniones y soluciones de cada uno de los integrantes deben ser recibidas de igual forma, sin priorizar jerarquías ni poder formal dentro del equipo. Utilizamos técnicas y herramientas del coaching, actuación, outdoor training, agilidad, Design Thinking y LEGO® SERIOUS PLAY®."
         }
     ]
 }

@@ -52,3 +52,10 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+
+Corrección. :
+-Realizar el diseño blog
+-Falta pasarela de Pagos 
+-Tener un enlace de política de protección de datos personales
+# -Falta grafico de : " cómo lo hacemos" está en el brochure , hay q adecuarlo al página
