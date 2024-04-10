@@ -2,7 +2,7 @@
 const { title, subtitle, align } = Astro.props;
 ---
 
-<div class={`flex flex-col justify-start gap-y-5 text-zinc-800 ${align}`}>
+<div class={`flex flex-col justify-start gap-y-5 text-zinc-800 px-5 ${align}`}>
   <h3 class="uppercase text-sm font-semibold tracking-widest">{subtitle}</h3>
   <h1 class="text-4xl md:text-6xl font-semibold text-balance tracking-tight">
     {title}

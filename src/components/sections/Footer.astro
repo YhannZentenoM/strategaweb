@@ -18,9 +18,9 @@ const SOCIAL_ICONS = {
 
 <footer class="bg-black pt-20">
   <div
-    class="max-w-7xl mx-auto px-5 pb-20 grid grid-cols-1 md:grid-cols-2 gap-5"
+    class="max-w-7xl mx-auto px-5 pb-20 flex flex-col md:flex-row justify-between items-end gap-5"
   >
-    <div>
+    <div class="text-sm md:text-base">
       <a href="/" class="w-48"><Logo class="fill-white w-48" /></a>
       <p class="text-white/60 flex items-center gap-x-1 mt-14 mb-1">
         <Phone class="w-5" />
@@ -31,7 +31,7 @@ const SOCIAL_ICONS = {
         {address}
       </p>
     </div>
-    <div class="flex justify-end">
+    <div class="flex flex-col justify-between gap-y-10">
       <ul class="inline-flex text-white/90 gap-x-6">
         {
           profiles.map(({ network, url, username }) => {
@@ -44,13 +44,14 @@ const SOCIAL_ICONS = {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon class="w-7 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
+                  <Icon class="w-4 md:w-7 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
                 </a>
               </li>
             );
           })
         }
       </ul>
+      <a href="" class="text-white/90 text-sm hover:text-primary transition-colors duration-300">Política de protección de datos</a>
     </div>
   </div>
   <div class="max-w-7xl mx-auto px-5 py-5 border-t border-zinc-700">

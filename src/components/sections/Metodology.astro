@@ -6,11 +6,113 @@ import Plus from "@/icons/Plus.astro";
 ---
 
 <section
-  class="bg-primary py-28 min-h-screen h-screen"
+  class="bg-primary py-16 md:py-28 md:min-h-screen md:h-screen"
   id="section-metodologia"
 >
+  <div class="px-5 md:hidden block">
+    <Title title="" subtitle="" align="text-center">
+      <span class="text-white">Servicios de Stratega</span>
+    </Title>
+    <h3 class="text-white text-2xl font-bold mt-10">Consultoría</h3>
+    <ul class="text-white text-left text-lg font-light">
+      <li class="border-b border-white py-6 pl-5 text-balance relative flex gap-x-5 justify-start items-center w-full">
+        <img src="/images/iconos/comportamiento.svg" alt="Icono Comportamiento del cliente" class="w-8">
+        Comportamiento del cliente
+      </li>
+      <li class="border-b border-white py-6 pl-5 text-balance relative flex gap-x-5 justify-start items-center w-full">
+        <img src="/images/iconos/satisfaccion.svg" alt="Icono Satisfacción del cliente" class="w-8">
+        Satisfacción del cliente
+      </li>
+      <li class="border-b border-white py-6 pl-5 text-balance relative flex gap-x-5 justify-start items-center w-full">
+        <img src="/images/iconos/cultural.svg" alt="Icono Diagnóstico de cultura organizacional" class="w-8">
+        Diagnóstico de cultura organizacional
+      </li>
+      <li class="border-b border-white py-6 pl-5 text-balance relative flex gap-x-5 justify-start items-center w-full">
+        <img src="/images/iconos/diagnostico.svg" alt="Icono Diagnóstico de línea base" class="w-8">
+        Diagnóstico de línea base
+      </li>
+      <li class="border-b border-white py-6 pl-5 text-balance relative flex gap-x-5 justify-start items-center w-full">
+        <img src="/images/iconos/evaluacion.svg" alt="Icono Evaluación de impacto de proyectos y programas sociales" class="w-8">
+        Evaluación de impacto de proyectos y programas sociales
+      </li>
+      <li class="border-b border-white py-6 pl-5 text-balance relative flex gap-x-5 justify-start items-center w-full">
+        <img src="/images/iconos/habitos.svg" alt="Icono Cambio de comportamiento en la organización (hábitos)" class="w-8">
+        Cambio de comportamiento en la organización (hábitos)
+      </li>
+    </ul>
+    <h3 class="text-white text-2xl font-bold mt-10">Formación</h3>
+    <div
+        class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
+      >
+        <button
+          class="w-full py-2 pl-5 text-left focus:outline-none flex justify-between items-center relative"
+        >
+          <div class="flex gap-x-5">
+            <img src="/images/iconos/talleres.svg" alt="Icono Talleres y conferencias" class="w-8">
+            <span class="text-lg font-light">Talleres y conferencias</span>
+          </div>
+          <Plus class="size-6 text-white icon-plus" />
+          <Minus class="size-6 text-white icon-minus hidden" />
+        </button>
+        <div class="p-6 pl-10 info-client max-h-0 hidden-info">
+          <ul class="text-base font-light">
+            <li>Desarrollo de Habilidades Blandas</li>
+            <li>Motivación e Integración</li>
+            <li>Emprendimiento e Innovación</li>
+            <li>Ventos y Servicio al Cliente</li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
+      >
+        <button
+          class="w-full py-2 pl-5 text-left focus:outline-none flex justify-between items-center relative"
+        >
+        <div class="flex gap-x-5">
+          <img src="/images/iconos/programa.svg" alt="Icono Programas" class="w-8">
+          <span class="text-lg font-light">Programas</span>
+        </div>
+          <Plus class="size-6 text-white icon-plus" />
+          <Minus class="size-6 text-white icon-minus hidden" />
+        </button>
+        <div class="p-6 pl-10 info-client max-h-0 hidden-info">
+          <ul class="text-base font-light">
+            <li>Cambio de hábitos para una vida mejor</li>
+            <li>Vida con Propósitos</li>
+            <li>Soft Skills Training</li>
+            <li>Habilidades Directivas</li>
+            <li>Team Building</li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="border-b item-accordion border-white py-5 transition-all duration-500 text-white"
+      >
+        <button
+          class="w-full py-2 pl-5 text-left focus:outline-none flex justify-between items-center relative"
+        >
+        <div class="flex gap-x-5">
+          <img src="/images/iconos/responsabilidad.svg" alt="Icono Programas de responsabilidad social y sostenibilidad" class="w-8">
+            <span class="text-lg font-light"
+              >Programas de responsabilidad social y sostenibilidad</span
+            >
+        </div>
+          <Plus class="size-6 text-white icon-plus" />
+          <Minus class="size-6 text-white icon-minus hidden" />
+        </button>
+        <div class="p-6 pl-10 info-client max-h-0 hidden-info">
+          <ul class="text-base font-light">
+            <li>Fortalecimiento de Capacidades Técnicas</li>
+            <li>Fortalecimiento de Habilidades Blandas</li>
+            <li>Emprendimiento y Desarrollo</li>
+            <li>Salud y Bienestar</li>
+          </ul>
+        </div>
+      </div/>
+  </div>
   <div
-    class="max-w-7xl h-full mx-auto px-5 flex items-center justify-center gap-x-20"
+    class="max-w-7xl h-full mx-auto px-5 md:flex items-center justify-center gap-x-20 hidden"
   >
     <div class="w-full hidden consultoria">
       <ul class="text-white text-right text-2xl font-bold">
@@ -46,12 +148,12 @@ import Plus from "@/icons/Plus.astro";
       <Title title="" subtitle="" align="text-center">
         <span class="text-white">Servicios de Stratega</span>
       </Title>
-      <div class="flex text-white w-full max-w-2xl">
-        <div class="w-1/2 flex flex-col justify-center items-center" id="content-consultoria">
+      <div class="flex flex-col md:flex-row gap-y-10 md:gap-y-0 text-white w-full md:max-w-2xl">
+        <div class="w-full md:w-1/2 flex flex-col justify-center items-center" id="content-consultoria">
           <div class="w-full flex-col justify-center items-center group">
             <img src="/images/consultoria.webp" alt="Persona ofreciendo el servicio de consultoría" class="w-44 group-hover:scale-105 transition-transform duration-300 mx-auto">
             <button
-              class="uppercase text-xl py-3 font-medium tracking-widest inline-flex justify-center items-center w-full gap-x-5 relative after:absolute after:w-0.5 after:bg-white after:right-0 after:top-3 after:h-[75%] after:content-[''] group-hover:bg-white group-hover:text-primary transition-colors duration-300 group border-white border-t-2 text-white"
+              class="uppercase text-xl py-3 font-medium tracking-widest inline-flex justify-center items-center w-full gap-x-5 relative md:after:absolute md:after:w-0.5 md:after:bg-white md:after:right-0 md:after:top-3 md:after:h-[75%] md:after:content-[''] group-hover:bg-white group-hover:text-primary transition-colors duration-300 group border-white border-t-2 text-white"
               id="btn-consultoria"
             >
               <Arrow
@@ -62,7 +164,7 @@ import Plus from "@/icons/Plus.astro";
           </div>
           <a href="" class="bg-black py-5 mt-5 w-[80%] text-center text-lg font-semibold">Ver más</a>
         </div>
-        <div class="w-1/2 flex flex-col justify-center items-center" id="content-formacion">
+        <div class="w-full md:w-1/2 flex flex-col justify-center items-center" id="content-formacion">
           <div class="w-full flex-col justify-center items-center group">
             <img src="/images/formacion.webp" alt="Persona ofreciendo el servicio de formación" class="w-44 group-hover:scale-105 transition-transform duration-300 mx-auto">
             <button

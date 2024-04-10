@@ -5,11 +5,11 @@ import { slider } from "@info";
 <section>
   <div class="swiper swiper-header">
     <!-- Wrapper adicional requerido -->
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper h-[600px] md:h-screen">
       <!-- Los slides -->
       {
         slider.map((slide) => (
-          <div class="swiper-slide relative">
+          <div class="swiper-slide overflow-hidden relative">
             <a href={`${slide.url}`} class="w-full h-full">
               <picture>
                 <source
@@ -34,10 +34,10 @@ import { slider } from "@info";
 </section>
 
 <style>
-  .swiper-slide {
+  /* .swiper-slide {
     height: 100vh;
     overflow: hidden;
-  }
+  } */
   .swiper-button-prev,
   .swiper-button-next {
     background-image: url("/images/arrow.svg");
@@ -58,6 +58,16 @@ import { slider } from "@info";
   .swiper-button-next {
     right: 0;
     transform: rotate(180deg);
+  }
+
+  @media (max-width: 768px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      background-size: 17px auto;
+      background-color: #ffffffba;
+      width: 25px;
+      height: 55px;
+    }
   }
 </style>
 

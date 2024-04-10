@@ -4,7 +4,7 @@ import Title from "@/components/Title.astro";
 import { testimonials } from "@info";
 ---
 
-<section class="bg-secondary py-28">
+<section class="bg-secondary py-10 md:py-28">
   <div class="max-w-7xl mx-auto px-5 relative">
     <Title
       title="Clientes satisfechos"
@@ -21,13 +21,13 @@ import { testimonials } from "@info";
                 <p class="font-bold text-center text-lg md:text-2xl text-zinc-600 max-w-4xl mx-auto leading-relaxed mt-7">
                   {testimonial.title}
                 </p>
-                <p class="text-center text-lg md:text-2xl text-zinc-600 font-light max-w-4xl mx-auto leading-relaxed mt-1">
+                <p class="text-center text-base md:text-2xl text-zinc-600 font-light max-w-4xl mx-auto leading-relaxed mt-1">
                   {testimonial.text}
                 </p>
-                <h3 class="text-center text-lg font-bold mt-7 bg-primary text-white px-2 py-1 rounded-md">
+                <h3 class="text-center text-base md:text-lg font-bold mt-7 bg-primary text-white px-2 py-1 rounded-md">
                   {testimonial.name}
                 </h3>
-                <p class="text-center text-base text-zinc-400 mt-1">
+                <p class="text-center text-sm md:text-base text-zinc-400 mt-1">
                   {testimonial.role}
                 </p>
                 <img src={`/images/iconos/${testimonial.country}.svg`} alt={`Bandera de ${testimonial.country}`} class="w-14 mt-4">

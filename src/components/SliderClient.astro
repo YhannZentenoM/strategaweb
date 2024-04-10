@@ -28,7 +28,7 @@ shuffleArray(mergedClients);
 const selectedClients = mergedClients.slice(0, Math.min(13, mergedClients.length));
 ---
 
-<section class="py-16">
+<section class="py-16 px-5">
   <Title subtitle="Nuestros" title="Clientes" align="text-center" />
   <div class="swiper swiper-cliente mt-5">
     <div class="swiper-wrapper">
@@ -67,6 +67,11 @@ const selectedClients = mergedClients.slice(0, Math.min(13, mergedClients.length
     autoplay: {
       delay: 7000,
     },
-    slidesPerView: 5,
+    slidesPerView: 2,
+    breakpoints: {
+      768: {
+        slidesPerView: 5,
+      }
+    },
   });
 </script>

@@ -1,5 +1,7 @@
 ---
 import Logo from "@/icons/Logo.astro";
+import MenuBar from "@/icons/MenuBar.astro";
+import MenuMobile from "@/components/MenuMobile.astro";
 const menu = [
   {
     name: "Inicio",
@@ -68,12 +70,17 @@ const pathname = Astro.url.pathname;
   <div
     class="max-w-7xl mx-auto py-3 flex justify-between items-center"
   >
-    <a href="/" class={`px-3 w-48`}
+    <a href="/" class={`px-3 w-40 md:w-48`}
       ><Logo
         class={`fill-primary hover:scale-105 transition-all duration-500`}
       /></a
     >
-    <nav>
+    <button type="button" onclick="document.querySelector('.mobile-menu').classList.toggle('hidden')">
+      <MenuBar
+        class="md:hidden fill-primary w-8 h-8 cursor-pointer mr-3"
+      />
+    </button>
+    <nav class="hidden md:block">
       <ul class="flex gap-x-7">
         {
           menu.map((item) => (
@@ -120,3 +127,4 @@ const pathname = Astro.url.pathname;
     </nav>
   </div>
 </section>
+<MenuMobile menu={menu} pathname={pathname} />
