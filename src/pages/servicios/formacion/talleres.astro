@@ -4,12 +4,14 @@ import Layout from "@/layouts/Layout.astro";
 import { workshops } from "@info";
 ---
 
-<Layout title={`Stratega - Consultoría Empresarial | Talleres y Conferencias`}>
+<Layout title={`Talleres y Conferencias | Stratega - Consultoría Empresarial`}>
   <HeaderPage title={"Talleres y Conferencias"} />
   <section class="bg-secondary">
     <div class="max-w-7xl mx-auto px-5 md:px-10 pb-28">
       <img src={`/images/bg02.webp`} alt={`Talleres y Conferencias`} />
-      <p class="font-light text-zinc-600 mt-10 text-justify text-sm md:text-base">
+      <p
+        class="font-light text-zinc-600 mt-10 text-justify text-sm md:text-base"
+      >
         Nuestros talleres y conferencias están enfocados en el fortalecimiento y
         desarrollo de soft skills en las personas. A continuación, se muestran
         algunos de los temas que ofrecemos:
@@ -26,9 +28,9 @@ import { workshops } from "@info";
             <article class="w-full">
               <header class="bg-primary flex justify-center">
                 <img
-                  src={`/images/formacion.webp`}
+                  src={`/images/servicios/${item.id}.avif`}
                   alt={item.title}
-                  class="h-full"
+                  class="w-full"
                   loading="lazy"
                 />
               </header>
@@ -86,7 +88,7 @@ import { workshops } from "@info";
               name="importe"
               class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
               placeholder="000.00"
-              min="0" 
+              min="0"
               step="0.01"
             />
           </label>
@@ -124,7 +126,9 @@ import { workshops } from "@info";
             />
           </label>
         </div>
-        <div class="flex flex-col md:flex-row gap-y-5 justify-between items-center mt-5">
+        <div
+          class="flex flex-col md:flex-row gap-y-5 justify-between items-center mt-5"
+        >
           <ul class="text-xs text-zinc-500">
             <li>Las tarifas INCLUYEN IGV.</li>
             <li>La tarifa de pre-venta solo aplica para pagos al contado.</li>
@@ -187,7 +191,6 @@ import { workshops } from "@info";
   });
 
   const form = document.querySelector("form");
-
   //   -----BEGIN PUBLIC KEY-----
   // MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDPjaJc94qshOMUDfM1rzp4zh/U
   // v3BDI+E5HU/pWPdDVO71Tz1msTzK2I9N5r/EyLMp2tfFo2H5zjbq3tIS2OSZ5Dbr
@@ -196,14 +199,14 @@ import { workshops } from "@info";
   // -----END PUBLIC KEY-----
 
   // sk_test_FP8Co5prFkX7XChh
-  
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const importe = document.querySelector("input[name=importe]").value;
     const importeFormat =
-    importe.includes(".") || importe.includes(",")
-    ? importe.replace(".", "").replace(",", "")
-    : importe + "00";
+      importe.includes(".") || importe.includes(",")
+        ? importe.replace(".", "").replace(",", "")
+        : importe + "00";
     const nombre = document.querySelector("input[name=nombre]").value;
     const apellido = document.querySelector("input[name=apellido]").value;
     const telefono = document.querySelector("input[name=telefono]").value;
@@ -212,7 +215,7 @@ import { workshops } from "@info";
       return;
     }
     alertDialog.close();
-    
+
     const settings = {
       title: "Culqi Checkout",
       currency: "PEN",
@@ -221,7 +224,7 @@ import { workshops } from "@info";
       // xculqirsaid: '8371543e-c10d-46b4-8b1c-6e4090f16981',
       // rsapublickey: '-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDPjaJc94qshOMUDfM1rzp4zh/Uv3BDI+E5HU/pWPdDVO71Tz1msTzK2I9N5r/EyLMp2tfFo2H5zjbq3tIS2OSZ5DbrVGjrxt2w0V5WRBM7+Tlx4Qo7wwwIn6Tfsninc2kZW2KA99LzouKefj7nvvIPr8tDTxlpruF5OqlH8TyYAwIDAQAB-----END PUBLIC KEY-----',
     };
-  
+
     const appearance = {
       theme: "default",
       hiddenCulqiLogo: false,
@@ -240,13 +243,13 @@ import { workshops } from "@info";
         priceColor: "#bf282e",
       },
     };
-  
+
     const client = {
       nombres: nombre,
       apellidos: apellido,
       telefono: telefono,
     };
-  
+
     const paymentMethods = {
       // las opciones se ordenan según se configuren
       tarjeta: true,
@@ -256,7 +259,7 @@ import { workshops } from "@info";
       agente: true,
       cuotealo: true,
     };
-  
+
     const options = {
       lang: "auto",
       installments: true, // Habilitar o deshabilitar el campo de cuotas
@@ -265,18 +268,19 @@ import { workshops } from "@info";
       paymentMethods: paymentMethods,
       paymentMethodsSort: Object.keys(paymentMethods), // las opciones se ordenan según se configuren en paymentMethods
     };
-  
+
     const handleCulqiAction = () => {
       if (Culqi.token) {
         const token = Culqi.token.id;
         const email = Culqi.token.email;
-        console.log("Se ha creado un Token: ", token);
-  
+        // console.log("Se ha creado un Token: ", token);
+
         fetch("https://api.culqi.com/v2/charges", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer sk_test_FP8Co5prFkX7XChh",
+            // "Authorization": "Bearer sk_test_FP8Co5prFkX7XChh",
+            "Authorization": "Bearer sk_live_6qwAVqFt2phZ2uNs",
           },
           body: JSON.stringify({
             amount: settings.amount,
@@ -284,7 +288,7 @@ import { workshops } from "@info";
             email: email,
             source_id: token,
             capture: true,
-            description: "Prueba",
+            description: "Curso",
             antifraud_details: {
               country_code: "PE",
               first_name: client.nombres,
@@ -295,9 +299,9 @@ import { workshops } from "@info";
         })
           .then((res) => res.json())
           .then((res) => {
-            if(res.outcome.type != "venta_exitosa"){
+            if (res.outcome.type != "venta_exitosa") {
               alert("Pago fallido");
-              return
+              return;
             }
             alert("Pago exitoso");
             window.location.reload();
@@ -312,19 +316,20 @@ import { workshops } from "@info";
         console.log("Errorrr : ", Culqi.error);
       }
     };
-  
+
     const config = {
       settings,
       options,
       appearance,
     };
-  
-    // const publicKey = "pk_live_nZd3ixsxog91x1VR";
-    const publicKey = "pk_test_eBxPGEUyHK0H80Ic";
+
+    const publicKey = "pk_live_nZd3ixsxog91x1VR";
+    // const publicKey = "pk_test_eBxPGEUyHK0H80Ic";
+    // const publicKey = import.meta.env.PUBLIC_KEY;
     const Culqi = new CulqiCheckout(publicKey, config);
-  
+
     Culqi.culqi = handleCulqiAction;
-    
+
     Culqi.open();
   });
 </script>

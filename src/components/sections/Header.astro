@@ -3,13 +3,13 @@ import { slider } from "@info";
 ---
 
 <section>
-  <div class="swiper swiper-header">
+  <div class="swiper swiper-header h-full md:h-[65vh]">
     <!-- Wrapper adicional requerido -->
-    <div class="swiper-wrapper h-full md:h-screen">
+    <div class="swiper-wrapper">
       <!-- Los slides -->
       {
         slider.map((slide) => (
-          <div class="swiper-slide overflow-hidden relative">
+          <div class="swiper-slide overflow-hidden relative bg-black">
             <a href={`${slide.url}`} class="w-full h-full">
               <picture>
                 <source
@@ -19,7 +19,7 @@ import { slider } from "@info";
                 <img
                   src={`/images/banners/${slide.image}.avif`}
                   alt={`${slide.title}`}
-                  class="w-full h-full object-cover"
+                  class="h-full mx-auto object-cover"
                 />
               </picture>
             </a>
@@ -34,10 +34,6 @@ import { slider } from "@info";
 </section>
 
 <style>
-  /* .swiper-slide {
-    height: 100vh;
-    overflow: hidden;
-  } */
   .swiper-button-prev,
   .swiper-button-next {
     background-image: url("/images/arrow.svg");
@@ -54,10 +50,13 @@ import { slider } from "@info";
   }
   .swiper-button-prev {
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .swiper-button-next {
     right: 0;
-    transform: rotate(180deg);
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
   }
 
   @media (max-width: 768px) {

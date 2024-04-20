@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import { programs } from "@info";
 ---
 
-<Layout title={`Stratega - Consultoría Empresarial | Programas`}>
+<Layout title={`Programas | Stratega - Consultoría Empresarial`}>
   <HeaderPage title={"Programas"} />
   <section class="bg-secondary">
     <div class="max-w-7xl mx-auto px-5 md:px-10 pb-28">
@@ -18,9 +18,9 @@ import { programs } from "@info";
             <article class="w-full">
               <header class="bg-primary flex justify-center">
                 <img
-                  src={`/images/formacion.webp`}
+                  src={`/images/servicios/${item.id}.avif`}
                   alt={item.title}
-                  class="h-full"
+                  class="w-full"
                   loading="lazy"
                 />
               </header>
