@@ -9,6 +9,7 @@ const { clases, bgInput = "bg-white" } = Astro.props;
   <div class="relative">
     <input
       type="text"
+      name="nombre"
       class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3 ${bgInput}`}
       placeholder="Nombre"
     />
@@ -36,6 +37,7 @@ const { clases, bgInput = "bg-white" } = Astro.props;
   <div class="relative">
     <input
       type="text"
+      name="telefono"
       class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3 ${bgInput}`}
       placeholder="Teléfono"
     />
@@ -43,7 +45,8 @@ const { clases, bgInput = "bg-white" } = Astro.props;
   </div>
   <div class="relative">
     <input
-      type="text"
+      type="email"
+      name="email"
       class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3 ${bgInput}`}
       placeholder="Email"
     />
@@ -53,6 +56,7 @@ const { clases, bgInput = "bg-white" } = Astro.props;
     <textarea
       class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3 ${bgInput}`}
       rows="4"
+      name="mensaje"
       placeholder="Mensaje"></textarea>
     <svg class="absolute left-0 top-3 w-6" viewBox="0 0 24 24" fill="none"
       ><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"
@@ -86,7 +90,7 @@ const { clases, bgInput = "bg-white" } = Astro.props;
       Enviar
     </button>
     <a
-      href="#"
+      href="https://wa.link/2cs9yu"
       target="_blank"
       class={`bg-[#66b75a] text-white tracking-wider ${clases} flex items-center`}
     >
@@ -114,3 +118,21 @@ const { clases, bgInput = "bg-white" } = Astro.props;
     </a>
   </div>
 </form>
+
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch("https://strategaperu.com/php/send.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        form.reset();
+      })
+      .catch((err) => console.log(err));
+  });
+</script>
