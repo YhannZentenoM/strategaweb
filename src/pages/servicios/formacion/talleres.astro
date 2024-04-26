@@ -191,15 +191,6 @@ import { workshops } from "@info";
   });
 
   const form = document.querySelector("form");
-  //   -----BEGIN PUBLIC KEY-----
-  // MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDPjaJc94qshOMUDfM1rzp4zh/U
-  // v3BDI+E5HU/pWPdDVO71Tz1msTzK2I9N5r/EyLMp2tfFo2H5zjbq3tIS2OSZ5Dbr
-  // VGjrxt2w0V5WRBM7+Tlx4Qo7wwwIn6Tfsninc2kZW2KA99LzouKefj7nvvIPr8tD
-  // TxlpruF5OqlH8TyYAwIDAQAB
-  // -----END PUBLIC KEY-----
-
-  // sk_test_FP8Co5prFkX7XChh
-
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const importe = document.querySelector("input[name=importe]").value;
@@ -221,8 +212,6 @@ import { workshops } from "@info";
       currency: "PEN",
       amount: importeFormat,
       order: "ord_live_d1P0Tu1n7Od4nZdp",
-      // xculqirsaid: '8371543e-c10d-46b4-8b1c-6e4090f16981',
-      // rsapublickey: '-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDPjaJc94qshOMUDfM1rzp4zh/Uv3BDI+E5HU/pWPdDVO71Tz1msTzK2I9N5r/EyLMp2tfFo2H5zjbq3tIS2OSZ5DbrVGjrxt2w0V5WRBM7+Tlx4Qo7wwwIn6Tfsninc2kZW2KA99LzouKefj7nvvIPr8tDTxlpruF5OqlH8TyYAwIDAQAB-----END PUBLIC KEY-----',
     };
 
     const appearance = {
@@ -273,13 +262,11 @@ import { workshops } from "@info";
       if (Culqi.token) {
         const token = Culqi.token.id;
         const email = Culqi.token.email;
-        // console.log("Se ha creado un Token: ", token);
 
         fetch("https://api.culqi.com/v2/charges", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            // "Authorization": "Bearer sk_test_FP8Co5prFkX7XChh",
             "Authorization": "Bearer sk_live_6qwAVqFt2phZ2uNs",
           },
           body: JSON.stringify({
@@ -324,11 +311,9 @@ import { workshops } from "@info";
     };
 
     const publicKey = "pk_live_nZd3ixsxog91x1VR";
-    // const publicKey = "pk_test_eBxPGEUyHK0H80Ic";
-    // const publicKey = import.meta.env.PUBLIC_KEY;
     const Culqi = new CulqiCheckout(publicKey, config);
 
-    Culqi.culqi = handleCulqiAction;
+    Culqi.culqi = handleCulqiAction; 
 
     Culqi.open();
   });
