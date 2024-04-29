@@ -1,19 +1,30 @@
 ---
-import CardTeam from '@/components/CardTeam.astro'
-import { getCollection } from 'astro:content';
-const equipoPost = await getCollection('equipo');
+import CardTeam from "@/components/CardTeam.astro";
+interface Props {
+  team: Array<{
+    data: {
+      name?: string;
+      job?: string;
+      image?: string;
+    };
+    slug: string;
+  }>;
+  page: string;
+}
+const { team, page } = Astro.props;
 ---
+
 <section class="pb-28 bg-secondary">
-    <div class="max-w-7xl mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-7">
-        {
-            equipoPost.map((post: any) => (
-                <CardTeam
-                    title={post.data.name}
-                    subtitle={post.data.job}
-                    image={post.data.image}
-                    url={`${"/equipo/" + post.slug}`}
-                />
-            ))
-        }
-    </div>
+  <div class="max-w-7xl mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-7">
+    {
+      team.map((post) => (
+        <CardTeam
+          title={post.data.name}
+          subtitle={post.data.job}
+          image={post.data.image}
+          url={`/${page}/${post.slug}`}
+        />
+      ))
+    }
+  </div>
 </section>

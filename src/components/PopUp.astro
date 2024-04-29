@@ -36,7 +36,7 @@ import Building from "@/icons/Building.astro";
         <h2
           class="text-3xl md:text-5xl font-semibold text-balance tracking-tight"
         >
-          ¡Suscríbete para recibir novedades de nuestros eventos!
+          Entérate de nuestras novedades
         </h2>
         <form class="space-y-6 w-full mt-10">
           <div class="relative">
@@ -112,7 +112,7 @@ import Building from "@/icons/Building.astro";
 </div>
 
 <script is:inline>
-  var popupShown = true;
+  var popupShown = false;
 
   window.onscroll = function () {
     if (
@@ -120,7 +120,7 @@ import Building from "@/icons/Building.astro";
       (document.body.scrollTop > 100 ||
         document.documentElement.scrollTop > 100)
     ) {
-      document.getElementById("popup").style.display = "none";
+      document.getElementById("popup").style.display = "initial";
       popupShown = true;
     }
   };
@@ -133,6 +133,7 @@ import Building from "@/icons/Building.astro";
 <style>
   .popup {
     display: none;
+    top: 0;
     position: fixed;
     z-index: 9999;
     animation: fadeIn 0.5s ease-in-out;

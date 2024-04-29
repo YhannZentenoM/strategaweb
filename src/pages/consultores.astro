@@ -4,11 +4,11 @@ import Testimonials from "@/components/sections/Testimonials.astro";
 import HeaderPage from "@/components/sections/HeaderPage.astro";
 import Team from "@/components/sections/Team.astro";
 import { getCollection } from 'astro:content';
-const equipoPost = await getCollection('equipo');
+const consultoresPost = await getCollection('consultores');
 ---
 
-<Layout title="Equipo Stratega | Stratega Consultorìa & Capacitaciòn">
-  <HeaderPage title="Equipo Stratega" />
-  <Team team={equipoPost} page="equipo" />
+<Layout title="Consultores / Facilitadores | Stratega Consultorìa & Capacitaciòn">
+  <HeaderPage title="Consultores / Facilitadores" />
+  <Team team={consultoresPost} page="consultores" />
   <Testimonials />
 </Layout>

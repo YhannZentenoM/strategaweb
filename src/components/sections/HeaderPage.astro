@@ -3,9 +3,10 @@ import Title from '@/components/Title.astro';
 import Major from '@/icons/Major.astro';
 const { title } = Astro.props;
 ---
-<section class="h-[250px] md:h-[55vh] flex items-end justify-center pb-16 bg-secondary">
+<section class="h-[250px] md:h-[45vh] flex items-end justify-center pb-16 bg-secondary">
     <div class="flex flex-col items-center gap-y-3">
         <Title title={`${title}`} subtitle="" align="text-center" />
+        <a href="/" class="font-light block hover:text-primary transition-colors duration-300">Ir al inicio</a>
         <Major class="w-9" />
     </div>
 </section>
