@@ -724,5 +724,19 @@
             "title": "Programas de salud y bienestar",
             "description": "Enfocados en la salud y bienestar de la población y los agentes relacionados a la salud. Implica capacitación a personal de salud (formación técnica y relacionada a competencias blandas), fortalecimiento de capacidades de promotores de salud (agentes comunitarios), talleres de alimentación saludable (para niños y adultos), talleres y ferias de salud dirigidos a determinados grupos de interés (incluyen oferta de diagnóstico básico)."
         }
+    ],
+    "publications": [
+        {
+            "id": "publicacion1",
+            "title": "Artículo - Volver a crecer"
+        },
+        {
+            "id": "publicacion-adepia-setiembre",
+            "title": "Publicación ADEPIA - Setiembre Edición Convención Minera"
+        },
+        {
+            "id": "publicacion-adepia-gestion-tiempos-desaceleracion",
+            "title": "Publicación ADEPIA - Gestión en tiempos de desaceleración Abr. 15"
+        }
     ]
 }

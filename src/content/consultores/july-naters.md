@@ -3,12 +3,6 @@ name: July Naters
 job: Actriz, clown, promueve el desarrollo de soft skills a partir del arte
 image: equipo/july-naters.avif
 social: { facebook: "#", instagram: "#", linkedin: "#" }
-skills:
-  [
-    { name: "Psicología Clínica", porcent: 95, description: "" },
-    { name: "Psicoterapia", porcent: 90, description: "" },
-    { name: "Psicoterapia Cognitiva Conductual", porcent: 90, description: "" },
-  ]
 ---
 
 <div class="font-light tracking-wider columns-1 md:columns-2 text-zinc-700">

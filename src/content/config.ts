@@ -39,11 +39,6 @@ const consultoresCollection = defineCollection({
       }),
       image: z.string(),
       job: z.string(),
-      skills: z.array(z.object({
-          name: z.string(),
-          porcent: z.number(),
-          description: z.string()
-      })),
   }),
 });
 
