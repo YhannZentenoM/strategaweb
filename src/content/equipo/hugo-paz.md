@@ -1,7 +1,7 @@
 ---
 name: Hugo Paz Pastor
 job: Gerente General / Consultor / Coach / Facilitador
-image: equipo/team2.webp
+image: equipo/hugo-paz.avif
 social: { facebook: "#", instagram: "#", linkedin: "#" }
 skills:
   [

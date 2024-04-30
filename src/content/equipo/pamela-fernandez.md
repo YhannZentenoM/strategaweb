@@ -1,7 +1,7 @@
 ---
 name: Pamela Fernández Zeballos
 job: Gerente de Administración
-image: equipo/team1.webp
+image: equipo/pamela-fernandez.avif
 social: { facebook: "#", instagram: "#", linkedin: "#" }
 skills:
   [

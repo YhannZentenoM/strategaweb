@@ -1,7 +1,7 @@
 ---
 name: Rafael Zavala Batlle
 job: Especialista en liderazgo y transformación personal
-image: equipo/team2.webp
+image: equipo/rafael-zavala.avif
 social: { facebook: "#", instagram: "#", linkedin: "#" }
 skills:
   [

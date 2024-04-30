@@ -1,7 +1,7 @@
 ---
 name: July Naters
 job: Actriz, clown, promueve el desarrollo de soft skills a partir del arte
-image: equipo/team1.webp
+image: equipo/july-naters.avif
 social: { facebook: "#", instagram: "#", linkedin: "#" }
 skills:
   [

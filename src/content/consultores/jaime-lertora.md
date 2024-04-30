@@ -1,7 +1,7 @@
 ---
 name: Jaime Lértora Carrera
 job: Especialista en comunicación y marca personal
-image: equipo/team2.webp
+image: equipo/jaime-lertora.avif
 social: { facebook: "#", instagram: "#", linkedin: "#" }
 skills:
   [
