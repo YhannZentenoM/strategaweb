@@ -737,6 +737,38 @@
         {
             "id": "publicacion-adepia-gestion-tiempos-desaceleracion",
             "title": "Publicación ADEPIA - Gestión en tiempos de desaceleración Abr. 15"
+        },
+        {
+            "id": "generacion-valor-empresas-diario-gestion-pag-completa",
+            "title": "Generación de valor en las empresas - Diario Gestión Pág Completa"
+        },
+        {
+            "id": "servicio-desinflado-pag-completa-gestion",
+            "title": "Servicio desinflado - pág completa Gestión"
+        },
+        {
+            "id": "valor-marca-publicacion-diario-gestion",
+            "title": "Valor y Marca - Publicación Diario Gestión 18.09.14"
+        },
+        {
+            "id": "valor-marca-batalla-corto-largo",
+            "title": "Valor y marca: la batalla entre el corto plazo y el largo"
+        },
+        {
+            "id": "generacion-valor-empresas-statu-quo-vs-mejora",
+            "title": "Generación de valor en las empresas: statu quo vs. mejora"
+        },
+        {
+            "id": "servicio-desinflado-expectativa-superior",
+            "title": "Servicio desinflado, cuando la expectativa supera a la realidad"
+        },
+        {
+            "id": "valor-marca-publicacion-diario-gestion",
+            "title": "Dime de donde vienes y te diré quien eres - Diario Gestión"
+        },
+        {
+            "id": "maria-tia-negada-parte-ii-publicacion-prensa-regional",
+            "title": "María, la tía negada (Parte II) - Publicación Prensa Regional"
         }
     ]
 }
