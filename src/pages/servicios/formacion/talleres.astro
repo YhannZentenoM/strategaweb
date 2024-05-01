@@ -6,7 +6,7 @@ import { workshops } from "@info";
 
 <Layout title={`Talleres y Conferencias | Stratega Consultorìa & Capacitaciòn`}>
   <HeaderPage title={"Talleres y Conferencias"} />
-  <section class="bg-secondary">
+  <section class="bg-secondary relative">
     <div class="max-w-7xl mx-auto px-5 md:px-10 pb-28">
       <img src={`/images/bg02.webp`} alt={`Talleres y Conferencias`} />
       <p
@@ -18,7 +18,7 @@ import { workshops } from "@info";
       </p>
       <button
         type="button"
-        class="show-button bg-black py-4 md:py-5 mt-5 w-80 mx-auto block text-center text-base md:text-lg font-semibold text-white hover:bg-black/90"
+        class="show-button bg-[#cb9f65] py-4 md:py-5 mt-5 w-80 mx-auto block text-center text-base md:text-lg font-semibold text-white hover:bg-[#cb9f65]/90 sticky top-[85%]"
       >
         Pagar mi curso
       </button>
@@ -222,7 +222,7 @@ import { workshops } from "@info";
       hiddenToolBarAmount: false,
       menuType: "sliderTop", // sidebar / sliderTop / select
       buttonCardPayText: "Pagar monto", //
-      logo: null, // 'http://www.childrensociety.ms/wp-content/uploads/2019/11/MCS-Logo-2019-no-text.jpg',
+      logo: null,
       defaultStyle: {
         bannerColor: "#bf282e", // hexadecimal
         buttonBackground: "#bf282e", // hexadecimal
@@ -240,7 +240,6 @@ import { workshops } from "@info";
     };
 
     const paymentMethods = {
-      // las opciones se ordenan según se configuren
       tarjeta: true,
       yape: true,
       billetera: true,
@@ -253,21 +252,27 @@ import { workshops } from "@info";
       lang: "auto",
       installments: true, // Habilitar o deshabilitar el campo de cuotas
       modal: true,
-      // container: "#culqi-container", // Opcional - Div donde quieres cargar el checkout
       paymentMethods: paymentMethods,
-      paymentMethodsSort: Object.keys(paymentMethods), // las opciones se ordenan según se configuren en paymentMethods
+      paymentMethodsSort: Object.keys(paymentMethods),
+    };
+
+    const config = {
+      settings,
+      options,
+      appearance,
     };
 
     const handleCulqiAction = () => {
       if (Culqi.token) {
+        // if (true) {
         const token = Culqi.token.id;
         const email = Culqi.token.email;
-
+        // console.log("first")
         fetch("https://api.culqi.com/v2/charges", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer sk_live_6qwAVqFt2phZ2uNs",
+            Authorization: "Bearer sk_live_6qwAVqFt2phZ2uNs",
           },
           body: JSON.stringify({
             amount: settings.amount,
@@ -294,27 +299,23 @@ import { workshops } from "@info";
             window.location.reload();
           })
           .catch((error) => {
-            console.error("Error al consumir la API de Culqi: ", error);
+            // console.error("Error al consumir la API de Culqi: ", error);
+            alert("Error al consumir la API de Culqi", error)
           });
       } else if (Culqi.order) {
         const order = Culqi.order;
-        console.log("Se ha creado el objeto Order: ", order);
+        // console.log("Se ha creado el objeto Order: ", order);
+        alert("Se ha creado el objeto Order: ", order);
       } else {
-        console.log("Errorrr : ", Culqi.error);
+        // console.log("Errorrr : ", Culqi.error);
+        // console.log("seg")
+        alert("Errorrr : ", Culqi.error);
       }
-    };
-
-    const config = {
-      settings,
-      options,
-      appearance,
     };
 
     const publicKey = "pk_live_nZd3ixsxog91x1VR";
     const Culqi = new CulqiCheckout(publicKey, config);
-
-    Culqi.culqi = handleCulqiAction; 
-
+    Culqi.culqi = handleCulqiAction();
     Culqi.open();
   });
 </script>
