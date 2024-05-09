@@ -1,12 +1,12 @@
 ---
-import Navbar from '@/components/Navbar.astro';
-import TopNavbar from '@/components/TopNavbar.astro';
-import Footer from '@/components/sections/Footer.astro';
-import FloatingButton from '@/components/FloatingButton.astro';
-import '@fontsource-variable/dm-sans';
+import Navbar from "@/components/Navbar.astro";
+import TopNavbar from "@/components/TopNavbar.astro";
+import Footer from "@/components/sections/Footer.astro";
+import FloatingButton from "@/components/FloatingButton.astro";
+import "@fontsource-variable/dm-sans";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -14,42 +14,59 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="STRATEGA es una compañía líder en el sur del Perú en consultoría, inversiones y capacitación, integrada por profesionales con formación académica de primer nivel y experiencia gerencial en organizaciones del sector público y privado." />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="canonical" href="https://www.strategaperu.com" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body class="relative">
-		<header class="relative z-10 w-full">
-			<TopNavbar />
-			<Navbar />
-		</header>
-		<main>
-			<slot />
-		</main>
-		<FloatingButton />
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="STRATEGA es una compañía líder en el sur del Perú en consultoría, inversiones y capacitación, integrada por profesionales con formación académica de primer nivel y experiencia gerencial en organizaciones del sector público y privado."
+    />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta property="og:title" content="Stratega Consultorìa & Capacitaciòn" />
+    <meta property="og:site_name" content="Stratega Perú" />
+    <meta property="og:url" content="https://strategaperu.com/" />
+    <meta
+      property="og:description"
+      content="STRATEGA es una compañía líder en el sur del Perú en consultoría, inversiones y capacitación, integrada por profesionales con formación académica de primer nivel y experiencia gerencial en organizaciones del sector público y privado."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://strategaperu.com/images/bg01.webp"
+    />
+
+    <link rel="canonical" href="https://www.strategaperu.com" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="relative">
+    <header class="relative z-10 w-full">
+      <TopNavbar />
+      <Navbar />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <FloatingButton />
+    <Footer />
+  </body>
 </html>
 
 <style is:global>
-	body{
-		font-family: 'DM Sans Variable', sans-serif;
-	}
-	.capital-letter::first-letter{
-		float:left;
-		font-size: 57px;
-		height: 56px;
-		line-height: 48px;
-		margin: 0;
-		text-align: left;
-		width: auto!important;
-		min-width: 60px;
-		padding-right: 5px;
-		overflow: visible;
-		font-weight: 700;
-	}
+  body {
+    font-family: "DM Sans Variable", sans-serif;
+  }
+  .capital-letter::first-letter {
+    float: left;
+    font-size: 57px;
+    height: 56px;
+    line-height: 48px;
+    margin: 0;
+    text-align: left;
+    width: auto !important;
+    min-width: 60px;
+    padding-right: 5px;
+    overflow: visible;
+    font-weight: 700;
+  }
 </style>
