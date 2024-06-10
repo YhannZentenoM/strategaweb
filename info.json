@@ -29,34 +29,44 @@
     },
     "slider": [
         {
+            "title": "Workshop - Diseño de la estrategia de negocio con las metodologías Design Thinking y LEGO",
+            "image": "banner08",
+            "url": "https://wa.link/2cs9yu"
+        },
+        {
+            "title": "Workshop - Liderazgo y propósito utilizando el método LEGO",
+            "image": "banner09",
+            "url": "https://wa.link/2cs9yu"
+        },
+        {
             "title": "Taller de negociaciones exitosas - Método Harvard",
             "image": "banner01",
-            "url": "/products"
+            "url": "https://wa.link/2cs9yu"
         },
         {
             "title": "Programa Habilidades Directivas",
             "image": "banner02",
-            "url": "/products"
+            "url": "https://wa.link/2cs9yu"
         },
         {
             "title": "Taller Customer Experience",
             "image": "banner03",
-            "url": "/products"
+            "url": "https://wa.link/2cs9yu"
         },
         {
             "title": "Talleres de Estrategia, emprendimiento y soft skills",
             "image": "banner05",
-            "url": "/products"
+            "url": "https://wa.link/2cs9yu"
         },
         {
             "title": "Team Building - Equipos de alto rendimiento",
             "image": "banner06",
-            "url": "/products"
+            "url": "https://wa.link/2cs9yu"
         },
         {
             "title": "Programa Soft Skills Training",
             "image": "banner07",
-            "url": "/products"
+            "url": "https://wa.link/2cs9yu"
         }
     ],
     "purposes": [
@@ -728,47 +738,58 @@
     "publications": [
         {
             "id": "publicacion1",
+            "medio": "ADEPIA",
             "title": "Artículo - Volver a crecer"
         },
         {
             "id": "publicacion-adepia-setiembre",
-            "title": "Publicación ADEPIA - Setiembre Edición Convención Minera"
+            "medio": "ADEPIA",
+            "title": "Setiembre Edición Convención Minera"
         },
         {
             "id": "publicacion-adepia-gestion-tiempos-desaceleracion",
-            "title": "Publicación ADEPIA - Gestión en tiempos de desaceleración Abr. 15"
+            "medio": "ADEPIA",
+            "title": "Gestión en tiempos de desaceleración Abr. 15"
         },
         {
             "id": "generacion-valor-empresas-diario-gestion-pag-completa",
-            "title": "Generación de valor en las empresas - Diario Gestión Pág Completa"
+            "medio": "Diario Gestión",
+            "title": "Generación de valor en las empresas"
         },
         {
             "id": "servicio-desinflado-pag-completa-gestion",
-            "title": "Servicio desinflado - pág completa Gestión"
+            "medio": "Diario Gestión",
+            "title": "Servicio desinflado"
         },
         {
             "id": "valor-marca-publicacion-diario-gestion",
-            "title": "Valor y Marca - Publicación Diario Gestión 18.09.14"
+            "medio": "Diario Gestión",
+            "title": "Valor y Marca"
         },
         {
             "id": "valor-marca-batalla-corto-largo",
+            "medio": "Diario Gestión",
             "title": "Valor y marca: la batalla entre el corto plazo y el largo"
         },
         {
             "id": "generacion-valor-empresas-statu-quo-vs-mejora",
+            "medio": "Diario Gestión",
             "title": "Generación de valor en las empresas: statu quo vs. mejora"
         },
         {
             "id": "servicio-desinflado-expectativa-superior",
+            "medio": "Diario Gestión",
             "title": "Servicio desinflado, cuando la expectativa supera a la realidad"
         },
         {
             "id": "valor-marca-publicacion-diario-gestion",
-            "title": "Dime de donde vienes y te diré quien eres - Diario Gestión"
+            "medio": "Diario Gestión",
+            "title": "Dime de donde vienes y te diré quien eres"
         },
         {
             "id": "maria-tia-negada-parte-ii-publicacion-prensa-regional",
-            "title": "María, la tía negada (Parte II) - Publicación Prensa Regional"
+            "medio": "Prensa Regional",
+            "title": "María, la tía negada (Parte II)"
         }
     ]
 }

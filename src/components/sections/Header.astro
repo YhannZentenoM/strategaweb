@@ -10,7 +10,7 @@ import { slider } from "@info";
       {
         slider.map((slide) => (
           <div class="swiper-slide overflow-hidden relative bg-black">
-            <a href={`${slide.url}`} class="w-full h-full">
+            <a href={`${slide.url}`} target="_blank"class="w-full h-full">
               <picture>
                 <source
                   srcset={`/images/banners/${slide.image}.webp`}

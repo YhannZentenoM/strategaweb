@@ -144,6 +144,102 @@ import { workshops } from "@info";
       </form>
     </div>
   </dialog>
+  <dialog id="alert-pay" class="w-[600px] backdrop:bg-black/60">
+    <div class="border-b-2 border-zinc-300 bg-zinc-100 p-3 text-xl relative">
+      <h3>Pagos en línea</h3>
+      <span
+        class="absolute top-0 right-0 cursor-pointer p-2 z-10"
+        onclick="this.parentElement.parentElement.close()"
+      >
+        <svg
+          class="w-6 h-6 text-zinc-400 hover:rotate-180 transition-transform duration-300"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m21 21-9-9m0 0L3 3m9 9 9-9m-9 9-9 9"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path></svg
+        >
+      </span>
+    </div>
+    <div class="p-3">
+      <p class="font-light text-zinc-600">
+        Puedes realizar el pago a través de Culqi.
+      </p>
+      <input class="mount-pay" type="hidden" value="0.00">
+      <form method="post" class="formPay">
+        <div class="mt-5">
+          <label class="block text-sm text-zinc-700 font-medium">
+            Número de tarjeta
+            <input
+              name="credit-card"
+              type="tel"
+              class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
+              inputmode="numeric"
+              pattern="[0-9\s]{13,16}"
+              maxlength="16"
+              placeholder="xxxx xxxx xxxx xxxx"
+              required
+            />
+          </label>
+        </div>
+        <div class="flex gap-x-3">
+          <div class="mt-5 w-full">
+            <label class="block text-sm text-zinc-700 font-medium">
+              Código de seguridad (CVV)
+              <input
+                name="cvv"
+                type="tel"
+                class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
+                inputmode="numeric"
+                pattern="[0-9\s]{3,4}"
+                maxlength="4"
+                placeholder="xxx"
+                required
+              />
+            </label>
+          </div>
+          <div class="mt-5 w-full">
+            <label class="block text-sm text-zinc-700 font-medium">
+              Vencimiento
+              <input
+                id="expiry-date"
+                name="fecha-expiracion"
+                type="text"
+                class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
+                placeholder="xx/xxxx"
+                required
+              />
+            </label>
+          </div>
+        </div>
+        <div class="mt-5">
+          <label class="block text-sm text-zinc-700 font-medium">
+            Correo electrónico
+            <input
+              type="email"
+              name="email"
+              class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
+              placeholder="correo@correo.com"
+            />
+          </label>
+        </div>
+        <div
+          class="flex flex-col md:flex-row gap-y-5 justify-between items-center mt-5"
+        >
+          <button
+            type="submit"
+            class="btn_pagar flex items-center text-white text-sm gap-x-1 font-medium hover:bg-primary/90 transition-colors duration-300 cursor-pointer px-6 py-3 bg-primary"
+          >
+            Pagar
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
 </Layout>
 
 <style>
@@ -168,9 +264,34 @@ import { workshops } from "@info";
     }
   }
 </style>
-
-<script is:inline src="https://js.culqi.com/checkout-js"></script>
+<!-- <script is:inline src="https://js.culqi.com/checkout-js"></script> -->
 <script is:inline>
+  const inputDate = document.getElementById("expiry-date");
+  inputDate.addEventListener("input", function(e) {
+      let value = e.target.value;
+
+      // Eliminar todos los caracteres que no sean números
+      value = value.replace(/\D/g, '');
+
+      // Añadir una barra inclinada después de los dos primeros dígitos
+      if (value.length > 2) {
+          value = value.substring(0, 2) + '/' + value.substring(2, 6);
+      }
+
+      e.target.value = value;
+  });
+
+  inputDate.addEventListener("blur", function(e) {
+      let value = e.target.value;
+
+      // Validar si el formato es MM/YYYY
+      const regex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+      if (!regex.test(value)) {
+          alert("Por favor, ingrese una fecha válida en el formato MM/YYYY.");
+          e.target.value = '';
+      }
+  });
+
   const info = document.querySelectorAll(".info");
   info.forEach((item) => {
     const button = item.querySelector(".btn-more");
@@ -186,136 +307,208 @@ import { workshops } from "@info";
 
   const showButton = document.querySelector(".show-button");
   const alertDialog = document.querySelector("#alert-dialog");
+  const alertPay = document.querySelector("#alert-pay");
   showButton.addEventListener("click", function () {
     alertDialog.showModal();
   });
-
-  const form = document.querySelector("form");
-  form.addEventListener("submit", function (e) {
+  
+  
+  const formPay = document.querySelector(".formPay");
+  formPay.addEventListener("submit", function (e) {
     e.preventDefault();
-    const importe = document.querySelector("input[name=importe]").value;
-    const importeFormat =
-      importe.includes(".") || importe.includes(",")
-        ? importe.replace(".", "").replace(",", "")
-        : importe + "00";
-    const nombre = document.querySelector("input[name=nombre]").value;
-    const apellido = document.querySelector("input[name=apellido]").value;
-    const telefono = document.querySelector("input[name=telefono]").value;
-    if (importe === "" || nombre === "" || apellido === "" || telefono === "") {
-      alert("Todos los campos son obligatorios");
-      return;
-    }
-    alertDialog.close();
-
-    const settings = {
-      title: "Culqi Checkout",
-      currency: "PEN",
-      amount: importeFormat,
-      order: "ord_live_d1P0Tu1n7Od4nZdp",
-    };
-
-    const appearance = {
-      theme: "default",
-      hiddenCulqiLogo: false,
-      hiddenBannerContent: false,
-      hiddenBanner: false,
-      hiddenToolBarAmount: false,
-      menuType: "sliderTop", // sidebar / sliderTop / select
-      buttonCardPayText: "Pagar monto", //
-      logo: null,
-      defaultStyle: {
-        bannerColor: "#bf282e", // hexadecimal
-        buttonBackground: "#bf282e", // hexadecimal
-        menuColor: "pink", // hexadecimal
-        linksColor: "black", // hexadecimal
-        buttonTextColor: "white", // hexadecimal
-        priceColor: "#bf282e",
+    
+    
+    const tarjeta = document.querySelector("input[name=credit-card]").value;
+    const cvv = document.querySelector("input[name=cvv]").value;
+    const fechaVencimiento = document.querySelector("input[name=fecha-expiracion]").value.split("/");
+    const email = document.querySelector("input[name=email]").value;
+    const pay = document.querySelector(".mount-pay").value
+    
+  
+    fetch("https://www.strategaperu.com/culqi/culqi-php/token.php", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
       },
-    };
-
-    const client = {
-      nombres: nombre,
-      apellidos: apellido,
-      telefono: telefono,
-    };
-
-    const paymentMethods = {
-      tarjeta: true,
-      yape: true,
-      billetera: true,
-      bancaMovil: true,
-      agente: true,
-      cuotealo: true,
-    };
-
-    const options = {
-      lang: "auto",
-      installments: true, // Habilitar o deshabilitar el campo de cuotas
-      modal: true,
-      paymentMethods: paymentMethods,
-      paymentMethodsSort: Object.keys(paymentMethods),
-    };
-
-    const config = {
-      settings,
-      options,
-      appearance,
-    };
-
-    const handleCulqiAction = () => {
-      if (Culqi.token) {
-        // if (true) {
-        const token = Culqi.token.id;
-        const email = Culqi.token.email;
-        // console.log("first")
-        fetch("https://api.culqi.com/v2/charges", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer sk_live_6qwAVqFt2phZ2uNs",
-          },
-          body: JSON.stringify({
-            amount: settings.amount,
-            currency_code: settings.currency,
-            email: email,
-            source_id: token,
-            capture: true,
-            description: "Curso",
-            antifraud_details: {
-              country_code: "PE",
-              first_name: client.nombres,
-              last_name: client.apellidos,
-              phone_number: client.telefono,
-            },
-          }),
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            if (res.outcome.type != "venta_exitosa") {
-              alert("Pago fallido");
-              return;
-            }
-            alert("Pago exitoso");
-            window.location.reload();
-          })
-          .catch((error) => {
-            // console.error("Error al consumir la API de Culqi: ", error);
-            alert("Error al consumir la API de Culqi", error)
-          });
-      } else if (Culqi.order) {
-        const order = Culqi.order;
-        // console.log("Se ha creado el objeto Order: ", order);
-        alert("Se ha creado el objeto Order: ", order);
-      } else {
-        // console.log("Errorrr : ", Culqi.error);
-        // console.log("seg")
-        alert("Errorrr : ", Culqi.error);
-      }
-    };
-
-    const publicKey = "pk_live_nZd3ixsxog91x1VR";
-    const Culqi = new CulqiCheckout(publicKey, config);
-    Culqi.culqi = handleCulqiAction();
-    Culqi.open();
+      body: JSON.stringify({
+        card_number: tarjeta,
+        cvv: cvv,
+        expiration_month: +fechaVencimiento[0],
+        expiration_year: fechaVencimiento[1],
+        email: email,
+      }),
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      if(res.id)
+        crearCargo(res.id, email, pay)
+  })
+  .catch((error) => {
+    console.log(error);
   });
+})
+
+
+const form = document.querySelector("form");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const importe = document.querySelector("input[name=importe]").value;
+  const importeFormat =
+    importe.includes(".") || importe.includes(",")
+      ? importe.replace(".", "").replace(",", "")
+      : importe + "00";
+  const nombre = document.querySelector("input[name=nombre]").value;
+  const apellido = document.querySelector("input[name=apellido]").value;
+  const telefono = document.querySelector("input[name=telefono]").value;
+  const mountPay = document.querySelector(".mount-pay");
+  mountPay.value = importeFormat
+
+  if (importe === "" || nombre === "" || apellido === "" || telefono === "") {
+    alert("Todos los campos son obligatorios");
+    return;
+  }
+  alertDialog.close();
+  alertPay.showModal();
+
+
+  // const settings = {
+  //   title: "Culqi Checkout",
+  //   currency: "PEN",
+  //   amount: importeFormat,
+  //   order: "ord_live_d1P0Tu1n7Od4nZdp",
+  // };
+
+  // const appearance = {
+  //   theme: "default",
+  //   hiddenCulqiLogo: false,
+  //   hiddenBannerContent: false,
+  //   hiddenBanner: false,
+  //   hiddenToolBarAmount: false,
+  //   menuType: "sliderTop", // sidebar / sliderTop / select
+  //   buttonCardPayText: "Pagar monto", //
+  //   logo: null,
+  //   defaultStyle: {
+  //     bannerColor: "#bf282e", // hexadecimal
+  //     buttonBackground: "#bf282e", // hexadecimal
+  //     menuColor: "pink", // hexadecimal
+  //     linksColor: "black", // hexadecimal
+  //     buttonTextColor: "white", // hexadecimal
+  //     priceColor: "#bf282e",
+  //   },
+  // };
+
+  // const client = {
+  //   nombres: nombre,
+  //   apellidos: apellido,
+  //   telefono: telefono,
+  // };
+
+  // const paymentMethods = {
+  //   tarjeta: true,
+  //   yape: true,
+  //   billetera: true,
+  //   bancaMovil: true,
+  //   agente: true,
+  //   cuotealo: true,
+  // };
+
+  // const options = {
+  //   lang: "auto",
+  //   installments: true, // Habilitar o deshabilitar el campo de cuotas
+  //   modal: true,
+  //   paymentMethods: paymentMethods,
+  //   paymentMethodsSort: Object.keys(paymentMethods),
+  // };
+
+  // const config = {
+  //   settings,
+  //   options,
+  //   appearance,
+  // };
+
+  // const handleCulqiAction = () => {
+  //   if (Culqi.token) {
+  //     // if (true) {
+  //     const token = Culqi.token.id;
+  //     const email = Culqi.token.email;
+  //     // console.log("first")
+  //     fetch("https://api.culqi.com/v2/charges", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         // Authorization: "Bearer sk_live_6qwAVqFt2phZ2uNs",
+  //         Authorization: "Bearer sk_test_FP8Co5prFkX7XChh",
+  //       },
+  //       body: JSON.stringify({
+  //         amount: settings.amount,
+  //         currency_code: settings.currency,
+  //         email: email,
+  //         source_id: token,
+  //         capture: true,
+  //         description: "Curso",
+  //         antifraud_details: {
+  //           country_code: "PE",
+  //           first_name: client.nombres,
+  //           last_name: client.apellidos,
+  //           phone_number: client.telefono,
+  //         },
+  //       }),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((res) => {
+  //         if (res.outcome.type != "venta_exitosa") {
+  //           alert("Pago fallido");
+  //           return;
+  //         }
+  //         alert("Pago exitoso");
+  //         window.location.reload();
+  //       })
+  //       .catch((error) => {
+  //         // console.error("Error al consumir la API de Culqi: ", error);
+  //         alert("Error al consumir la API de Culqi", error)
+  //       });
+  //   } else if (Culqi.order) {
+  //     const order = Culqi.order;
+  //     // console.log("Se ha creado el objeto Order: ", order);
+  //     alert("Se ha creado el objeto Order: ", order);
+  //   } else {
+  //     // console.log("Errorrr : ", Culqi.error);
+  //     // console.log("seg")
+  //     console.log(Culqi.error)
+  //     alert("Errorrr : ", Culqi.error);
+  //   }
+  // };
+
+  // // const publicKey = "pk_live_nZd3ixsxog91x1VR";
+  // const publicKey = "pk_test_eBxPGEUyHK0H80Ic";
+  // const Culqi = new CulqiCheckout(publicKey, config);
+  // console.log(Culqi)
+  // Culqi.culqi = handleCulqiAction();
+  // Culqi.open();
+});
+
+const crearCargo = (token, email, pay) => {
+  fetch("https://www.strategaperu.com/culqi/culqi-php/cargo.php", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      amount: pay,
+      email: email,
+      source_id: token,
+    }),
+  })
+  .then((res) => res.json())
+    .then((res) => {
+      // if(res.id)
+      // console.log(res);
+      alert(res.outcome.user_message)
+      alertPay.close()
+  })
+  .catch((error) => {
+    console.log(error);
+    return
+  });
+}
 </script>
