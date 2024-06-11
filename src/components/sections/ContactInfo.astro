@@ -2,7 +2,8 @@
 import ClockLine from "@/icons/ClockLine.astro";
 import MapLine from "@/icons/MapLine.astro";
 import Headphone from "@/icons/Headphone.astro";
-import {topNav} from "@info";
+import { getData } from "@/functions/data";
+const {topNav} = await getData();
 ---
 <section class="pb-32 md:pt-20 bg-secondary">
     <div class="max-w-7xl mx-auto grid md:grid-cols-3 grid-cols-1 gap-5">

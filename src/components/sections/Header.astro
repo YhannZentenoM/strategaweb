@@ -1,5 +1,7 @@
 ---
-import { slider } from "@info";
+import { getData } from "@/functions/data";
+import type { Slider } from "@/types/Data"
+const {slider} = await getData();
 ---
 
 <section>
@@ -8,7 +10,7 @@ import { slider } from "@info";
     <div class="swiper-wrapper">
       <!-- Los slides -->
       {
-        slider.map((slide) => (
+        slider.map((slide: Slider) => (
           <div class="swiper-slide overflow-hidden relative bg-black">
             <a href={`${slide.url}`} target="_blank"class="w-full h-full">
               <picture>

@@ -1,7 +1,9 @@
 ---
 import HeaderPage from "@/components/sections/HeaderPage.astro";
 import Layout from "@/layouts/Layout.astro";
-import { consultancy } from "@info";
+import { getData } from "@/functions/data";
+import type { Consultancy } from "@/types/Data"
+const {consultancy} = await getData();
 ---
 
 <Layout title={`Consultoría | Stratega Consultorìa & Capacitaciòn`}>
@@ -16,7 +18,7 @@ import { consultancy } from "@info";
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {
-          consultancy.map((item) => (
+          consultancy.map((item: Consultancy) => (
             <article class="w-full">
               <header class="bg-primary flex justify-center">
                 <img

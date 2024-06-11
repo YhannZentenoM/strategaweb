@@ -1,12 +1,14 @@
 ---
-import { purposes, purposesOptions } from "@info";
+import { getData } from "@/functions/data";
+import type { Purpose, PurposesOption } from "@/types/Data"
+const {purposes, purposesOptions} = await getData();
 import CardPurpose from "@/components/CardPurpose.astro";
 ---
 <section class="py-20 px-5">
     <div class="max-w-7xl mx-auto px-5 md:px-20 bg-white py-10">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-y-5 md:gap-y-10 gap-x-3">
         {
-          purposes.map((purpose, index) => (
+          purposes.map((purpose:Purpose, index:Number) => (
             <CardPurpose
               key={index}
               title={purpose.title}
@@ -19,7 +21,7 @@ import CardPurpose from "@/components/CardPurpose.astro";
       </div>
       <div class="flex flex-col md:flex-row max-w-2xl mx-auto gap-y-5 md:gap-y-10 gap-x-3 mt-10">
         {
-          purposesOptions.map((purpose, index) => (
+          purposesOptions.map((purpose:PurposesOption, index:Number) => (
             <article
               class={`flex flex-col gap-y-5 group py-3 pl-3 pr-8 ${index != 1 && "border-r-2"}`}
             >

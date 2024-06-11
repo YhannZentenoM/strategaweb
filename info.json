@@ -791,5 +791,15 @@
             "medio": "Prensa Regional",
             "title": "María, la tía negada (Parte II)"
         }
+    ],
+    "coursesPay": [
+        {
+            "id": "curso1",
+            "title": "Workshop - Diseño de la estrategia de negocio con las metodologías Design Thinking y LEGO Serious Play"
+        },
+        {
+            "id": "curso2",
+            "title": "Workshop - Liderazgo y propósito utilizando el método LEGO Serious Play"
+        }
     ]
 }

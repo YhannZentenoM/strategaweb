@@ -1,13 +1,16 @@
 ---
 import CategoryClient from "../CategoryClient.astro";
+import { getData } from "@/functions/data";
+import type { CategoriesClient } from "@/types/Data"
+const {categoriesClient} = await getData();
 
-import { categoriesClient } from "@info";
+// import { categoriesClient } from "@info";
 ---
 
 <section class="bg-secondary pb-20">
   <div class="max-w-7xl md:max-w-5xl mx-auto px-5">
     {
-      categoriesClient.map(({ title, clients }) => (
+      categoriesClient.map(({ title, clients } : CategoriesClient) => (
         <CategoryClient title={title} clients={clients} />
       ))
     }

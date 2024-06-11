@@ -1,7 +1,9 @@
 ---
 import Quotation from "@/icons/Quotation.astro";
 import Title from "@/components/Title.astro";
-import { testimonials } from "@info";
+import { getData } from "@/functions/data";
+import type { Testimonial } from "@/types/Data"
+const {testimonials} = await getData();
 ---
 
 <section class="bg-secondary py-10 md:py-28">
@@ -14,7 +16,7 @@ import { testimonials } from "@info";
     <div class="swiper swiper-testimonial mt-10">
       <div class="swiper-wrapper">
         {
-          testimonials.map((testimonial) => (
+          testimonials.map((testimonial:Testimonial) => (
             <div class="swiper-slide">
               <div class="flex flex-col justify-center items-center">
                 <Quotation class="fill-primary w-7" />

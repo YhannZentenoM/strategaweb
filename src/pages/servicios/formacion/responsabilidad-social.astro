@@ -1,7 +1,9 @@
 ---
 import HeaderPage from "@/components/sections/HeaderPage.astro";
 import Layout from "@/layouts/Layout.astro";
-import { responsability } from "@info";
+import { getData } from "@/functions/data";
+import type { Responsability } from "@/types/Data"
+const {responsability} = await getData();
 ---
 
 <Layout title={`Programas de Responsabilidad Social y Sostenibilidad Empresarial | Stratega Consultorìa & Capacitaciòn`}>
@@ -16,7 +18,7 @@ import { responsability } from "@info";
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {
-          responsability.map((item) => (
+          responsability.map((item:Responsability) => (
             <article class="w-full">
               <header class="bg-primary flex justify-center">
                 <img

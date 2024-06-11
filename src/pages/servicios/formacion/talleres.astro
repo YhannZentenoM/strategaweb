@@ -1,7 +1,9 @@
 ---
 import HeaderPage from "@/components/sections/HeaderPage.astro";
 import Layout from "@/layouts/Layout.astro";
-import { workshops } from "@info";
+import { getData } from "@/functions/data";
+import type { Workshop, CoursesPay } from "@/types/Data";
+const { workshops, coursesPay } = await getData();
 ---
 
 <Layout title={`Talleres y Conferencias | Stratega Consultorìa & Capacitaciòn`}>
@@ -24,7 +26,7 @@ import { workshops } from "@info";
       </button>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {
-          workshops.map((item) => (
+          workshops.map((item: Workshop) => (
             <article class="w-full">
               <header class="bg-primary flex justify-center">
                 <img
@@ -82,6 +84,22 @@ import { workshops } from "@info";
       <form method="post">
         <div class="mt-5">
           <label class="block text-sm text-zinc-700 font-medium">
+            Curso/Taller
+            <select
+              name="cursos"
+              class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
+            >
+              <option value="">Seleccione</option>
+            {
+              coursesPay.map((course: CoursesPay) => (
+                <option value={course.title}>{course.title}</option>
+              ))
+            }
+            </select>
+          </label>
+        </div>
+        <div class="mt-5">
+          <label class="block text-sm text-zinc-700 font-medium">
             Importe:(S/.)
             <input
               type="number"
@@ -129,11 +147,11 @@ import { workshops } from "@info";
         <div
           class="flex flex-col md:flex-row gap-y-5 justify-between items-center mt-5"
         >
-          <ul class="text-xs text-zinc-500">
+          <!-- <ul class="text-xs text-zinc-500">
             <li>Las tarifas INCLUYEN IGV.</li>
             <li>La tarifa de pre-venta solo aplica para pagos al contado.</li>
             <li>Pagos con tarjetas de crédito sujetos a recargo.</li>
-          </ul>
+          </ul> -->
           <button
             type="submit"
             class="btn_pagar flex items-center text-white text-sm gap-x-1 font-medium hover:bg-primary/90 transition-colors duration-300 cursor-pointer px-6 py-3 bg-primary"
@@ -169,7 +187,8 @@ import { workshops } from "@info";
       <p class="font-light text-zinc-600">
         Puedes realizar el pago a través de Culqi.
       </p>
-      <input class="mount-pay" type="hidden" value="0.00">
+      <input class="mount-pay" type="hidden" value="0.00" />
+      <input class="course-pay" type="hidden" value="" />
       <form method="post" class="formPay">
         <div class="mt-5">
           <label class="block text-sm text-zinc-700 font-medium">
@@ -267,29 +286,29 @@ import { workshops } from "@info";
 <!-- <script is:inline src="https://js.culqi.com/checkout-js"></script> -->
 <script is:inline>
   const inputDate = document.getElementById("expiry-date");
-  inputDate.addEventListener("input", function(e) {
-      let value = e.target.value;
+  inputDate.addEventListener("input", function (e) {
+    let value = e.target.value;
 
-      // Eliminar todos los caracteres que no sean números
-      value = value.replace(/\D/g, '');
+    // Eliminar todos los caracteres que no sean números
+    value = value.replace(/\D/g, "");
 
-      // Añadir una barra inclinada después de los dos primeros dígitos
-      if (value.length > 2) {
-          value = value.substring(0, 2) + '/' + value.substring(2, 6);
-      }
+    // Añadir una barra inclinada después de los dos primeros dígitos
+    if (value.length > 2) {
+      value = value.substring(0, 2) + "/" + value.substring(2, 6);
+    }
 
-      e.target.value = value;
+    e.target.value = value;
   });
 
-  inputDate.addEventListener("blur", function(e) {
-      let value = e.target.value;
+  inputDate.addEventListener("blur", function (e) {
+    let value = e.target.value;
 
-      // Validar si el formato es MM/YYYY
-      const regex = /^(0[1-9]|1[0-2])\/\d{4}$/;
-      if (!regex.test(value)) {
-          alert("Por favor, ingrese una fecha válida en el formato MM/YYYY.");
-          e.target.value = '';
-      }
+    // Validar si el formato es MM/YYYY
+    const regex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+    if (!regex.test(value)) {
+      alert("Por favor, ingrese una fecha válida en el formato MM/YYYY.");
+      e.target.value = "";
+    }
   });
 
   const info = document.querySelectorAll(".info");
@@ -311,24 +330,24 @@ import { workshops } from "@info";
   showButton.addEventListener("click", function () {
     alertDialog.showModal();
   });
-  
-  
+
   const formPay = document.querySelector(".formPay");
   formPay.addEventListener("submit", function (e) {
     e.preventDefault();
-    
-    
+
     const tarjeta = document.querySelector("input[name=credit-card]").value;
     const cvv = document.querySelector("input[name=cvv]").value;
-    const fechaVencimiento = document.querySelector("input[name=fecha-expiracion]").value.split("/");
+    const fechaVencimiento = document
+      .querySelector("input[name=fecha-expiracion]")
+      .value.split("/");
     const email = document.querySelector("input[name=email]").value;
-    const pay = document.querySelector(".mount-pay").value
-    
-  
+    const pay = document.querySelector(".mount-pay").value;
+    const course = document.querySelector(".course-pay").value;
+
     fetch("https://www.strategaperu.com/culqi/culqi-php/token.php", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         card_number: tarjeta,
@@ -338,177 +357,178 @@ import { workshops } from "@info";
         email: email,
       }),
     })
-    .then((res) => res.json())
-    .then((res) => {
-      if(res.id)
-        crearCargo(res.id, email, pay)
-  })
-  .catch((error) => {
-    console.log(error);
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.id) crearCargo(res.id, email, pay, course);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
-})
 
+  const form = document.querySelector("form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const importe = document.querySelector("input[name=importe]").value;
+    const importeFormat =
+      importe.includes(".") || importe.includes(",")
+        ? importe.replace(".", "").replace(",", "")
+        : importe + "00";
+    const cursos = document.querySelector("select[name=cursos]").value;
+    const nombre = document.querySelector("input[name=nombre]").value;
+    const apellido = document.querySelector("input[name=apellido]").value;
+    const telefono = document.querySelector("input[name=telefono]").value;
+    const mountPay = document.querySelector(".mount-pay");
+    mountPay.value = importeFormat;
+    const coursePay = document.querySelector(".course-pay");
+    coursePay.value = cursos;
 
-const form = document.querySelector("form");
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const importe = document.querySelector("input[name=importe]").value;
-  const importeFormat =
-    importe.includes(".") || importe.includes(",")
-      ? importe.replace(".", "").replace(",", "")
-      : importe + "00";
-  const nombre = document.querySelector("input[name=nombre]").value;
-  const apellido = document.querySelector("input[name=apellido]").value;
-  const telefono = document.querySelector("input[name=telefono]").value;
-  const mountPay = document.querySelector(".mount-pay");
-  mountPay.value = importeFormat
+    if (importe === "" || nombre === "" || apellido === "" || telefono === "" || cursos === "") {
+      alert("Todos los campos son obligatorios");
+      return;
+    }
+    alertDialog.close();
+    alertPay.showModal();
 
-  if (importe === "" || nombre === "" || apellido === "" || telefono === "") {
-    alert("Todos los campos son obligatorios");
-    return;
-  }
-  alertDialog.close();
-  alertPay.showModal();
+    // const settings = {
+    //   title: "Culqi Checkout",
+    //   currency: "PEN",
+    //   amount: importeFormat,
+    //   order: "ord_live_d1P0Tu1n7Od4nZdp",
+    // };
 
+    // const appearance = {
+    //   theme: "default",
+    //   hiddenCulqiLogo: false,
+    //   hiddenBannerContent: false,
+    //   hiddenBanner: false,
+    //   hiddenToolBarAmount: false,
+    //   menuType: "sliderTop", // sidebar / sliderTop / select
+    //   buttonCardPayText: "Pagar monto", //
+    //   logo: null,
+    //   defaultStyle: {
+    //     bannerColor: "#bf282e", // hexadecimal
+    //     buttonBackground: "#bf282e", // hexadecimal
+    //     menuColor: "pink", // hexadecimal
+    //     linksColor: "black", // hexadecimal
+    //     buttonTextColor: "white", // hexadecimal
+    //     priceColor: "#bf282e",
+    //   },
+    // };
 
-  // const settings = {
-  //   title: "Culqi Checkout",
-  //   currency: "PEN",
-  //   amount: importeFormat,
-  //   order: "ord_live_d1P0Tu1n7Od4nZdp",
-  // };
+    // const client = {
+    //   nombres: nombre,
+    //   apellidos: apellido,
+    //   telefono: telefono,
+    // };
 
-  // const appearance = {
-  //   theme: "default",
-  //   hiddenCulqiLogo: false,
-  //   hiddenBannerContent: false,
-  //   hiddenBanner: false,
-  //   hiddenToolBarAmount: false,
-  //   menuType: "sliderTop", // sidebar / sliderTop / select
-  //   buttonCardPayText: "Pagar monto", //
-  //   logo: null,
-  //   defaultStyle: {
-  //     bannerColor: "#bf282e", // hexadecimal
-  //     buttonBackground: "#bf282e", // hexadecimal
-  //     menuColor: "pink", // hexadecimal
-  //     linksColor: "black", // hexadecimal
-  //     buttonTextColor: "white", // hexadecimal
-  //     priceColor: "#bf282e",
-  //   },
-  // };
+    // const paymentMethods = {
+    //   tarjeta: true,
+    //   yape: true,
+    //   billetera: true,
+    //   bancaMovil: true,
+    //   agente: true,
+    //   cuotealo: true,
+    // };
 
-  // const client = {
-  //   nombres: nombre,
-  //   apellidos: apellido,
-  //   telefono: telefono,
-  // };
+    // const options = {
+    //   lang: "auto",
+    //   installments: true, // Habilitar o deshabilitar el campo de cuotas
+    //   modal: true,
+    //   paymentMethods: paymentMethods,
+    //   paymentMethodsSort: Object.keys(paymentMethods),
+    // };
 
-  // const paymentMethods = {
-  //   tarjeta: true,
-  //   yape: true,
-  //   billetera: true,
-  //   bancaMovil: true,
-  //   agente: true,
-  //   cuotealo: true,
-  // };
+    // const config = {
+    //   settings,
+    //   options,
+    //   appearance,
+    // };
 
-  // const options = {
-  //   lang: "auto",
-  //   installments: true, // Habilitar o deshabilitar el campo de cuotas
-  //   modal: true,
-  //   paymentMethods: paymentMethods,
-  //   paymentMethodsSort: Object.keys(paymentMethods),
-  // };
+    // const handleCulqiAction = () => {
+    //   if (Culqi.token) {
+    //     // if (true) {
+    //     const token = Culqi.token.id;
+    //     const email = Culqi.token.email;
+    //     // console.log("first")
+    //     fetch("https://api.culqi.com/v2/charges", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         // Authorization: "Bearer sk_live_6qwAVqFt2phZ2uNs",
+    //         Authorization: "Bearer sk_test_FP8Co5prFkX7XChh",
+    //       },
+    //       body: JSON.stringify({
+    //         amount: settings.amount,
+    //         currency_code: settings.currency,
+    //         email: email,
+    //         source_id: token,
+    //         capture: true,
+    //         description: "Curso",
+    //         antifraud_details: {
+    //           country_code: "PE",
+    //           first_name: client.nombres,
+    //           last_name: client.apellidos,
+    //           phone_number: client.telefono,
+    //         },
+    //       }),
+    //     })
+    //       .then((res) => res.json())
+    //       .then((res) => {
+    //         if (res.outcome.type != "venta_exitosa") {
+    //           alert("Pago fallido");
+    //           return;
+    //         }
+    //         alert("Pago exitoso");
+    //         window.location.reload();
+    //       })
+    //       .catch((error) => {
+    //         // console.error("Error al consumir la API de Culqi: ", error);
+    //         alert("Error al consumir la API de Culqi", error)
+    //       });
+    //   } else if (Culqi.order) {
+    //     const order = Culqi.order;
+    //     // console.log("Se ha creado el objeto Order: ", order);
+    //     alert("Se ha creado el objeto Order: ", order);
+    //   } else {
+    //     // console.log("Errorrr : ", Culqi.error);
+    //     // console.log("seg")
+    //     console.log(Culqi.error)
+    //     alert("Errorrr : ", Culqi.error);
+    //   }
+    // };
 
-  // const config = {
-  //   settings,
-  //   options,
-  //   appearance,
-  // };
-
-  // const handleCulqiAction = () => {
-  //   if (Culqi.token) {
-  //     // if (true) {
-  //     const token = Culqi.token.id;
-  //     const email = Culqi.token.email;
-  //     // console.log("first")
-  //     fetch("https://api.culqi.com/v2/charges", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         // Authorization: "Bearer sk_live_6qwAVqFt2phZ2uNs",
-  //         Authorization: "Bearer sk_test_FP8Co5prFkX7XChh",
-  //       },
-  //       body: JSON.stringify({
-  //         amount: settings.amount,
-  //         currency_code: settings.currency,
-  //         email: email,
-  //         source_id: token,
-  //         capture: true,
-  //         description: "Curso",
-  //         antifraud_details: {
-  //           country_code: "PE",
-  //           first_name: client.nombres,
-  //           last_name: client.apellidos,
-  //           phone_number: client.telefono,
-  //         },
-  //       }),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((res) => {
-  //         if (res.outcome.type != "venta_exitosa") {
-  //           alert("Pago fallido");
-  //           return;
-  //         }
-  //         alert("Pago exitoso");
-  //         window.location.reload();
-  //       })
-  //       .catch((error) => {
-  //         // console.error("Error al consumir la API de Culqi: ", error);
-  //         alert("Error al consumir la API de Culqi", error)
-  //       });
-  //   } else if (Culqi.order) {
-  //     const order = Culqi.order;
-  //     // console.log("Se ha creado el objeto Order: ", order);
-  //     alert("Se ha creado el objeto Order: ", order);
-  //   } else {
-  //     // console.log("Errorrr : ", Culqi.error);
-  //     // console.log("seg")
-  //     console.log(Culqi.error)
-  //     alert("Errorrr : ", Culqi.error);
-  //   }
-  // };
-
-  // // const publicKey = "pk_live_nZd3ixsxog91x1VR";
-  // const publicKey = "pk_test_eBxPGEUyHK0H80Ic";
-  // const Culqi = new CulqiCheckout(publicKey, config);
-  // console.log(Culqi)
-  // Culqi.culqi = handleCulqiAction();
-  // Culqi.open();
-});
-
-const crearCargo = (token, email, pay) => {
-  fetch("https://www.strategaperu.com/culqi/culqi-php/cargo.php", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      amount: pay,
-      email: email,
-      source_id: token,
-    }),
-  })
-  .then((res) => res.json())
-    .then((res) => {
-      // if(res.id)
-      // console.log(res);
-      alert(res.outcome.user_message)
-      alertPay.close()
-  })
-  .catch((error) => {
-    console.log(error);
-    return
+    // // const publicKey = "pk_live_nZd3ixsxog91x1VR";
+    // const publicKey = "pk_test_eBxPGEUyHK0H80Ic";
+    // const Culqi = new CulqiCheckout(publicKey, config);
+    // console.log(Culqi)
+    // Culqi.culqi = handleCulqiAction();
+    // Culqi.open();
   });
-}
+
+  const crearCargo = (token, email, pay, course) => {
+    fetch("https://www.strategaperu.com/culqi/culqi-php/cargo.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: pay,
+        course: course,
+        email: email,
+        source_id: token,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // if(res.id)
+        // console.log(res);
+        alert(res.outcome.user_message);
+        alertPay.close();
+      })
+      .catch((error) => {
+        console.log(error);
+        return;
+      });
+  };
 </script>

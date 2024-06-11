@@ -1,7 +1,9 @@
 ---
 import HeaderPage from "@/components/sections/HeaderPage.astro";
 import Layout from "@/layouts/Layout.astro";
-import { programs } from "@info";
+import { getData } from "@/functions/data";
+import type { Program } from "@/types/Data"
+const {programs} = await getData();
 ---
 
 <Layout title={`Programas | Stratega Consultorìa & Capacitaciòn`}>
@@ -14,7 +16,7 @@ import { programs } from "@info";
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {
-          programs.map((item) => (
+          programs.map((item: Program) => (
             <article class="w-full">
               <header class="bg-primary flex justify-center">
                 <img
