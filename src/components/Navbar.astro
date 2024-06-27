@@ -30,10 +30,10 @@ const menu = [
           {
             name: "Programas de Responsabilidad Social y Sostenibilidad Empresarial",
             url: "/servicios/formacion/responsabilidad-social",
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   {
     name: "Nuestro equipo",
@@ -46,8 +46,8 @@ const menu = [
       {
         name: "Consultores / Facilitadores",
         url: "/consultores",
-      }
-    ]
+      },
+    ],
   },
   {
     name: "Clientes",
@@ -64,9 +64,9 @@ const menu = [
       {
         name: "Blog",
         url: "https://strategaperu.blogspot.pe/",
-        target: "_blank"
-      }
-    ]
+        target: "_blank",
+      },
+    ],
   },
   {
     name: "Contáctanos",
@@ -77,18 +77,17 @@ const pathname = Astro.url.pathname;
 ---
 
 <section class="relative bg-white/80">
-  <div
-    class="max-w-7xl mx-auto py-3 flex justify-between items-center"
-  >
+  <div class="max-w-7xl mx-auto py-3 flex justify-between items-center">
     <a href="/" class={`px-3 w-40 md:w-48`}
       ><Logo
         class={`fill-primary hover:scale-105 transition-all duration-500`}
       /></a
     >
-    <button type="button" onclick="document.querySelector('.mobile-menu').classList.toggle('hidden')">
-      <MenuBar
-        class="md:hidden fill-primary w-8 h-8 cursor-pointer mr-3"
-      />
+    <button
+      type="button"
+      onclick="document.querySelector('.mobile-menu').classList.toggle('hidden')"
+    >
+      <MenuBar class="md:hidden fill-primary w-8 h-8 cursor-pointer mr-3" />
     </button>
     <nav class="hidden md:block">
       <ul class="flex gap-x-7">
@@ -133,6 +132,15 @@ const pathname = Astro.url.pathname;
             </li>
           ))
         }
+        <li>
+          <a
+            href="/archivos/broshure_lupex.pdf"
+            target="_blank"
+            class="bg-primary text-white px-4 py-1 rounded-xl border border-primary hover:bg-white hover:text-primary transition-colors duration-300 relative after:absolute after:left-1 after:top-0 after:bg-primary/90 after:w-[90%] after:h-full after:scale-125 after:rounded-xl after:animate-pulse after:-z-10"
+          >
+            Lupex
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

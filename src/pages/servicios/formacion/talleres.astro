@@ -90,11 +90,11 @@ const { workshops, coursesPay } = await getData();
               class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
             >
               <option value="">Seleccione</option>
-            {
-              coursesPay.map((course: CoursesPay) => (
-                <option value={course.title}>{course.title}</option>
-              ))
-            }
+              {
+                coursesPay.map((course: CoursesPay) => (
+                  <option value={course.title}>{course.title}</option>
+                ))
+              }
             </select>
           </label>
         </div>
@@ -366,24 +366,45 @@ const { workshops, coursesPay } = await getData();
       });
   });
 
+  function formatImporte(importe) {
+    // Reemplazar comas con puntos para unificar el formato
+    let sanitizedImporte = importe.replace(",", ".");
+
+    // Verificar si el importe contiene un punto
+    if (sanitizedImporte.includes(".")) {
+      const parts = sanitizedImporte.split(".");
+      // Si la parte decimal tiene solo un dígito, añadir un "0"
+      if (parts[1].length === 1) {
+        parts[1] += "0";
+      }
+      // Unir las partes y eliminar el punto
+      return parts.join("");
+    } else {
+      // Si no contiene un punto, añadir "00" al final
+      return sanitizedImporte + "00";
+    }
+  }
+
   const form = document.querySelector("form");
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const importe = document.querySelector("input[name=importe]").value;
-    const importeFormat =
-      importe.includes(".") || importe.includes(",")
-        ? importe.replace(".", "").replace(",", "")
-        : importe + "00";
     const cursos = document.querySelector("select[name=cursos]").value;
     const nombre = document.querySelector("input[name=nombre]").value;
     const apellido = document.querySelector("input[name=apellido]").value;
     const telefono = document.querySelector("input[name=telefono]").value;
     const mountPay = document.querySelector(".mount-pay");
-    mountPay.value = importeFormat;
+    mountPay.value = formatImporte(importe);
     const coursePay = document.querySelector(".course-pay");
     coursePay.value = cursos;
 
-    if (importe === "" || nombre === "" || apellido === "" || telefono === "" || cursos === "") {
+    if (
+      importe === "" ||
+      nombre === "" ||
+      apellido === "" ||
+      telefono === "" ||
+      cursos === ""
+    ) {
       alert("Todos los campos son obligatorios");
       return;
     }
@@ -521,9 +542,9 @@ const { workshops, coursesPay } = await getData();
     })
       .then((res) => res.json())
       .then((res) => {
-        // if(res.id)
-        // console.log(res);
-        alert(res.outcome.user_message);
+        console.log(res);
+        if (res.outcome) alert(res.outcome.user_message);
+        else alert(res.user_message);
         alertPay.close();
       })
       .catch((error) => {
