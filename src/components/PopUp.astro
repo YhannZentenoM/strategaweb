@@ -42,6 +42,7 @@ import Building from "@/icons/Building.astro";
           <div class="relative">
             <input
               type="text"
+              name="nombre"
               class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3`}
               placeholder="Nombre y apellido"
             />
@@ -70,6 +71,7 @@ import Building from "@/icons/Building.astro";
           <div class="relative">
             <input
               type="text"
+              name="telefono"
               class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3`}
               placeholder="Teléfono / Celular"
             />
@@ -80,6 +82,7 @@ import Building from "@/icons/Building.astro";
           <div class="relative">
             <input
               type="text"
+              name="email"
               class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3`}
               placeholder="Email"
             />
@@ -90,6 +93,7 @@ import Building from "@/icons/Building.astro";
           <div class="relative">
             <input
               type="text"
+              name="mensaje"
               class={`border-b border-zinc-400 w-full pl-7 pr-3 py-3`}
               placeholder="Empresa"
             />
@@ -128,6 +132,28 @@ import Building from "@/icons/Building.astro";
   function closePopup() {
     document.getElementById("popup").style.display = "none";
   }
+</script>
+
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch("https://strategaperu.com/php/send.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+        alert("Mensaje enviado correctamente");
+        form.reset();
+      })
+      .catch((err) => console.log(err));
+  });
 </script>
 
 <style>
