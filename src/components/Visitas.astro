@@ -1,0 +1,28 @@
+<div class="w-full text-center text-white/70 text-sm pb-5">
+    <!-- Visitas: <span class="visit-count">0</span> -->
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // URL de la página actual
+        const url = window.location.href;
+        console.log(url)
+
+        // Crear un objeto FormData y agregar la URL
+        const formData = new FormData();
+        formData.append('url', url);
+
+        // Enviar la solicitud POST al servidor para actualizar el contador de visitas
+        fetch('https://www.strategaperu.com/php/visitas.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data)
+            // Actualizar el contador de visitas en la página
+            // document.querySelector('.visit-count').textContent = data;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>

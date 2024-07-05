@@ -1,0 +1,75 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Administrador | Stratega Consultoría & Capacitación">
+  <div class="w-full md:max-w-7xl mx-auto px-5 py-10">
+    <section>
+      <form action="" class="max-w-md mx-auto form-adm">
+        <h2 class="text-2xl mb-3">Acceso administrador</h2>
+        <input
+          type="text"
+          name=""
+          class="w-full px-2 py-1 text-sm border user-adm"
+          placeholder="Usuario"
+        />
+        <input
+          type="password"
+          name=""
+          class="w-full px-2 py-1 text-sm mt-3 border pass-adm"
+          placeholder="Contraseña"
+        />
+        <button
+          type="submit"
+          class="bg-primary text-white px-3 py-1 mt-3 text-sm btn-adm"
+          >Ingresar</button
+        >
+      </form>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  const formAdm = document.querySelector(".form-adm");
+  const session = localStorage.getItem("idlog")
+  if(session != null){
+    window.location.replace("/contenido")
+  }
+
+  formAdm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const userAdm = document.querySelector(".user-adm").value;
+    const passAdm = document.querySelector(".pass-adm").value;
+
+    if(userAdm === "") {alert("Campo usuario no puede estar vacio"); return;}
+    if(passAdm === "") {alert("Campo password no puede estar vacio"); return;}
+
+    const datos = {
+      user: userAdm,
+      password: passAdm,
+    };
+
+    fetch("https://www.strategaperu.com/php/autenticacion.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(datos),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if(data.status != 200){
+            alert(data.msg);
+            return
+        }
+        // document.cookie = "idlog="+data.id
+        localStorage.setItem("idlog", data.id)
+        console.log("Éxito:", data); // Manejar la respuesta exitosa
+      })
+      .catch((error) => {
+        console.error("Error:", error); // Manejar errores
+        alert("Hubo un error al enviar los datos");
+      });
+  });
+</script>
