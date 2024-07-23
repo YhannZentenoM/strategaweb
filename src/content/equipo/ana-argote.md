@@ -2,6 +2,7 @@
 name: Ana Lucía Argote Rondón
 job: Jefe de Proyectos
 image: equipo/ana-argote.avif
+order: 3
 social: { facebook: "#", instagram: "#", linkedin: "#" }
 skills:
   [

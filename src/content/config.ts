@@ -19,6 +19,7 @@ const equipoCollection = defineCollection({
           facebook: z.string(),
       }),
       image: z.string(),
+      order: z.number(),
       job: z.string(),
       skills: z.array(z.object({
           name: z.string(),
