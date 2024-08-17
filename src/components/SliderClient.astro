@@ -1,6 +1,10 @@
 ---
-import { categoriesClient } from "@info";
+import { supabase } from "@/functions/supabase";
+// import { categoriesClient } from "@info";
 import Title from "@/components/Title.astro";
+
+const { data: categoriesClient, error } = await supabase.from('clientes').select();
+if(error) return console.log(error);
 
 function getRandomInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -14,13 +18,12 @@ function shuffleArray(array: any[]): void {
 }
 
 const mergedClients = [];
-categoriesClient.forEach(category => {
-    category.clients.forEach(client => {
-        mergedClients.push({
-            id: client.id,
-            name: client.name
-        });
-    });
+categoriesClient.forEach(client => {
+  mergedClients.push({
+      id: client.id,
+      name: client.nombre,
+      imagen: client.imagen
+  });
 });
 
 shuffleArray(mergedClients);
@@ -37,10 +40,10 @@ const selectedClients = mergedClients.slice(0, Math.min(13, mergedClients.length
           <div class="swiper-slide">
             <picture class="h-32 flex items-center justify-center">
               <img
-                src={`/images/clientes/${slide.id}.webp`}
-                alt={`${slide.name}`}
+                src={slide.imagen}
+                alt={`${slide.nombre}`}
                 class="object-cover grayscale max-h-16"
-                title={`${slide.name}`}
+                title={`${slide.nombre}`}
               />
             </picture>
           </div>

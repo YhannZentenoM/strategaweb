@@ -2,18 +2,16 @@
 import CardTeam from "@/components/CardTeam.astro";
 interface Props {
   team: Array<{
-    data: {
-      name?: string;
-      job?: string;
-      image?: string;
-      order?: number;
-    };
+    nombre?: string;
+    cargo?: string;
+    imagen?: string;
+    orden?: number;
     slug: string;
   }>;
   page: string;
 }
 const { team, page } = Astro.props;
-const teamOrdenado = team.sort((a, b) => a.data.order - b.data.order)
+const teamOrdenado = team.sort((a, b) => a.orden - b.orden)
 ---
 
 <section class="pb-28 bg-secondary">
@@ -21,9 +19,9 @@ const teamOrdenado = team.sort((a, b) => a.data.order - b.data.order)
     {
       teamOrdenado.map((post) => (
         <CardTeam
-          title={post.data.name}
-          subtitle={post.data.job}
-          image={post.data.image}
+          title={post.nombre}
+          subtitle={post.cargo}
+          image={post.imagen}
           url={`/${page}/${post.slug}`}
         />
       ))

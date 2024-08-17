@@ -17,7 +17,7 @@ const { title, clients } = Astro.props;
           <picture class="h-32 flex items-center justify-center">
             <img
               loading="lazy"
-              src={`/images/clientes/${path}`}
+              src={path} 
               alt={name}
               class="max-h-16 hover:scale-110 transition-all duration-500"
             />

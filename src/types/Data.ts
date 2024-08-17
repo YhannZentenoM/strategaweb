@@ -11,6 +11,7 @@ export interface Root {
     responsability: Responsability[]
     publications: Publication[]
     coursesPay: CoursesPay[]
+    equipo: Equipo[]
   }
   
   export interface TopNav {
@@ -29,7 +30,7 @@ export interface Root {
   
   export interface Slider {
     title: string
-    image: string
+    imagen: string
     url: string
   }
   
@@ -101,3 +102,12 @@ export interface Root {
     title: string
   }
   
+  export interface Equipo {
+    id: string
+    nombre: string
+    cargo: string
+    imagen: string
+    cuerpo: string
+    orden: number
+    slug: string
+  }

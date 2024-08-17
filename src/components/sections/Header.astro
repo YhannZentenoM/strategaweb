@@ -1,7 +1,11 @@
 ---
-import { getData } from "@/functions/data";
+// import { getData } from "@/functions/data";
 import type { Slider } from "@/types/Data"
-const {slider} = await getData();
+// const {slider} = await getData();
+import { supabase } from "@/functions/supabase";
+const { data, error } = await supabase.from('sliders').select();
+if(error) return console.log(error);
+const sliders = data
 ---
 
 <section>
@@ -10,20 +14,20 @@ const {slider} = await getData();
     <div class="swiper-wrapper">
       <!-- Los slides -->
       {
-        slider.map((slide: Slider) => (
+        sliders.map((slide: Slider) => (
           <div class="swiper-slide overflow-hidden relative bg-black">
             <a href={`${slide.url}`} target="_blank"class="w-full h-full">
-              <picture>
+              {/* <picture>
                 <source
                   srcset={`/images/banners/${slide.image}.webp`}
                   type="image/webp"
                 />
+              </picture> */}
                 <img
-                  src={`/images/banners/${slide.image}.avif`}
+                  src={slide.imagen}
                   alt={`${slide.title}`}
                   class="h-full mx-auto object-cover"
                 />
-              </picture>
             </a>
           </div>
         ))
