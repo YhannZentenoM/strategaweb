@@ -144,6 +144,24 @@ const { workshops, coursesPay } = await getData();
             />
           </label>
         </div>
+        <!-- <div class="mt-5 w-full">
+          <label class="block text-sm text-zinc-700 font-medium">
+            Número de cuotas
+            <select
+              name="installments"
+              id="installments"
+              class="mt-1 p-2 block w-full border border-zinc-300 rounded-sm shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
+            >
+              <option value="">Sin cuotas</option>
+              <option value="2">2</option>
+              <option value="4">4</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="36">36</option>
+            </select>
+          </label>
+        </div> -->
         <div
           class="flex flex-col md:flex-row gap-y-5 justify-between items-center mt-5"
         >
@@ -343,6 +361,7 @@ const { workshops, coursesPay } = await getData();
     const email = document.querySelector("input[name=email]").value;
     const pay = document.querySelector(".mount-pay").value;
     const course = document.querySelector(".course-pay").value;
+    // const installments = document.querySelector("select[name=installments]").value;
 
     fetch("https://www.strategaperu.com/culqi/culqi-php/token.php", {
       method: "POST",
@@ -359,6 +378,7 @@ const { workshops, coursesPay } = await getData();
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res)
         if (res.id) crearCargo(res.id, email, pay, course);
       })
       .catch((error) => {
@@ -538,14 +558,15 @@ const { workshops, coursesPay } = await getData();
         course: course,
         email: email,
         source_id: token,
+        // installments: installments,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        if (res.outcome) alert(res.outcome.user_message);
-        else alert(res.user_message);
-        alertPay.close();
+        // if (res.outcome) alert(res.outcome.user_message);
+        // else alert(res.user_message);
+        // alertPay.close();
       })
       .catch((error) => {
         console.log(error);

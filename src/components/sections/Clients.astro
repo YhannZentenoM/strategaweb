@@ -5,15 +5,16 @@ import CategoryClient from "@/components/CategoryClient.astro";
 import type { CategoriesClient } from "@/types/Data"
 // const {categoriesClient} = await getClients();
 
-// import { categoriesClient } from "@info";
-const { data, error } = await supabase.from('clientes').select('*,categoria:categorias_clientes(nombre)');
-if(error) return console.log(error);
+import { categoriesClient } from "@info";
+// const { data, error } = await supabase.from('clientes').select('*,categoria:categorias_clientes(nombre)');
+// if(error) return console.log(error);
 
 function groupByCategory(data) {
   const groupedData = {};
 
-  data.forEach(item => {
-    const category = item.categoria.nombre;
+  categoriesClient.forEach(item => {
+    // const category = item.categoria.nombre;
+    const category = item.title;
 
     if (!groupedData[category]) {
       groupedData[category] = {
@@ -22,17 +23,20 @@ function groupByCategory(data) {
       };
     }
 
-    groupedData[category].clients.push({
-      id: item.slug,
-      name: item.nombre,
-      path: item.imagen
-    });
+    item.clients.forEach(item => {
+
+      groupedData[category].clients.push({
+        id: item.id,
+        name: item.name,
+        // path: item.imagen
+      });
+    })
   });
 
   return Object.values(groupedData);
 }
 
-const categoriesClient = groupByCategory(data);
+const categories = groupByCategory(categoriesClient);
 // console.log(JSON.stringify(first, null, 2));
 // console.log(first)
 ---
@@ -40,7 +44,7 @@ const categoriesClient = groupByCategory(data);
 <section class="bg-secondary pb-20">
   <div class="max-w-7xl md:max-w-5xl mx-auto px-5">
     {
-      categoriesClient.map(({ title, clients } : CategoriesClient) => (
+      categories.map(({ title, clients } : CategoriesClient) => (
         <CategoryClient title={title} clients={clients} />
       ))
     }
