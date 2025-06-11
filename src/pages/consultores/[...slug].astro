@@ -1,35 +1,34 @@
 ---
-import { supabase } from "@/functions/supabase";
+// import FormContact from "@/components/FormContact.astro";
 import HeaderPage from "@/components/sections/HeaderPage.astro";
+// import Cellphone from "@/icons/Cellphone.astro";
+// import Mail from "@/icons/Mail.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+// import { topNav } from "@info";
+// import Title from "@/components/Title.astro";
 
 export async function getStaticPaths() {
-  const { data, error } = await supabase.from('equipo').select('slug').eq('tipo',2);
-  if(error) return console.log(error);
-  const slugEquipo = data.map(item => ({
-    params: {
-      slug: item.slug
-    }
+  const consultoresEntries = await getCollection("consultores");
+  return consultoresEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
-  return slugEquipo;
 }
 
-const { slug } = Astro.params;
-
-const { data: dataEquipo, error: errorEquipo } = await supabase.from('equipo').select('*').eq('slug',slug).single();
-if(errorEquipo) return console.log(errorEquipo);
-const { nombre, cargo, imagen, cuerpo } = dataEquipo;
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 
 ---
 
-<Layout title={`${nombre} | Stratega Consultoría & Capacitación`}>
-  <HeaderPage title={nombre} />
+<Layout title={`${entry.data.name} | Stratega Consultoría & Capacitación`}>
+  <HeaderPage title={entry.data.name} />
   <section class="bg-secondary">
     <div class="max-w-7xl mx-auto px-5">
       <h3
         class="uppercase font-open-sans font-light text-sm tracking-wider mb-10"
       >
-        {cargo}
+        {entry.data.job}
       </h3>
     </div>
     <div
@@ -37,25 +36,39 @@ const { nombre, cargo, imagen, cuerpo } = dataEquipo;
     >
       <div class="flex flex-col gap-y-5">
         <img
-          src={imagen}
-          alt={`Foto de ${nombre}`}
+          src={`/images/${entry.data.image}`}
+          alt={`Foto de ${entry.data.name}`}
           class="w-full"
         />
+        <!-- <SocialTeam
+          whatsapp={"https://wa.link/pcdh5q"}
+          section="team"
+        /> -->
       </div>
       <div>
+        <!-- <div class="flex flex-col gap-y-5">
+          {
+            entry.data.skills.map((skill: any) => (
+              <Progress
+                title={skill.name}
+                porcent={skill.porcent}
+                description={skill.description}
+              />
+            ))
+          }
+        </div> -->
         <div class="relative">
           <div
             class="bg-white px-5 md:px-14 py-12 md:absolute md:right-0 md:top-10 md:min-w-[700px] w-full mt-8 md:mt-0"
           >
-          <div class="font-light tracking-wider columns-1 md:columns-2 text-zinc-700 container-bio" set:html={cuerpo}>
-          </div>
+            <Content />
           </div>
         </div>
       </div>
     </div>
   </section>
   {
-    slug === "rafael-zavala-batlle" && (
+    entry.slug === "rafael-zavala" && (
       <section
         class="max-w-7xl mx-auto px-5 py-14 flex flex-col justify-center items-center gap-10"
       >

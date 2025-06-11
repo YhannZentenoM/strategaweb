@@ -1,19 +1,14 @@
 ---
-import { supabase } from "@/functions/supabase";
 import Layout from "@/layouts/Layout.astro";
 import Testimonials from "@/components/sections/Testimonials.astro";
 import HeaderPage from "@/components/sections/HeaderPage.astro";
 import Team from "@/components/sections/Team.astro";
 import { getCollection } from 'astro:content';
 const equipoPost = await getCollection('equipo');
-
-const { data, error } = await supabase.from('equipo').select().eq('tipo',1);
-if(error) return console.log(error);
-const equipos = data
 ---
 
 <Layout title="Equipo Stratega | Stratega Consultoría & Capacitación">
   <HeaderPage title="Equipo Stratega" />
-  <Team team={equipos} page="equipo" />
+  <Team team={equipoPost} page="equipo" />
   <Testimonials />
 </Layout>
