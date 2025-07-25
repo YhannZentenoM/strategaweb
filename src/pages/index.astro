@@ -7,16 +7,76 @@ import Metodology from '@/components/sections/Metodology.astro';
 import SliderClient from '@/components/SliderClient.astro';
 import PopUp from '@/components/PopUp.astro';
 import Metrics from '@/components/sections/Metrics.astro';
+import PopUpChiara from '@/components/PopUpChiara.astro';
 ---
 
 <Layout title="Stratega Consultoría & Capacitación">
 	<PopUp />
+	<PopUpChiara />
 	<Header />
+	<div id="midpoint-marker-chiara" style="position: absolute; top: 10%; height: 1px;"></div>
 	<Purpose />
 	<Metrics />
 	<!-- <Corporation /> -->
+	 <div id="midpoint-marker" style="position: absolute; top: 50%; height: 1px;"></div>
 	<Metodology />
 	<SliderClient />
 	<!-- <Workshops /> -->
 	<Testimonials />
 </Layout>
+
+
+<script is:inline>
+  let popupShown = false;
+  let popupShownChiara = false;
+
+  const popup = document.getElementById("popup");
+  const popupChiara = document.getElementById("popup-chiara");
+  const marker = document.getElementById("midpoint-marker");
+  const markerChiara = document.getElementById("midpoint-marker-chiara");
+
+  const observerChiara = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !popupShownChiara) {
+          popupChiara.style.display = "flex"; // Mostrar el popup centrado
+		  document.body.classList.add("body-no-scroll");
+          popupShownChiara = true;
+        }
+      });
+    },
+    {
+      root: null, // usa viewport
+      threshold: 1.0 // cuando el marcador está completamente visible
+    }
+  );
+
+  observerChiara.observe(markerChiara);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !popupShown) {
+          popup.style.display = "flex"; // Mostrar el popup centrado
+		  document.body.classList.add("body-no-scroll");
+          popupShown = true;
+        }
+      });
+    },
+    {
+      root: null, // usa viewport
+      threshold: 1.0 // cuando el marcador está completamente visible
+    }
+  );
+
+  observer.observe(marker);
+
+  function closePopup() {
+    popup.style.display = "none";
+	document.body.classList.remove("body-no-scroll");
+  }
+  function closePopupChiara() {
+    popupChiara.style.display = "none";
+	document.body.classList.remove("body-no-scroll");
+  }
+</script>
