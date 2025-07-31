@@ -10,10 +10,10 @@ import Building from "@/icons/Building.astro";
   class="popup flex items-center justify-center w-full h-full bg-black/30"
 >
   <div
-    class="bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%]"
+    class="bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[75%]"
   >
     <div
-      class="popup-content grid grid-cols-2 gap-5 justify-center items-center content-center justify-items-center"
+      class="popup-content grid grid-cols-1 md:grid-cols-2 gap-5 justify-center items-center content-center justify-items-center"
     >
       <span class="close" onclick="closePopup()">
         <svg
@@ -29,7 +29,7 @@ import Building from "@/icons/Building.astro";
             stroke-linejoin="round"></path></svg
         >
       </span>
-      <picture class="object-cover w-full">
+      <picture class="object-cover w-full hidden md:block">
         <source srcset="/images/popup.webp" type="image/webp" />
         <img src="/images/popup.avif" alt="Persona escribiendo en tablet" />
       </picture>
